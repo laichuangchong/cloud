@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+
+<script>
+    $.ajax({
+        url: './api/list_servers/',
+        type: 'GET',
+        headers: {
+            'X-Auth-Token':'gAAAAABaUwiV2xzXtUIB0Aw21lvbjFwc1W7EoF0Y9DKbRPmpysoyAQ7DC0gaDDk0OP3eSrEQPUn4EdjLwWhRZ1OmD1fNKtU7bItScGaDiu4NS3H_Ohp_oMVu5Elbr123jLTBS5rnxEnzAknyByZEkLCCp6-pYlPTQsr1nXuuTK18Q0fYjT6zwhY',
+            'Accept':'application/json'
+        },
+        complete: function (response) {
+            console.log(response);
+        }
+    })
+</script>
+</body>
+</html>

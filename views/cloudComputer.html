@@ -1,0 +1,224 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>概况</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">计算</a>
+            </li>
+            <li class="active">
+                <strong>云主机</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>云主机</h5>
+
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3 m-b-xs"><select class="input-sm form-control input-s-sm inline">
+                            <option value="0">云主机名称</option>
+                            <option value="1">Option 2</option>
+                            <option value="2">Option 3</option>
+                            <option value="3">Option 4</option>
+                        </select>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" placeholder="云主机名称" class="input-sm form-control">
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div>
+                        </div>
+                        <botton class="btn btn-primary btn-sm">开机</botton>
+                        <botton class="btn btn-primary btn-sm">关机</botton>
+                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">创建主机</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th ng-init="checkStatus.total = false"><input icheck type="checkbox"
+                                                                               ng-model="checkStatus.total"/></th>
+                                <th>云主机名称</th>
+                                <th>备份名称</th>
+                                <th>IP 地址</th>
+                                <th>配置</th>
+                                <th>状态</th>
+                                <th>任务</th>
+                                <th>电源状态</th>
+                                <th>常用操作</th>
+                                <th>调整操作</th>
+                                <th>其他动作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in hostList">
+                                <td ng-init="hostList[$index].check_status = false"><input icheck type="checkbox"
+                                                                                           ng-model="hostList[$index].check_status">
+                                </td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.basename}}</td>
+                                <td>
+                                    <div ng-repeat="item in item.ip">
+                                        {{item}}
+                                    </div>
+                                </td>
+                                <td>{{item.configure}}</td>
+                                <td>{{item.status}}</td>
+                                <td>{{item.mission}}</td>
+                                <td>{{item.bettery_status}}</td>
+                                <td>
+                                    <span class="fa fa-desktop" title="VNC"></span>
+                                    &nbsp;
+                                    <span class="fa fa-undo" title="restart"></span>
+                                </td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#reset_config">调整配置</a>
+                                    &nbsp;
+                                    <a>重建云主机</a>
+                                </td>
+                                <td>
+                                    <a class="text-danger">删除主机</a>
+                                    <a class="text-danger">重启</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="reset_config" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">调整配置</h4>
+            </div>
+
+            <div class="modal-body">
+                <tabset>
+                    <tab heading="云主机类型选择">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>旧的云主机类型</label>
+                                        <input type="text" disabled
+                                               value="m1.large"
+                                               class="form-control"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>新的云主机类型</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">m1.xlarge</option>
+                                            <option value="">m1.small</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="h5">方案详情</div>
+                                <table class="table table-bordered table-striped">
+                                    <theader>
+                                        <tr>
+                                            <th>名称</th>
+                                            <th>m1.large</th>
+                                        </tr>
+                                    </theader>
+                                    <tbody>
+                                    <tr>
+                                        <td>VCPUs</td>
+                                        <td>2GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>根磁盘</td>
+                                        <td>2GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>临时磁盘</td>
+                                        <td>2GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>所有磁盘</td>
+                                        <td>2GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>内存</td>
+                                        <td>2GB</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="h5">项目限制</div>
+                                <div class="h6">虚拟内核数量</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" style="width: 35%">
+                                        <span class="sr-only">35% Complete (success)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-warning progress-bar-striped"
+                                         style="width: 20%">
+                                        <span class="sr-only">20% Complete (warning)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                        <span class="sr-only">10% Complete (danger)</span>
+                                    </div>
+                                </div>
+                                <div class="h6">内存总计</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" style="width: 35%">
+                                        <span class="sr-only">35% Complete (success)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-warning progress-bar-striped"
+                                         style="width: 20%">
+                                        <span class="sr-only">20% Complete (warning)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                        <span class="sr-only">10% Complete (danger)</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="磁盘分区方式">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>磁盘分区</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">自动</option>
+                                            <option value="">手动</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </tab>
+                </tabset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
