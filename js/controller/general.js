@@ -10,7 +10,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
     };
 
     $http({   //计算和防火墙
-        url: '/api/nova_limits/',
+        url: '/api/nova_limits',
         method: 'GET',
         headers:$scope.headers
     }).then(function (response) {
