@@ -17,7 +17,7 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div>计算</div>
     <div class="row">
-        <div class="col-lg-2" ng-repeat="item in count">
+        <div class="col-lg-3" ng-repeat="item in count">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">{{item.used}}/{{item.total}}({{item.unit}})</span>
@@ -25,17 +25,19 @@
                 </div>
                 <div class="ibox-content">
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width: 60%;">
-                            {{item.used/item.total*100 | number : 2}}%
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width: {{item.used/item.total*100 | number : 1}}%">
+                            {{item.used/item.total*100 | number : 1}}%
                         </div>
                     </div>
+                    <div class="stat-percent font-bold text-navy">{{item.used/item.total*100 | number : 1}}% </div>
+                    <small>使用情况</small>
                 </div>
             </div>
         </div>
     </div>
     <div>网络</div>
     <div class="row">
-        <div class="col-lg-2" ng-repeat="item in network">
+        <div class="col-lg-3" ng-repeat="item in network">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">{{item.used}}/{{item.total}}({{item.unit}})</span>
@@ -43,10 +45,12 @@
                 </div>
                 <div class="ibox-content">
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width: 60%;">
-                            {{(item.used/item.total)*100 | number : 2}}%
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width:{{item.used/item.total*100 | number : 1}}%">
+                            {{(item.used/item.total)*100 | number : 1}}%
                         </div>
                     </div>
+                    <div class="stat-percent font-bold text-navy">{{item.used/item.total*100 | number : 1}}% </div>
+                    <small>使用情况</small>
                 </div>
             </div>
         </div>
@@ -54,39 +58,7 @@
     </div>
     <div>存储</div>
     <div class="row">
-        <div class="col-lg-2">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <span class="label label-success pull-right">{{storage.totalCoresUsed}}/{{count.maxTotalCores}}(个)</span>
-                    <h5>云硬盘</h5>
-                </div>
-                <div class="ibox-content">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{count.totalCoresUsed}}" aria-valuemin="0" aria-valuemax="{{count.maxTotalCores}}" style="width: 60%;">
-                            {{count.totalCoresUsed/count.maxTotalCores*100}}%
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <span class="label label-info pull-right">Annual</span>
-                    <h5>云硬盘容量</h5>
-                </div>
-                <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
-
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                    <small>New orders</small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>安全</div>
-    <div class="row">
-        <div class="col-lg-2" ng-repeat="item in safe">
+        <div class="col-lg-3" ng-repeat="item in storage">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">{{item.used}}/{{item.total}}({{item.unit}})</span>
@@ -94,10 +66,32 @@
                 </div>
                 <div class="ibox-content">
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width: 60%;">
-                            {{item.used/item.total*100 | number : 2}}%
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width:{{item.used/item.total*100 | number : 1}}%">
+                            {{item.used/item.total*100 | number : 1}}%
                         </div>
                     </div>
+                    <div class="stat-percent font-bold text-navy">{{item.used/item.total*100 | number : 1}}% </div>
+                    <small>使用情况</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>安全</div>
+    <div class="row">
+        <div class="col-lg-3" ng-repeat="item in safe">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-success pull-right">{{item.used}}/{{item.total}}({{item.unit}})</span>
+                    <h5>{{item.title}}</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{item.used}}" aria-valuemin="0" aria-valuemax="{{item.total}}" style="width: {{item.used/item.total*100 | number : 1}}%">
+                            {{item.used/item.total*100 | number : 1}}%
+                        </div>
+                    </div>
+                    <div class="stat-percent font-bold text-navy">{{item.used/item.total*100 | number : 1}}% </div>
+                    <small>使用情况</small>
                 </div>
             </div>
         </div>

@@ -110,4 +110,28 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
        });
 
     });
+    $http({
+        url:"/api/volume_limits/"+localStorage.getItem('project_id'),
+        method: 'GET',
+        headers:$scope.headers
+    }).then(function(response){
+        console.log(response.data.limits.absolute);
+        var storageData = response.data.limits.absolute;
+        $scope.storage = {
+            volumes:{
+                title:'云硬盘',
+                used:storageData.maxTotalVolumes,
+                total:storageData.maxTotalVolumes,
+                unit:'个'
+            },
+            gigabytes:{
+                title:'云硬盘容量',
+                used:storageData.totalGigabytesUsed,
+                total:storageData.maxTotalVolumeGigabytes,
+                unit:'GB'
+            }
+        };
+    },function(response){
+        alert(response.data.error.message);
+    });
 }]);
