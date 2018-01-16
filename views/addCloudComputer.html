@@ -24,29 +24,32 @@
                                    class="form-control"/>
                         </div>
                         <div class="form-group">
-                            <label>云主机配置<span class="text-danger">*</span></label> <i class="fa fa-battery" aria-hidden="true"></i>
+                            <label>云主机配置<span class="text-danger">*</span></label>
+                            <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="要启动的镜像大小"></i>
                             <select name="" id="" class="form-control">
                                 <option value="">m1.large</option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label>云主机数量<span class="text-danger">*</span></label>
+                            <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="启动云主机的个数"></i>
+
                             <input type="number"
                                    class="form-control"/>
                         </div>
-                        <div class="form-group">
-                            <label>镜像名称<span class="text-danger">*</span></label>
-                            <select name="" id="" class="form-control">
-                                <option value="">djksajfd</option>
-                            </select>
-                        </div>
+
                         <div class="form-group">
                             <label>防火墙<span class="text-danger">*</span></label>
+                            <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="在这些防火墙中启动云主机"></i>
+
                             <div class="checkbox"><label> <input icheck type="checkbox" ng-model="main.check2">
                                 Option one </label></div>
                         </div>
                         <div class="form-group">
                             <label>网络<span class="text-danger">*</span></label>
+                            <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="使用这些网络启动云主机"></i>
+
                             <div class="checkbox">
                                 <label>
                                     <input icheck type="checkbox" ng-model="network.lan">
@@ -60,14 +63,103 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label>镜像名称<span class="text-danger">*</span></label>
+                            <select name="" id="" class="form-control">
+                                <option value="">djksajfd</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
                 <div class="col-sm-6">
-
+                    <div class="tip text-warning">指定创建云主机的详细信息</div>
+                    <div class="tip text-warning">详细说明启动云主机的情况,下面的图表显示此项目所使用的资源和关联的项目配额。</div>
+                    <div class="h5">方案详情</div>
+                    <table class="table table-bordered table-striped">
+                        <theader>
+                            <tr>
+                                <th>名称</th>
+                                <th>m1.large</th>
+                            </tr>
+                        </theader>
+                        <tbody>
+                        <tr>
+                            <td>VCPUs</td>
+                            <td>2GB</td>
+                        </tr>
+                        <tr>
+                            <td>根磁盘</td>
+                            <td>2GB</td>
+                        </tr>
+                        <tr>
+                            <td>临时磁盘</td>
+                            <td>2GB</td>
+                        </tr>
+                        <tr>
+                            <td>所有磁盘</td>
+                            <td>2GB</td>
+                        </tr>
+                        <tr>
+                            <td>内存</td>
+                            <td>2GB</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="h5">项目限制</div>
+                    <div class="h6">云主机数量</div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 35%">
+                            <span class="sr-only">35% Complete (success)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning progress-bar-striped"
+                             style="width: 20%">
+                            <span class="sr-only">20% Complete (warning)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: 10%">
+                            <span class="sr-only">10% Complete (danger)</span>
+                        </div>
+                    </div>
+                    <div class="h6">虚拟内核数量</div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 35%">
+                            <span class="sr-only">35% Complete (success)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning progress-bar-striped"
+                             style="width: 20%">
+                            <span class="sr-only">20% Complete (warning)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: 10%">
+                            <span class="sr-only">10% Complete (danger)</span>
+                        </div>
+                    </div>
+                    <div class="h6">内存总计</div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 35%">
+                            <span class="sr-only">35% Complete (success)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning progress-bar-striped"
+                             style="width: 20%">
+                            <span class="sr-only">20% Complete (warning)</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: 10%">
+                            <span class="sr-only">10% Complete (danger)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-white" type="submit">取消</button>
+                    <button class="btn btn-primary" type="submit">保存</button>
                 </div>
             </div>
         </div>
     </div>
 
-
 </div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

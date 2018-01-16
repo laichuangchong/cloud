@@ -3,7 +3,7 @@
         <h2>概况</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">计算</a>
+                计算
             </li>
             <li class="active">
                 <strong>云主机</strong>
@@ -47,8 +47,12 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th ng-init="checkStatus.total = false"><input icheck type="checkbox"
-                                                                               ng-model="checkStatus.total"/></th>
+                                <th>
+                                    <input icheck type="checkbox"
+                                           ng-model="all_check"
+                                           ng-change="allCheck(all_check)"
+                                    />
+                                </th>
                                 <th>云主机名称</th>
                                 <th>备份名称</th>
                                 <th>IP 地址</th>
@@ -63,8 +67,9 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="item in hostList">
-                                <td ng-init="hostList[$index].check_status = false"><input icheck type="checkbox"
-                                                                                           ng-model="hostList[$index].check_status">
+                                <td ng-init="hostList[$index].check_status = false">
+                                    <input icheck type="checkbox"
+                                           ng-model="hostList[$index].check_status" ng-change="itemCheck()"/>
                                 </td>
                                 <td>{{item.name}}</td>
                                 <td>{{item.basename}}</td>

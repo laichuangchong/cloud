@@ -120,7 +120,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
         $scope.storage = {
             volumes:{
                 title:'云硬盘',
-                used:storageData.maxTotalVolumes,
+                used:storageData.totalVolumesUsed,
                 total:storageData.maxTotalVolumes,
                 unit:'个'
             },

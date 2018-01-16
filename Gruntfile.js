@@ -25,6 +25,7 @@ module.exports = function (grunt) {
                     'dest/applyQuota.min.js': 'js/controller/applyQuota.js',
                     'dest/cloudComputer.min.js': 'js/controller/cloudComputer.js',
                     'dest/backups.min.js': 'js/controller/backups.js',
+                    'dest/addBackups.min.js': 'js/controller/addBackups.js',
                     'dest/cloudComputerDetail.min.js': 'js/controller/cloudComputerDetail.js',
                     'dest/addCloudComputer.min.js': 'js/controller/addCloudComputer.js',
                 }
@@ -40,7 +41,13 @@ module.exports = function (grunt) {
         },
         watch: {
             scripts: {
-                files: ['Gruntfile.js','js/controller/*.js','sass/*.sass','css/*.css'],
+                files: ['Gruntfile.js',
+                    'js/common.js',
+                    'js/config.js',
+                    'js/service.js',
+                    'js/controller/*.js',
+                    'sass/*.sass',
+                    'css/*.css'],
                 tasks: ['uglify','jshint','sass','cssmin'],
                 options: {
                     spawn: false,

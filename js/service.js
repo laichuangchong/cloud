@@ -61,3 +61,32 @@ private_cloud.service('tokenService', ['$http', '$rootScope', '$timeout', functi
     };
 
 }]);
+private_cloud.service('all_check_service',function(){ //全选
+    return {
+        allCheck:function(status,item_obj){
+            console.log(status);
+            if(status){
+                angular.forEach(item_obj,function(value,key){
+                    value.check_status = true;
+                });
+
+            }else{
+                angular.forEach(item_obj,function(value,key){
+                    value.check_status = false;
+                });
+            }
+        },
+        itemCheck:function(obj){
+            var mark  = true;
+            angular.forEach(obj.hostList,function(value,key){
+                if(!value.check_status){
+                    obj.all_check = false;
+                    mark = false;
+                }
+            });
+            if(mark) {
+                obj.all_check = true;
+            }
+        }
+    };
+});
