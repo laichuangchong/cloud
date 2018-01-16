@@ -28,6 +28,8 @@ module.exports = function (grunt) {
                     'dest/addBackups.min.js': 'js/controller/addBackups.js',
                     'dest/cloudComputerDetail.min.js': 'js/controller/cloudComputerDetail.js',
                     'dest/addCloudComputer.min.js': 'js/controller/addCloudComputer.js',
+                    'dest/couldDisk.min.js': 'js/controller/couldDisk.js',
+                    'dest/addCouldDisk.min.js': 'js/controller/addCouldDisk.js',
                 }
             }
         },

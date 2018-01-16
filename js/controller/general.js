@@ -4,15 +4,12 @@
 
 private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','$q',function ($scope, $rootScope, $http,$q) {
     $scope.get_used_network_promise = $q.defer();
-    $scope.headers = {
-        'X-Auth-Token':localStorage.getItem('token'),
-        'Accept': 'application/json'
-    };
+  
 
     $http({   //计算和防火墙
         url: '/api/nova_limits',
         method: 'GET',
-        headers:$scope.headers
+        headers:$rootScope.headers
     }).then(function (response) {
         console.log(response.data.limits.absolute);
         var countData = response.data.limits.absolute;
@@ -54,7 +51,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
     $http({ //网络
         url: '/api/net_quotas',
         method: 'GET',
-        headers:$scope.headers
+        headers:$rootScope.headers
     }).then(function (response) {
         console.log(response.data.quotas[0]);
         var networkTotalData = response.data.quotas[0];
@@ -98,7 +95,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
            $http({ //已使用存储
                url: '/api/net_'+key,
                method: 'GET',
-               headers:$scope.headers
+               headers:$rootScope.headers
            }).then(function (response) {
                console.log(response.data[key].length);
                $scope.network[key].used = response.data[key].length;
@@ -113,7 +110,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
     $http({
         url:"/api/volume_limits/"+localStorage.getItem('project_id'),
         method: 'GET',
-        headers:$scope.headers
+        headers:$rootScope.headers
     }).then(function(response){
         console.log(response.data.limits.absolute);
         var storageData = response.data.limits.absolute;

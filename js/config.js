@@ -118,6 +118,30 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        .state('storage.couldDisk', { //云硬盘
+            url: "/disk",
+            templateUrl: "views/couldDisk.html",
+            controller: 'couldDiskController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/couldDisk.min.js'
+                    ])
+                }]
+            }
+        })
+        .state('storage.addCouldDisk', { //创建云硬盘
+            url: "/disk/add",
+            templateUrl: "views/addCouldDisk.html",
+            controller: 'addCouldDiskController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/addCouldDisk.min.js'
+                    ])
+                }]
+            }
+        })
         .state('dashboards', {
             abstract: true,
             url: "/dashboards",

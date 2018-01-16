@@ -66,22 +66,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in hostList">
+                            <tr ng-repeat="item in cloudHost">
                                 <td ng-init="hostList[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="hostList[$index].check_status" ng-change="itemCheck()"/>
                                 </td>
                                 <td>{{item.name}}</td>
-                                <td>{{item.basename}}</td>
+                                <td>{{item.imageName}}</td>
                                 <td>
-                                    <div ng-repeat="item in item.ip">
-                                        {{item}}
+                                    <div ng-repeat="subItem in item.ipData">
+                                        {{subItem.name}}: {{subItem.addr}}
                                     </div>
                                 </td>
-                                <td>{{item.configure}}</td>
-                                <td>{{item.status}}</td>
-                                <td>{{item.mission}}</td>
-                                <td>{{item.bettery_status}}</td>
+                                <td>{{item.config}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <span class="fa fa-desktop" title="VNC"></span>
                                     &nbsp;
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-
+{{cloudHost}}
     </div>
 </div>
 <div class="modal fade bd-example-modal-lg" id="reset_config" tabindex="-1" role="dialog"
