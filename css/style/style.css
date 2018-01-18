@@ -4630,4 +4630,8 @@ textarea {
   line-height: 34px;
 }
 
+.ibox-content h3.popover-title {
+  margin-top: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

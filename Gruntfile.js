@@ -19,6 +19,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dest/common.min.js': 'js/common.js',
+                    'dest/main_common.min.js': 'js/main_common.js',
                     'dest/service.min.js': 'js/service.js',
                     'dest/login.min.js': 'js/controller/login.js',
                     'dest/general.min.js': 'js/controller/general.js',
@@ -34,7 +35,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'js/controller/*.js','js/common.js','js/service.js'],
+            files: ['Gruntfile.js', 'js/controller/*.js','js/common.js','js/service.js','js/main_common.js'],
             options: {
                 globals: {
                     jQuery: true
@@ -45,6 +46,7 @@ module.exports = function (grunt) {
             scripts: {
                 files: ['Gruntfile.js',
                     'js/common.js',
+                    'js/main_common.js',
                     'js/config.js',
                     'js/service.js',
                     'js/controller/*.js',

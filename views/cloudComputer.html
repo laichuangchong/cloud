@@ -41,10 +41,11 @@
                         </div>
                         <botton class="btn btn-primary btn-sm">开机</botton>
                         <botton class="btn btn-primary btn-sm"><span class="fa fa-power-off"></span>关机</botton>
-                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm"><span class="fa fa-plus"></span>创建主机</a>
+                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm"><span
+                                class="fa fa-plus"></span>创建主机</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="table">
                             <thead>
                             <tr>
                                 <th>
@@ -66,10 +67,11 @@
                             </tr>
                             </thead>
                             <tbody>
+                            {{cloudHost}}
                             <tr ng-repeat="item in cloudHost">
-                                <td ng-init="hostList[$index].check_status = false">
+                                <td ng-init="cloudHost[$index].check_status = false">
                                     <input icheck type="checkbox"
-                                           ng-model="hostList[$index].check_status" ng-change="itemCheck()"/>
+                                           ng-model="cloudHost[$index].check_status" ng-change="itemCheck()"/>
                                 </td>
                                 <td>{{item.name}}</td>
                                 <td>{{item.imageName}}</td>
@@ -78,14 +80,28 @@
                                         {{subItem.name}}: {{subItem.addr}}
                                     </div>
                                 </td>
-                                <td>{{item.config}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    <span class="fa fa-desktop" title="VNC"></span>
+                                    <a
+                                            id="config{{$index}}"
+                                            href="javascript:;"
+                                            tabindex="0"
+                                            data-toggle="popover"
+                                            data-trigger="focus"
+                                            title="方案详情:{{item.config}}"
+                                    >{{item.config}}</a>
+                                </td>
+                                <td>{{item.vmState}}</td>
+                                <td>{{item.taskState}}</td>
+                                <td>{{item.powerState}}</td>
+                                <td>
+                                    <a href="{{item.vnc}}" target="_blank" title="VNC">
+                                        <span class="fa fa-desktop">
+                                        </span>
+                                    </a>
                                     &nbsp;
-                                    <span class="fa fa-undo" title="restart"></span>
+                                    <a href="javascript:;" target="_blank" title="restart" ng-click="restart(item.id)">
+                                        <span class="fa fa-undo"></span>
+                                    </a>
                                 </td>
                                 <td>
                                     <a data-toggle="modal" data-target="#reset_config">调整配置</a>
@@ -94,7 +110,6 @@
                                 </td>
                                 <td>
                                     <a class="text-danger">删除主机</a>
-                                    <a class="text-danger">重启</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -103,7 +118,7 @@
                 </div>
             </div>
         </div>
-{{cloudHost}}
+
     </div>
 </div>
 <div class="modal fade bd-example-modal-lg" id="reset_config" tabindex="-1" role="dialog"

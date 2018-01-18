@@ -5,8 +5,5 @@
 
 private_cloud.run(['$rootScope','$q',function($rootScope,$q){ //测试获取token
     $rootScope.token_promise = $q.defer();
-    $rootScope.headers = {
-        'X-Auth-Token':localStorage.getItem('token'),
-        'Accept': 'application/json'
-    };
+
 }]);

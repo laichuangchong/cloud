@@ -43,48 +43,45 @@ private_cloud.service('tokenService', ['$http', '$rootScope', '$timeout', functi
                         }
                     }
                 }
-            }).success(function (data, status, headers, config) {
-                console.log(data.token.project.id);
-                console.log(status);
-                // this callback will be called asynchronously
-                // when the response is available
-                window.localStorage.setItem('token',headers()['x-subject-token']);
-                window.localStorage.setItem('project_id',data.token.project.id);
-                $rootScope.token_promise.resolve(headers()['x-subject-token']);
+            }).then(function (response) {
+                console.log(response);
+                window.localStorage.setItem('token', response.headers()['x-subject-token']);
+                window.localStorage.setItem('project_id', response.data.token.project.id);
+                window.localStorage.setItem('username', userName);//用户名
+                window.localStorage.setItem('password', password);//密码
+                $rootScope.token_promise.resolve(response.headers()['x-subject-token']);
 
-            }).error(function (data, status, headers, config) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-                $rootScope.token_promise.reject('获取token失败');
+            }, function (response) {
+                alert(response.data.error.message);
             });
         }
     };
 
 }]);
-private_cloud.service('all_check_service',function(){ //全选
+private_cloud.service('all_check_service', function () { //全选
     return {
-        allCheck:function(status,item_obj){
+        allCheck: function (status, item_obj) {
             console.log(status);
-            if(status){
-                angular.forEach(item_obj,function(value,key){
+            if (status) {
+                angular.forEach(item_obj, function (value, key) {
                     value.check_status = true;
                 });
 
-            }else{
-                angular.forEach(item_obj,function(value,key){
+            } else {
+                angular.forEach(item_obj, function (value, key) {
                     value.check_status = false;
                 });
             }
         },
-        itemCheck:function(obj){
-            var mark  = true;
-            angular.forEach(obj.hostList,function(value,key){
-                if(!value.check_status){
+        itemCheck: function (obj, item_obj) {
+            var mark = true;
+            angular.forEach(item_obj, function (value, key) {
+                if (!value.check_status) {
                     obj.all_check = false;
                     mark = false;
                 }
             });
-            if(mark) {
+            if (mark) {
                 obj.all_check = true;
             }
         }
