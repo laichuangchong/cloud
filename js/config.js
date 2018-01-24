@@ -83,7 +83,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
             }
         })
         .state('count.cloudComputerDetail', { //云主机详情
-            url: "/computer/detail",
+            url: "/computer/detail?id",
             templateUrl: "views/cloudComputerDetail.html",
             controller: 'cloudComputerDetailController',
             resolve: {

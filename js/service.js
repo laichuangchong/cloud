@@ -61,7 +61,6 @@ private_cloud.service('tokenService', ['$http', '$rootScope', '$timeout', functi
 private_cloud.service('all_check_service', function () { //全选
     return {
         allCheck: function (status, item_obj) {
-            console.log(status);
             if (status) {
                 angular.forEach(item_obj, function (value, key) {
                     value.check_status = true;

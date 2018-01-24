@@ -26,9 +26,11 @@
                         <div class="form-group">
                             <label>云主机配置<span class="text-danger">*</span></label>
                             <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="要启动的镜像大小"></i>
-                            <select name="" id="" class="form-control">
-                                <option value="">m1.large</option>
+                            <select name="newConfig" id="newConfig" class="form-control" ng-init = "newConfig = ''" ng-model="newConfig" ng-change="changeConfig()">
+                                <option value="">--请选择--</option>
+                                <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
                             </select>
+                            {{newConfig}}
                         </div>
 
                         <div class="form-group">
@@ -50,23 +52,18 @@
                             <label>网络<span class="text-danger">*</span></label>
                             <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="使用这些网络启动云主机"></i>
 
-                            <div class="checkbox">
+                            <div class="checkbox" ng-repeat="item in net_work">
                                 <label>
                                     <input icheck type="checkbox" ng-model="network.lan">
-                                    lan
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input icheck type="checkbox" ng-model="network.wan">
-                                    wan
+                                    {{item}}
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>镜像名称<span class="text-danger">*</span></label>
-                            <select name="" id="" class="form-control">
-                                <option value="">djksajfd</option>
+                            <select name="selectImage" id="selectImage" class="form-control" ng-model="selectImage" ng-change="">
+                                <option value="">--请选择--</option>
+                                <option ng-repeat="item in images" value="{{item.id}}">{{item.name}}</option>
                             </select>
                         </div>
                     </form>
@@ -79,72 +76,50 @@
                         <theader>
                             <tr>
                                 <th>名称</th>
-                                <th>m1.large</th>
+                                <th>{{newConfig.name}}</th>
                             </tr>
                         </theader>
                         <tbody>
                         <tr>
                             <td>VCPUs</td>
-                            <td>2GB</td>
+                            <td>{{newConfig.vcpus}}个</td>
                         </tr>
                         <tr>
                             <td>根磁盘</td>
-                            <td>2GB</td>
+                            <td>{{newConfig.disk}}GB</td>
                         </tr>
                         <tr>
                             <td>临时磁盘</td>
-                            <td>2GB</td>
+                            <td>{{newConfig.swap?newConfig.swap:0}}GB</td>
                         </tr>
                         <tr>
                             <td>所有磁盘</td>
-                            <td>2GB</td>
+                            <td>{{newConfig.disk+newConfig.swap}}GB</td>
                         </tr>
                         <tr>
                             <td>内存</td>
-                            <td>2GB</td>
+                            <td>{{newConfig.ram/1024}}GB</td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="h5">项目限制</div>
-                    <div class="h6">云主机数量</div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" style="width: 35%">
-                            <span class="sr-only">35% Complete (success)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-warning progress-bar-striped"
-                             style="width: 20%">
-                            <span class="sr-only">20% Complete (warning)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-danger" style="width: 10%">
-                            <span class="sr-only">10% Complete (danger)</span>
-                        </div>
-                    </div>
-                    <div class="h6">虚拟内核数量</div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" style="width: 35%">
-                            <span class="sr-only">35% Complete (success)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-warning progress-bar-striped"
-                             style="width: 20%">
-                            <span class="sr-only">20% Complete (warning)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-danger" style="width: 10%">
-                            <span class="sr-only">10% Complete (danger)</span>
+                    <div ng-repeat="(key,item) in count">
+                        <div class="h6" >{{item.title}}数量 <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}} 已使用</small></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: {{item.used/item.total*100}}%">
+                                <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
+                            </div>
+                            <div ng-if="key == 'cores'" class="progress-bar progress-bar-warning progress-bar-striped"
+                                 style="width:{{coresChangeProgress/item.total*100}}%">
+                                <span class="sr-only"> Complete (warning)</span>
+                            </div>
+                            <div ng-if="key == 'ram'" class="progress-bar progress-bar-warning progress-bar-striped"
+                                 style="width:{{ramChangeProgress/item.total*100}}%">
+                                <span class="sr-only"> Complete (warning)</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="h6">内存总计</div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" style="width: 35%">
-                            <span class="sr-only">35% Complete (success)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-warning progress-bar-striped"
-                             style="width: 20%">
-                            <span class="sr-only">20% Complete (warning)</span>
-                        </div>
-                        <div class="progress-bar progress-bar-danger" style="width: 10%">
-                            <span class="sr-only">10% Complete (danger)</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="hr-line-dashed"></div>

@@ -24,23 +24,15 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-sm-3 m-b-xs"><select class="input-sm form-control input-s-sm inline">
-                            <option value="0">云主机名称</option>
-                            <option value="1">Option 2</option>
-                            <option value="2">Option 3</option>
-                            <option value="3">Option 4</option>
-                        </select>
-                        </div>
-
                         <div class="col-sm-3">
                             <div class="input-group">
-                                <input type="text" placeholder="云主机名称" class="input-sm form-control">
+                                <input type="text" placeholder="云主机名称" class="input-sm form-control" ng-init="searchCloud = ''" ng-model="searchCloud">
                                 <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                        <button type="button" class="btn btn-sm btn-primary">输入查询云主机名称</button> </span>
                             </div>
                         </div>
-                        <botton class="btn btn-primary btn-sm">开机</botton>
-                        <botton class="btn btn-primary btn-sm"><span class="fa fa-power-off"></span>关机</botton>
+                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
+                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>
                         <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm"><span
                                 class="fa fa-plus"></span>创建主机</a>
                     </div>
@@ -67,28 +59,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {{cloudHost}}
-                            <tr ng-repeat="item in cloudHost">
+                            <tr ng-repeat="item in cloudHost" on-finish-render="ngRepeatFinished" ng-show="showCloud(item.name)">
                                 <td ng-init="cloudHost[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="cloudHost[$index].check_status" ng-change="itemCheck()"/>
                                 </td>
-                                <td>{{item.name}}</td>
+                                <td>
+                                    <a ui-sref="count.cloudComputerDetail({id:item.id})">{{item.name}}</a>
+                                </td>
                                 <td>{{item.imageName}}</td>
                                 <td>
                                     <div ng-repeat="subItem in item.ipData">
-                                        {{subItem.name}}: {{subItem.addr}}
+                                        {{subItem.addr}}
                                     </div>
                                 </td>
                                 <td>
                                     <a
-                                            id="config{{$index}}"
-                                            href="javascript:;"
-                                            tabindex="0"
-                                            data-toggle="popover"
-                                            data-trigger="focus"
-                                            title="方案详情:{{item.config}}"
-                                    >{{item.config}}</a>
+                                    id="config{{$index}}"
+                                    href="javascript:;"
+                                    tabindex="0"
+                                    data-toggle="popover"
+                                    data-trigger="focus"
+                                    title="方案详情:{{item.config.name}}"
+                                    >{{item.config.name}}</a>
                                 </td>
                                 <td>{{item.vmState}}</td>
                                 <td>{{item.taskState}}</td>
@@ -104,12 +97,12 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a data-toggle="modal" data-target="#reset_config">调整配置</a>
-                                    &nbsp;
-                                    <a>重建云主机</a>
+                                    <a ng-if="item.vmState == 'stopped'" data-toggle="modal" data-target="#reset_config" ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)">调整配置<span>&nbsp;</span></a>
+
+                                    <a data-toggle="modal" data-target="#reset_cloud_computer" ng-click="reconstruction(item.id)">重建云主机</a>
                                 </td>
                                 <td>
-                                    <a class="text-danger">删除主机</a>
+                                    <a class="text-danger" ng-click="deleteCloud(item.id,item.name)">删除主机</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -121,6 +114,7 @@
 
     </div>
 </div>
+<!--调整配置-->
 <div class="modal fade bd-example-modal-lg" id="reset_config" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
@@ -131,113 +125,131 @@
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">调整配置</h4>
             </div>
-
             <div class="modal-body">
-                <tabset>
-                    <tab heading="云主机类型选择">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>旧的云主机类型</label>
-                                        <input type="text" disabled
-                                               value="m1.large"
-                                               class="form-control"
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>新的云主机类型</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">m1.xlarge</option>
-                                            <option value="">m1.small</option>
-                                        </select>
-                                    </div>
-                                </form>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>旧的云主机类型</label>
+                                <input type="text" disabled
+                                       value="{{oldConfig.name}}"
+                                       class="form-control"
+                                />
                             </div>
-                            <div class="col-sm-6">
-                                <div class="h5">方案详情</div>
-                                <table class="table table-bordered table-striped">
-                                    <theader>
-                                        <tr>
-                                            <th>名称</th>
-                                            <th>m1.large</th>
-                                        </tr>
-                                    </theader>
-                                    <tbody>
-                                    <tr>
-                                        <td>VCPUs</td>
-                                        <td>2GB</td>
-                                    </tr>
-                                    <tr>
-                                        <td>根磁盘</td>
-                                        <td>2GB</td>
-                                    </tr>
-                                    <tr>
-                                        <td>临时磁盘</td>
-                                        <td>2GB</td>
-                                    </tr>
-                                    <tr>
-                                        <td>所有磁盘</td>
-                                        <td>2GB</td>
-                                    </tr>
-                                    <tr>
-                                        <td>内存</td>
-                                        <td>2GB</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <div class="h5">项目限制</div>
-                                <div class="h6">虚拟内核数量</div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" style="width: 35%">
-                                        <span class="sr-only">35% Complete (success)</span>
-                                    </div>
-                                    <div class="progress-bar progress-bar-warning progress-bar-striped"
-                                         style="width: 20%">
-                                        <span class="sr-only">20% Complete (warning)</span>
-                                    </div>
-                                    <div class="progress-bar progress-bar-danger" style="width: 10%">
-                                        <span class="sr-only">10% Complete (danger)</span>
-                                    </div>
+                            <div class="form-group">
+                                <label>新的云主机类型 <span class="text-danger">*</span></label>
+                                <select name="newConfig" id="newConfig" class="form-control" ng-model="newConfig" ng-change="changeConfig(newConfig)">
+                                    <option value="">--请选择--</option>
+                                    <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>磁盘分区</label>
+                                <select name="diskConfig" id="diskConfig" class="form-control" ng-model="diskConfig">
+                                    <option value="">--请选择--</option>
+                                    <option value="AUTO">自动</option>
+                                    <option value="MANUAL">手动</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="h5">方案详情</div>
+                        <table class="table table-bordered table-striped">
+                            <theader>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>{{newConfig.name}}</th>
+                                </tr>
+                            </theader>
+                            <tbody>
+                            <tr>
+                                <td>VCPUs</td>
+                                <td>{{newConfig.vcpus}}个</td>
+                            </tr>
+                            <tr>
+                                <td>根磁盘</td>
+                                <td>{{newConfig.disk}}GB</td>
+                            </tr>
+                            <tr>
+                                <td>临时磁盘</td>
+                                <td>{{newConfig.swap?newConfig.swap:0}}GB</td>
+                            </tr>
+                            <tr>
+                                <td>所有磁盘</td>
+                                <td>{{newConfig.disk+newConfig.swap}}GB</td>
+                            </tr>
+                            <tr>
+                                <td>内存</td>
+                                <td>{{newConfig.ram/1024}}GB</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="h5">项目限制</div>
+                        <div ng-repeat="(key,item) in count">
+                            <div class="h6" >{{item.title}}数量 <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}} 已使用</small></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: {{item.used/item.total*100}}%">
+                                    <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
                                 </div>
-                                <div class="h6">内存总计</div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" style="width: 35%">
-                                        <span class="sr-only">35% Complete (success)</span>
-                                    </div>
-                                    <div class="progress-bar progress-bar-warning progress-bar-striped"
-                                         style="width: 20%">
-                                        <span class="sr-only">20% Complete (warning)</span>
-                                    </div>
-                                    <div class="progress-bar progress-bar-danger" style="width: 10%">
-                                        <span class="sr-only">10% Complete (danger)</span>
-                                    </div>
+                                <div ng-if="key == 'cores'" class="progress-bar progress-bar-warning progress-bar-striped"
+                                     style="width:{{coresChangeProgress/item.total*100}}%">
+                                    <span class="sr-only"> Complete (warning)</span>
                                 </div>
-
+                                <div ng-if="key == 'ram'" class="progress-bar progress-bar-warning progress-bar-striped"
+                                     style="width:{{ramChangeProgress/item.total*100}}%">
+                                    <span class="sr-only"> Complete (warning)</span>
+                                </div>
+                                <!-- <div ng-if="key == 'cores'" class="progress-bar progress-bar-danger" style="width:width:{{coresChangeProgress/item.total*100}}% ">
+                                     <span class="sr-only"> Complete (danger)</span>
+                                 </div>
+                                 <div ng-if="key == 'ram'" class="progress-bar progress-bar-danger" style="width:width:{{ramChangeProgress/item.total*100}}% ">
+                                     <span class="sr-only"> Complete (danger)</span>
+                                 </div>-->
                             </div>
                         </div>
-                    </tab>
-                    <tab heading="磁盘分区方式">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>磁盘分区</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">自动</option>
-                                            <option value="">手动</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </tab>
-                </tabset>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存</button>
+                <button type="button" class="btn btn-primary" ng-click="submitConfig()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--重建云主机-->
+<div class="modal fade bd-example-modal-lg" id="reset_cloud_computer" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">重建云主机</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="tip text-warning">选择镜像以重建你的云主机</div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>选择一个镜像 <span class="text-danger">*</span></label>
+                                <select name="selectImage" id="selectImage" class="form-control" ng-model="selectImage">
+                                    <option value="">--请选择--</option>
+                                    <option ng-repeat="item in images" value="{{item.id}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="submitResetCloudComputer()">保存</button>
             </div>
         </div>
     </div>

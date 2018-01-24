@@ -370,7 +370,18 @@ function fancyBox() {
     }
 }
 
-
+function onFinishRender($timeout){
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit(attr.onFinishRender);
+                });
+            }
+        }
+    }
+}
 /**
  *
  * Pass all functions into module
@@ -392,3 +403,4 @@ angular
     .directive('dropZone', dropZone)
     .directive('fancyBox', fancyBox)
     .directive('responsiveVideo', responsiveVideo)
+    .directive('onFinishRender',['$timeout',onFinishRender])
