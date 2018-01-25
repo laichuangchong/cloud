@@ -20,9 +20,14 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>云主机</h5>
-
                 </div>
                 <div class="ibox-content">
+                    <div class="alert alert-danger" role="alert" ng-show="warn">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div ng-repeat="item in warnText">
+                            {{item}}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -59,7 +64,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in cloudHost" on-finish-render="ngRepeatFinished" ng-show="showCloud(item.name)">
+                            <tr ng-repeat="(key,item) in cloudHost" on-finish-render="ngRepeatFinished" ng-show="showCloud(item.name)">
                                 <td ng-init="cloudHost[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="cloudHost[$index].check_status" ng-change="itemCheck()"/>
@@ -84,10 +89,13 @@
                                     >{{item.config.name}}</a>
                                 </td>
                                 <td>{{item.vmState}}</td>
-                                <td>{{item.taskState}}</td>
+                                <td>
+                                    <i ng-show="item.taskState != '没有任务执行'" class="fa fa-refresh fa-spin fa-fw"></i>
+                                    {{item.taskState}}
+                                </td>
                                 <td>{{item.powerState}}</td>
                                 <td>
-                                    <a href="{{item.vnc}}" target="_blank" title="VNC">
+                                    <a ng-if="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
                                         <span class="fa fa-desktop">
                                         </span>
                                     </a>
@@ -102,7 +110,7 @@
                                     <a data-toggle="modal" data-target="#reset_cloud_computer" ng-click="reconstruction(item.id)">重建云主机</a>
                                 </td>
                                 <td>
-                                    <a class="text-danger" ng-click="deleteCloud(item.id,item.name)">删除主机</a>
+                                    <a class="text-danger" ng-click="deleteCloud(item.id,item.name,key)">删除主机</a>
                                 </td>
                             </tr>
                             </tbody>

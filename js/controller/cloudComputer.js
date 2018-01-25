@@ -3,7 +3,8 @@
  */
 private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', function ($scope, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location) {
     $scope.url = $location.path();
-    
+    $scope.warn = false;//警告框
+    $scope.warnText = [];//警告文字
     $scope.vm_state = { //云主机状态
         initialized: '创建',
         active: '运行',
@@ -109,6 +110,33 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 });
 
                 $scope.cloudHost.push(item);
+                if (value['OS-EXT-STS:task_state'] != null) { //如果有任务正在执行那就要监听这个任务状态
+                    $scope['intervalInit' + key] = $interval(function () {
+                        $http({
+                            url: '/api/list_servers/' + item.id,
+                            method: 'GET',
+                            headers: $rootScope.headers
+                        }).then(function (success) {
+                            console.log(success);
+                            var data = success.data.server;
+                            $scope.cloudHost[key].vmState = $scope.vm_state[data['OS-EXT-STS:vm_state']]; //状态
+                            $scope.cloudHost[key].taskState = $scope.task_state[data['OS-EXT-STS:task_state']]; //任务状态
+                            $scope.cloudHost[key].powerState = $scope.power_state[data['OS-EXT-STS:power_state']]; //电源状态
+                            if (data['OS-EXT-STS:task_state'] == null) {
+                                $scope.cloudHost[key].ipData=[];
+                                angular.forEach(data.addresses, function (value, key) { //获取IP
+                                    angular.forEach(value, function (value, key) {
+                                        $scope.cloudHost[key].ipData.push(value);
+                                    });
+                                });
+                                $interval.cancel($scope['intervalInit' + key]);
+                                $scope['intervalInit' + key] = null;
+                            }
+                        }, function (error) {
+
+                        });
+                    }, 2000);
+                }
                 $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
                     //you also get the actual event object
                     //do stuff, execute functions -- whatever...
@@ -139,7 +167,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         });
     });
 
-    $scope.deleteCloud = function (cloudId, name) { //删除云主机
+    $scope.deleteCloud = function (cloudId, name,index) { //删除云主机
         if (confirm('您确定删除' + name + '吗？此操作不可恢复！')) {
             $http({
                 url: '/api/list_servers/' + cloudId,
@@ -148,7 +176,8 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
             }).then(function (response) {
                 if (response.status == 204) {
                     alert('操作成功');
-                    $window.location.reload();
+                    $scope.cloudHost.splice(index,1);
+                    // $window.location.reload();
                 }
             }, function () {
                 alert('操作失败请重试');
@@ -302,40 +331,62 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     method: 'POST',
                     headers: $rootScope.headers,
                     data: json
-                }).then(function () {
+                }).then(function (success) {
+                    console.log(success);
+                 $scope['intervalToggle'+key]= $interval(function(){
+                     $http({
+                         url: '/api/list_servers/' + value.id,
+                         method: 'GET',
+                         headers: $rootScope.headers
+                     }).then(function (success) {
+                         console.log(success);
+                         var data = success.data.server;
+                         $scope.cloudHost[key].vmState = $scope.vm_state[data['OS-EXT-STS:vm_state']]; //状态
+                         $scope.cloudHost[key].taskState = $scope.task_state[data['OS-EXT-STS:task_state']]; //任务状态
+                         $scope.cloudHost[key].powerState = $scope.power_state[data['OS-EXT-STS:power_state']]; //电源状态
+                         if (data['OS-EXT-STS:task_state'] == null) {
+                             $interval.cancel($scope['intervalToggle'+key]);
+                             $scope['intervalToggle'+key] = null;
+                         }
+                     }, function (error) {
 
-                }, function () {
-
+                     });
+                    },2000);
+                }, function (error) {
+                    console.log(error);
+                    $scope.warn = true;
+                    $scope.warnText.push('错误' + error.status + ' 云主机：' + value.name + '操作失败');
                 });
             }
         });
-        if (angular.isDefined($rootScope.interval)) {
-            $interval.cancel($rootScope.interval);
-            $rootScope.interval = null;
-        }
+        /*if (angular.isDefined($rootScope.interval)) {
+         $interval.cancel($rootScope.interval);
+         $rootScope.interval = null;
+         }
 
-        $rootScope.interval = $interval(function () {
-            if ($scope.url == '/count/computer') {
-                $http({
-                    url: "/api/list_servers/detail", //获取云主机列表
-                    method: 'GET',
-                    headers: $rootScope.headers
-                }).then(function (response) {
-                    var data = response.data.servers;
-                    angular.forEach(data, function (value, key) {
-                        console.log($scope.cloudHost[key]);
+         $rootScope.interval = $interval(function () {
+         if ($scope.url == '/count/computer') {
+         $http({
+         url: "/api/list_servers/detail", //获取云主机列表
+         method: 'GET',
+         headers: $rootScope.headers
+         }).then(function (response) {
+         var data = response.data.servers;
+         angular.forEach(data, function (value, key) {
+         console.log($scope.cloudHost[key]);
 
-                        $scope.cloudHost[key].vmState = $scope.vm_state[value['OS-EXT-STS:vm_state']]; //状态
-                        $scope.cloudHost[key].taskState = $scope.task_state[value['OS-EXT-STS:task_state']]; //任务状态
-                        $scope.cloudHost[key].powerState = $scope.power_state[value['OS-EXT-STS:power_state']]; //电源状态
-                    });
-                }, function () {
+         $scope.cloudHost[key].vmState = $scope.vm_state[value['OS-EXT-STS:vm_state']]; //状态
+         $scope.cloudHost[key].taskState = $scope.task_state[value['OS-EXT-STS:task_state']]; //任务状态
+         $scope.cloudHost[key].powerState = $scope.power_state[value['OS-EXT-STS:power_state']]; //电源状态
+         });
+         }, function () {
 
-                });
-            }
-            $scope.url = $location.path();
-        }, 5000);
+         });
+         }
+         $scope.url = $location.path();
+         }, 2000);*/
 
 
     };
+
 }]);

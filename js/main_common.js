@@ -39,18 +39,8 @@ private_cloud.run(['$rootScope','$q','$http','tokenService',function($rootScope,
             headers: $rootScope.headers
         }).then(function (response) {
             console.log(response.data.networks);
-            angular.forEach(response.data.networks, function (value, key) {
-                switch (value["provider:network_type"]) {
-                    case 'vxlan':
-                        $rootScope.net_work.fixedName = value.name;
-                        break;
-                    case 'flat':
-                        $rootScope.net_work.floatingName = value.name;
-                        break;
-                }
-
-            });
-
+            $rootScope.net_work = response.data.networks;
+            console.log($rootScope.net_work);
             $rootScope.network_promise.resolve();
         }, function (response) {
             alert(response.data.error.message);
