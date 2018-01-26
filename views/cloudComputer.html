@@ -23,7 +23,8 @@
                 </div>
                 <div class="ibox-content">
                     <div class="alert alert-danger" role="alert" ng-show="warn">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <div ng-repeat="item in warnText">
                             {{item}}
                         </div>
@@ -31,13 +32,14 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
-                                <input type="text" placeholder="云主机名称" class="input-sm form-control" ng-init="searchCloud = ''" ng-model="searchCloud">
+                                <input type="text" placeholder="云主机名称" class="input-sm form-control"
+                                       ng-init="searchCloud = ''" ng-model="searchCloud">
                                 <span class="input-group-btn">
                                         <button type="button" class="btn btn-sm btn-primary">输入查询云主机名称</button> </span>
                             </div>
                         </div>
-                      <!--  <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
-                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>-->
+                        <!--  <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
+                          <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>-->
                         <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">
                             <span class="fa fa-plus"></span>创建主机</a>
                     </div>
@@ -65,7 +67,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in cloudHost" on-finish-render="ngRepeatFinished" ng-show="showCloud(item.name)">
+                            <tr ng-repeat="(key,item) in cloudHost" on-finish-render="ngRepeatFinished"
+                                ng-show="showCloud(item.name)">
                                 <td ng-init="cloudHost[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="cloudHost[$index].check_status" ng-change="itemCheck()"/>
@@ -80,61 +83,70 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a
-                                    id="config{{$index}}"
-                                    href="javascript:;"
-                                    tabindex="0"
-                                    data-toggle="popover"
-                                    data-trigger="focus"
-                                    title="方案详情:{{item.config.name}}"
-                                    >{{item.config.name}}</a>
+                                    <span role="button"
+                                          id="config{{$index}}"
+                                          class="text-success"
+                                          tabindex="0"
+                                          data-toggle="popover"
+                                          data-trigger="focus"
+                                          title="方案详情:{{item.config.name}}"
+                                    >{{item.config.name}}</span>
                                 </td>
-                                <td class="{{item.vm.state == 'stopped'?'text-danger':'text-info'}}">{{item.vm.text}}</td>
+                                <td class="{{item.vm.state == 'stopped'?'text-danger':'text-info'}}">{{item.vm.text}}
+                                </td>
                                 <td>
-                                    <i ng-show="item.task.state != null" class="fa fa-refresh fa-spin fa-fw"></i>
+                                    <i ng-show="item.task.state != null"
+                                       class="fa fa-refresh fa-spin fa-fw text-info"></i>
                                     {{item.task.text}}
                                 </td>
-                                <td class="{{item.power.state == 1 ?'text-info':'text-danger'}}">{{item.power.text}}</td>
+                                <td class="{{item.power.state == 1 ?'text-info':'text-danger'}}">{{item.power.text}}
+                                </td>
                                 <td>
                                     <a ng-if="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
                                         <span class="fa fa-desktop">
                                         </span>
                                     </a>
                                     &nbsp;
-                                    <a href="javascript:;" target="_blank" title="restart" ng-click="restart(item.id)">
+                                    <a href="javascript:void(0)" target="_blank" title="restart"
+                                       ng-click="restart(item.id)">
                                         <span class="fa fa-undo"></span>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;"
-                                       class="text-info"
-                                       ng-show="item.vm.state == 'stopped'"
-                                       data-toggle="modal"
-                                       data-target="#reset_config"
-                                       ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)"
-                                    >调整配置<span>&nbsp;</span></a>
+                                    <span role="button"
+                                          class="text-info"
+                                          ng-show="item.vm.state == 'stopped'"
+                                          data-toggle="modal"
+                                          data-target="#reset_config"
+                                          ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)"
+                                    >调整配置<span>&nbsp;</span></span>
 
-                                    <a href="javascript:;"
-                                       class="text-warning"
-                                       data-toggle="modal"
-                                       data-target="#reset_cloud_computer"
-                                       ng-click="reconstruction(item.id)"
-                                    >重建云主机</a>
+                                    <span role="button"
+                                          class="text-warning"
+                                          data-toggle="modal"
+                                          data-target="#reset_cloud_computer"
+                                          ng-click="reconstruction(item.id)"
+                                    >重建云主机</span>
                                 </td>
                                 <td>
-                                    <button ng-show= "item.vm.state == 'stopped' && item.task.state == null"
+                                    <button ng-show="item.vm.state == 'stopped' && item.task.state == null"
                                             type="button"
                                             class="btn btn-outline btn-xs btn-primary"
                                             ng-click="toggleComputer('start',item.id,key)"
-                                    >开机</button>
-                                    <button ng-show= "item.vm.state == 'active' && item.task.state == null"
+                                    >开机
+                                    </button>
+                                    <button ng-show="item.vm.state == 'active' && item.task.state == null"
                                             type="button"
                                             class="btn btn-outline btn-xs btn-danger"
                                             ng-click="toggleComputer('stop',item.id,key)"
-                                    >关机</button>
+                                    >关机
+                                    </button>
                                 </td>
                                 <td>
-                                    <a class="text-danger" ng-click="deleteCloud(item.id,item.name,key)">删除主机</a>
+                                    <span role="button"
+                                          class="text-danger"
+                                          ng-click="deleteCloud(item.id,item.name,key)"
+                                    >删除主机</span>
                                 </td>
                             </tr>
                             </tbody>
@@ -170,7 +182,8 @@
                             </div>
                             <div class="form-group">
                                 <label>新的云主机类型 <span class="text-danger">*</span></label>
-                                <select name="newConfig" id="newConfig" class="form-control" ng-model="newConfig" ng-change="changeConfig(newConfig)">
+                                <select name="newConfig" id="newConfig" class="form-control" ng-model="newConfig"
+                                        ng-change="changeConfig(newConfig)">
                                     <option value="">--请选择--</option>
                                     <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
                                 </select>
@@ -219,12 +232,18 @@
                         </table>
                         <div class="h5">项目限制</div>
                         <div ng-repeat="(key,item) in count">
-                            <div class="h6" >{{item.title}}数量 <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}} 已使用</small></div>
+                            <div class="h6">{{item.title}}数量
+                                <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}}
+                                    已使用
+                                </small>
+                            </div>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-success" style="width: {{item.used/item.total*100}}%">
+                                <div class="progress-bar progress-bar-success"
+                                     style="width: {{item.used/item.total*100}}%">
                                     <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
                                 </div>
-                                <div ng-if="key == 'cores'" class="progress-bar progress-bar-warning progress-bar-striped"
+                                <div ng-if="key == 'cores'"
+                                     class="progress-bar progress-bar-warning progress-bar-striped"
                                      style="width:{{coresChangeProgress/item.total*100}}%">
                                     <span class="sr-only"> Complete (warning)</span>
                                 </div>

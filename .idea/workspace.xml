@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c216ed-e6f0-40dc-852c-d5788cd69ed5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addBackups.min.js" afterPath="$PROJECT_DIR$/dest/addBackups.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCouldDisk.min.js" afterPath="$PROJECT_DIR$/dest/addCouldDisk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/applyQuota.min.js" afterPath="$PROJECT_DIR$/dest/applyQuota.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js" afterPath="$PROJECT_DIR$/dest/backups.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js" afterPath="$PROJECT_DIR$/dest/common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/couldDisk.min.js" afterPath="$PROJECT_DIR$/dest/couldDisk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/cloudComputer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cloudComputer.html" afterPath="$PROJECT_DIR$/views/cloudComputer.html" />
     </list>
     <ignored path="cloud.iws" />
@@ -47,8 +31,8 @@
               <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="312">
-                      <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
+                    <state relative-caret-position="504">
+                      <caret line="146" column="61" selection-start-line="146" selection-start-column="61" selection-end-line="146" selection-end-column="61" />
                       <folding />
                     </state>
                   </provider>
@@ -780,12 +764,12 @@
       <workItem from="1516693015601" duration="7206000" />
       <workItem from="1516755927422" duration="22894000" />
       <workItem from="1516842338701" duration="17421000" />
-      <workItem from="1516930394950" duration="3786000" />
+      <workItem from="1516930394950" duration="4552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265297000" />
+    <option name="totallyTimeSpent" value="266063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-114" y="30" width="2108" height="808" extended-state="0" />
@@ -1197,8 +1181,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
+        <state relative-caret-position="504">
+          <caret line="146" column="61" selection-start-line="146" selection-start-column="61" selection-end-line="146" selection-end-column="61" />
           <folding />
         </state>
       </provider>
