@@ -6,7 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addBackups.min.js" afterPath="$PROJECT_DIR$/dest/addBackups.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCouldDisk.min.js" afterPath="$PROJECT_DIR$/dest/addCouldDisk.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/applyQuota.min.js" afterPath="$PROJECT_DIR$/dest/applyQuota.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js" afterPath="$PROJECT_DIR$/dest/backups.min.js" />
@@ -17,12 +16,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js.map" afterPath="$PROJECT_DIR$/dest/main_common.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/addCloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/addCloudComputer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/cloudComputer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_common.js" afterPath="$PROJECT_DIR$/js/main_common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addCloudComputer.html" afterPath="$PROJECT_DIR$/views/addCloudComputer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cloudComputer.html" afterPath="$PROJECT_DIR$/views/cloudComputer.html" />
     </list>
     <ignored path="cloud.iws" />
@@ -46,14 +41,14 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.9">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.8074246">
+        <splitter split-orientation="horizontal" split-proportion="0.518315">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="522">
-                      <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+                    <state relative-caret-position="312">
+                      <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
                       <folding />
                     </state>
                   </provider>
@@ -72,7 +67,7 @@
               <file leaf-file-name="addCloudComputer.html" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="249">
+                    <state relative-caret-position="1485">
                       <caret line="99" column="73" selection-start-line="99" selection-start-column="73" selection-end-line="99" selection-end-column="73" />
                       <folding>
                         <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -97,7 +92,7 @@
               <file leaf-file-name="main_common.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/js/main_common.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="531">
+                    <state relative-caret-position="705">
                       <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
                       <folding>
                         <element signature="e#0#49#0" expanded="false" />
@@ -109,17 +104,16 @@
             </leaf>
           </split-first>
           <split-second>
-            <leaf>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="cloudComputer.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-2600">
-                      <caret line="131" column="79" selection-start-line="131" selection-start-column="79" selection-end-line="131" selection-end-column="79" />
+                    <state relative-caret-position="330">
+                      <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
                       <folding>
                         <element signature="e#0#48#0" expanded="false" />
-                        <element signature="e#447#709#0" expanded="false" />
-                        <element signature="e#1500#1615#0" expanded="false" />
-                        <element signature="e#3461#3801#0" expanded="false" />
+                        <element signature="e#3772#4112#0" expanded="false" />
+                        <element signature="e#12614#15481#0" expanded="false" />
                       </folding>
                     </state>
                   </provider>
@@ -134,7 +128,7 @@
           <file leaf-file-name="addCloudComputer.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
+                <state relative-caret-position="396">
                   <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
                   <folding />
                 </state>
@@ -244,9 +238,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-24" />
-    <option name="y" value="35" />
-    <option name="width" value="1559" />
+    <option name="x" value="-114" />
+    <option name="y" value="30" />
+    <option name="width" value="2108" />
     <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -274,6 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -310,7 +305,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -785,15 +779,16 @@
       <workItem from="1516670947200" duration="2779000" />
       <workItem from="1516693015601" duration="7206000" />
       <workItem from="1516755927422" duration="22894000" />
-      <workItem from="1516842338701" duration="17356000" />
+      <workItem from="1516842338701" duration="17421000" />
+      <workItem from="1516930394950" duration="3786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261446000" />
+    <option name="totallyTimeSpent" value="265297000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-24" y="35" width="1559" height="808" extended-state="0" />
+    <frame x="-114" y="30" width="2108" height="808" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -807,7 +802,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052076466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118586645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1021,7 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,7 +1139,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main_common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
+        <state relative-caret-position="705">
           <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
@@ -1157,13 +1151,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="60" column="35" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="396">
           <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
           <folding />
         </state>
@@ -1171,7 +1164,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
+        <state relative-caret-position="1485">
           <caret line="99" column="73" selection-start-line="99" selection-start-column="73" selection-end-line="99" selection-end-column="73" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1192,21 +1185,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2600">
-          <caret line="131" column="79" selection-start-line="131" selection-start-column="79" selection-end-line="131" selection-end-column="79" />
+        <state relative-caret-position="330">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
-            <element signature="e#447#709#0" expanded="false" />
-            <element signature="e#1500#1615#0" expanded="false" />
-            <element signature="e#3461#3801#0" expanded="false" />
+            <element signature="e#3772#4112#0" expanded="false" />
+            <element signature="e#12614#15481#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+        <state relative-caret-position="312">
+          <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
           <folding />
         </state>
       </provider>

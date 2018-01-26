@@ -36,10 +36,10 @@
                                         <button type="button" class="btn btn-sm btn-primary">输入查询云主机名称</button> </span>
                             </div>
                         </div>
-                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
-                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>
-                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm"><span
-                                class="fa fa-plus"></span>创建主机</a>
+                      <!--  <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
+                        <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>-->
+                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">
+                            <span class="fa fa-plus"></span>创建主机</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped" id="table">
@@ -60,6 +60,7 @@
                                 <th>电源状态</th>
                                 <th>常用操作</th>
                                 <th>调整操作</th>
+                                <th>开关机操作</th>
                                 <th>其他动作</th>
                             </tr>
                             </thead>
@@ -88,12 +89,12 @@
                                     title="方案详情:{{item.config.name}}"
                                     >{{item.config.name}}</a>
                                 </td>
-                                <td>{{item.vmState}}</td>
+                                <td class="{{item.vm.state == 'stopped'?'text-danger':'text-info'}}">{{item.vm.text}}</td>
                                 <td>
-                                    <i ng-show="item.taskState != '没有任务执行'" class="fa fa-refresh fa-spin fa-fw"></i>
-                                    {{item.taskState}}
+                                    <i ng-show="item.task.state != null" class="fa fa-refresh fa-spin fa-fw"></i>
+                                    {{item.task.text}}
                                 </td>
-                                <td>{{item.powerState}}</td>
+                                <td class="{{item.power.state == 1 ?'text-info':'text-danger'}}">{{item.power.text}}</td>
                                 <td>
                                     <a ng-if="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
                                         <span class="fa fa-desktop">
@@ -105,9 +106,32 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a ng-if="item.vmState == 'stopped'" data-toggle="modal" data-target="#reset_config" ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)">调整配置<span>&nbsp;</span></a>
+                                    <a href="javascript:;"
+                                       class="text-info"
+                                       ng-show="item.vm.state == 'stopped'"
+                                       data-toggle="modal"
+                                       data-target="#reset_config"
+                                       ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)"
+                                    >调整配置<span>&nbsp;</span></a>
 
-                                    <a data-toggle="modal" data-target="#reset_cloud_computer" ng-click="reconstruction(item.id)">重建云主机</a>
+                                    <a href="javascript:;"
+                                       class="text-warning"
+                                       data-toggle="modal"
+                                       data-target="#reset_cloud_computer"
+                                       ng-click="reconstruction(item.id)"
+                                    >重建云主机</a>
+                                </td>
+                                <td>
+                                    <button ng-show= "item.vm.state == 'stopped' && item.task.state == null"
+                                            type="button"
+                                            class="btn btn-outline btn-xs btn-primary"
+                                            ng-click="toggleComputer('start',item.id,key)"
+                                    >开机</button>
+                                    <button ng-show= "item.vm.state == 'active' && item.task.state == null"
+                                            type="button"
+                                            class="btn btn-outline btn-xs btn-danger"
+                                            ng-click="toggleComputer('stop',item.id,key)"
+                                    >关机</button>
                                 </td>
                                 <td>
                                     <a class="text-danger" ng-click="deleteCloud(item.id,item.name,key)">删除主机</a>
