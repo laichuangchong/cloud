@@ -1,7 +1,7 @@
 /**
  * Created by chenzhongying on 2018/1/11.
  */
-private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state',function($scope,$rootScope,$http,$state){
+private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state','less_one_service',function($scope,$rootScope,$http,$state,less_one_service){
 
     $scope.formData = { //创建云主机数据
         computerCount:1,
@@ -46,9 +46,24 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
         $scope.ramChangeProgress = flavorRef.ram / 1024 ; //内存
     };
     
-    
+
     $scope.formSubmit = function($event){
         $event.preventDefault();
+        var security = [], networks = []; //防火墙类型/网络类型
+        
+        if($scope.formData.security){
+            security.push ({
+                "name": "default"
+            });
+        }
+        angular.forEach($scope.formData.net_work,function(value,key){
+            if(value){
+                networks.push({
+                    "uuid": $rootScope.net_work[key].id
+                });
+            }
+        });
+        console.log(networks);
         $http({
             url: "/api/list_servers/", //添加云主机
             method: 'POST',
@@ -60,16 +75,8 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
                     "flavorRef" : $scope.formData.flavorRef.id,
                     "availability_zone": "nova",
                     "OS-DCF:diskConfig": "AUTO",
-                    "security_groups": [  //可选项防火墙
-                        {
-                            "name": "default"
-                        }
-                    ],
-                    "networks":[  //可选项
-                        {
-                            "uuid": "80bee3ca-4981-4285-b682-943e77d7a4c7"
-                        }
-                    ],
+                    "security_groups": security, //防火墙
+                    "networks":networks,//网络类型
                     "min_count": $scope.formData.computerCount
                 }
 
@@ -81,9 +88,17 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
                 alert('添加成功');
                 $state.go("count.cloudComputer");
             }
-        },function(){
-
+        },function(response){
+            alert(response.data.forbidden.message);
         });
+    };
+   
+    $scope.changeNetworkMark = function(){ //标示有无操作
+        $scope.changeNetwork = true;
+    };
+    $scope.lessone = function(data){
+        return less_one_service.change(data);
+
     };
 
 }]);

@@ -54,6 +54,20 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
     };
     $scope.cloudHost = [];//云主机列表
 
+    function resetState(obj,data){ //开关机或新建时重置任务状态
+        obj.vm = { //云主机状态
+            state:data['OS-EXT-STS:vm_state'],
+            text:$scope.vm_state[data['OS-EXT-STS:vm_state']]
+        };
+        obj.task = { //任务状态
+            state:data['OS-EXT-STS:task_state'],
+            text:$scope.task_state[data['OS-EXT-STS:task_state']]
+        };
+        obj.power = { //电源状态
+            state:data['OS-EXT-STS:power_state'],
+            text:$scope.power_state[data['OS-EXT-STS:power_state']]
+        };
+    }
 
     $rootScope.network_promise.promise.then(function () {
         $http({
@@ -82,19 +96,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 item.name = value.name; //云主机名称
                 item.id = value.id; //云主机id
                 var imageId = value.image.id; //镜像ID
-                item.vm = { //云主机状态
-                    state:value['OS-EXT-STS:vm_state'],
-                    text:$scope.vm_state[value['OS-EXT-STS:vm_state']]
-                };
-                item.task = { //任务状态
-                    state:value['OS-EXT-STS:task_state'],
-                    text:$scope.task_state[value['OS-EXT-STS:task_state']]
-                };
-                item.power = { //电源状态
-                    state:value['OS-EXT-STS:power_state'],
-                    text:$scope.power_state[value['OS-EXT-STS:power_state']]
-                };
-              
+                resetState(item,value);
                 item.diskConfig = value['OS-DCF:diskConfig']; //磁盘分区
                 console.log(item);
                 angular.forEach($rootScope.images, function (value, key) {
@@ -102,7 +104,6 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                         item.imageName = value.name; //镜像名称
                     }
                 });
-
                 $http({ //获取vnc地址
                     url: '/api/server_action/' + value.id,
                     method: 'POST',
@@ -129,18 +130,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                         }).then(function (success) {
                             console.log(success);
                             var data = success.data.server;
-                            $scope.cloudHost[key].vm = { //云主机状态
-                                state:data['OS-EXT-STS:vm_state'],
-                                text:$scope.vm_state[data['OS-EXT-STS:vm_state']]
-                            };
-                            $scope.cloudHost[key].task = { //任务状态
-                                state:data['OS-EXT-STS:task_state'],
-                                text:$scope.task_state[data['OS-EXT-STS:task_state']]
-                            };
-                            $scope.cloudHost[key].power = { //电源状态
-                                state:data['OS-EXT-STS:power_state'],
-                                text:$scope.power_state[data['OS-EXT-STS:power_state']]
-                            };
+                            resetState($scope.cloudHost[key],data);
 
                             if (data['OS-EXT-STS:task_state'] == null) {
                                 $scope.cloudHost[key].ipData=[];
@@ -151,6 +141,21 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                                 });
                                 $interval.cancel($scope['intervalInit' + key]);
                                 $scope['intervalInit' + key] = null;
+                                $http({ //获取vnc地址
+                                    url: '/api/server_action/' + value.id,
+                                    method: 'POST',
+                                    headers: $rootScope.headers,
+                                    data: {
+                                        "os-getVNCConsole": {
+                                            "type": "novnc"
+                                        }
+                                    }
+
+                                }).then(function (response) {
+                                    $scope.cloudHost[key].vnc = response.data.console.url;
+                                }, function (response) {
+                                    // alert(response.data.error.message);
+                                });
                             }
                         }, function (error) {
 
@@ -205,7 +210,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         }
 
     };
-    $scope.restart = function (cloudId) { //重启
+    $scope.restartComputer = function (cloudId,key) { //重启
         $http({
             url: '/api/server_action/' + cloudId,
             method: 'POST',
@@ -216,8 +221,25 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }
             }
         }).then(function (response) {
+            console.log(response);
             if (response.status == 202) {
-                $window.location.reload();
+                $scope['restartComputer'+key]= $interval(function(){
+                    $http({
+                        url: '/api/list_servers/' + cloudId,
+                        method: 'GET',
+                        headers: $rootScope.headers
+                    }).then(function (success) {
+                        console.log(success);
+                        var data = success.data.server;
+                        resetState($scope.cloudHost[key],data);
+                        if (data['OS-EXT-STS:task_state'] == null) {
+                            $interval.cancel($scope['restartComputer'+key]);
+                            $scope['restartComputer'+key] = null;
+                        }
+                    }, function (error) {
+
+                    });
+                },2000);
             }
         }, function (response) {
             // alert(response.data.error.message);
@@ -427,7 +449,8 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }).then(function (success) {
                     console.log(success);
                     var data = success.data.server;
-                    $scope.cloudHost[key].vm = { //云主机状态
+                    resetState($scope.cloudHost[key],data);
+                    /*$scope.cloudHost[key].vm = { //云主机状态
                         state:data['OS-EXT-STS:vm_state'],
                         text:$scope.vm_state[data['OS-EXT-STS:vm_state']]
                     };
@@ -438,7 +461,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     $scope.cloudHost[key].power = { //电源状态
                         state:data['OS-EXT-STS:power_state'],
                         text:$scope.power_state[data['OS-EXT-STS:power_state']]
-                    };
+                    };*/
 
                     if (data['OS-EXT-STS:task_state'] == null) {
                         $interval.cancel($scope['intervalToggle'+key]);
@@ -454,7 +477,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
             $scope.warnText.push('错误' + error.status + ' 云主机：' + value.name + '操作失败');
         });
 
-
     };
+
 
 }]);

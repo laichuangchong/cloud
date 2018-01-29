@@ -76,16 +76,19 @@
                                 使用防火墙</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>网络</label>
+                        <div class="form-group" ng-init="changeNetwork = false">
+                            <label>网络<span class="text-danger">*</span></label>
                             <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip"
                                data-placement="right" title="使用这些网络启动云主机"></i>
 
                             <div class="checkbox" ng-repeat="(key,item) in net_work">
-                                <label>
-                                    <input icheck type="checkbox" ng-model="formData.net_work[key]">
+                                <label ng-init="formData.net_work[key] = false">
+                                    <input icheck type="checkbox" ng-model="formData.net_work[key]" ng-change="changeNetworkMark()">
                                     {{item.name}}
                                 </label>
+                            </div>
+                            <div class="text-danger"  ng-show="changeNetwork && !lessone(formData.net_work)">
+                                <small>请选择至少一个网络类型</small>
                             </div>
                         </div>
                         <div class="form-group">

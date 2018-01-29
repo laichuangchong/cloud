@@ -86,3 +86,22 @@ private_cloud.service('all_check_service', function () { //全选
         }
     };
 });
+private_cloud.service('less_one_service',function(){ //至少选择一项
+    return {
+        change:function(data){
+            var mark = false;
+            angular.forEach(data,function(value,key){
+                if(value){
+                    mark = true;
+                }
+            });
+            if(mark){
+                return true;
+
+            }else{
+                return false;
+            }
+        }
+    };
+
+});

@@ -21,4 +21,20 @@ private_cloud.run(['$rootScope','$q','$interval',function($rootScope,$q,$interva
     $rootScope.$on('$stateChangeError', function () {
         // $rootScope.loading = true;
     });
+
+    /*$rootScope.lessone = function(data){ //至少选择一项
+        console.log('test');
+        var mark = false;
+        angular.forEach(data,function(value,key){
+            if(value){
+                mark = true;
+            }
+        });
+        if(mark){
+            return true;
+
+        }else{
+            return false;
+        }
+    };*/
 }]);
