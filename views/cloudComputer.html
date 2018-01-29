@@ -102,7 +102,7 @@
                                 <td class="{{item.power.state == 1 ?'text-info':'text-danger'}}">{{item.power.text}}
                                 </td>
                                 <td>
-                                    <a ng-if="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
+                                    <a ng-show="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
                                         <span class="fa fa-desktop">
                                         </span>
                                     </a>

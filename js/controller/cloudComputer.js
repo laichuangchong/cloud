@@ -133,12 +133,17 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                             resetState($scope.cloudHost[key],data);
 
                             if (data['OS-EXT-STS:task_state'] == null) {
-                                $scope.cloudHost[key].ipData=[];
-                                angular.forEach(data.addresses, function (value, key) { //获取IP
-                                    angular.forEach(value, function (value, key) {
+                                $scope.cloudHost[key].ipData=[]; //IP地址初始化
+                                $scope.cloudHost[key].vnc = ''; //vnc地址初始化
+
+                                console.log(data.addresses);
+                                angular.forEach(data.addresses, function (value) { //获取IP
+                                    angular.forEach(value, function (value) {
                                         $scope.cloudHost[key].ipData.push(value);
+                                        console.log($scope.cloudHost[key].ipData);
                                     });
                                 });
+                                console.log($scope.cloudHost[key].ipData);
                                 $interval.cancel($scope['intervalInit' + key]);
                                 $scope['intervalInit' + key] = null;
                                 $http({ //获取vnc地址
@@ -242,7 +247,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 },2000);
             }
         }, function (response) {
-            // alert(response.data.error.message);
+            alert(response.statusText);
         });
     };
     $scope.all_check = false; //全选按钮状态
@@ -290,7 +295,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
 
         }, function (response) {
             console.log(response);
-            // alert(response.data.error.message);
+            alert(response.statusText);
         });
 
     };
@@ -317,10 +322,11 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         }).then(function (response) {
             console.log(response);
             if (response.status == 202) {
-                $('#myModal').modal('hide');
+                $('#reset_config').modal('hide');
             }
         }, function (response) {
             console.log(response);
+            alert(response.statusText);
         });
     };
 
@@ -342,10 +348,11 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         }).then(function (response) {
             console.log(response);
             if (response.status == 202) {
+                // $('#reset_cloud_computer').modal('hide');
                 $window.location.reload();
             }
-        }, function () {
-
+        }, function (response) {
+            alert(response.statusText);
         });
     };
     $scope.searchCloud = '';
