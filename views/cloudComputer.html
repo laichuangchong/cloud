@@ -121,24 +121,25 @@
                                           ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)"
                                     >调整配置<span>&nbsp;</span></span>
 
-                                    <span role="button"
+                                    <span ng-show="item.task.state == null"
+                                            role="button"
                                           class="text-warning"
                                           data-toggle="modal"
                                           data-target="#reset_cloud_computer"
-                                          ng-click="reconstruction(item.id)"
+                                          ng-click="reconstruction(item.id,key)"
                                     >重建云主机</span>
                                 </td>
                                 <td>
                                     <button ng-show="item.vm.state == 'stopped' && item.task.state == null"
                                             type="button"
                                             class="btn btn-outline btn-xs btn-primary"
-                                            ng-click="toggleComputer('start',item.id,key)"
+                                            ng-click="toggleComputer('start',item.id,key,item.name)"
                                     >开机
                                     </button>
                                     <button ng-show="item.vm.state == 'active' && item.task.state == null"
                                             type="button"
                                             class="btn btn-outline btn-xs btn-danger"
-                                            ng-click="toggleComputer('stop',item.id,key)"
+                                            ng-click="toggleComputer('stop',item.id,key,item.name)"
                                     >关机
                                     </button>
                                 </td>

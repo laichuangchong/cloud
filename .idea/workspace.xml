@@ -34,14 +34,14 @@
     <favorites_list name="cloud" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40897325">
+    <splitter split-orientation="horizontal" split-proportion="0.7756687">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="109" column="67" selection-start-line="109" selection-start-column="67" selection-end-line="109" selection-end-column="67" />
+                <state relative-caret-position="442">
+                  <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
                   <folding>
                     <element signature="n#div#2;n#!!top" expanded="false" />
                   </folding>
@@ -52,24 +52,9 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3720">
+                <state relative-caret-position="513">
                   <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="addCloudComputer.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="176" column="40" selection-start-line="176" selection-start-column="29" selection-end-line="176" selection-end-column="40" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#3;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -77,8 +62,8 @@
           <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/common.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="38" column="8" selection-start-line="24" selection-start-column="4" selection-end-line="38" selection-end-column="8" />
+                <state relative-caret-position="569">
+                  <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -87,8 +72,8 @@
           <file leaf-file-name="main_common.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_common.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
-                  <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+                <state relative-caret-position="254">
+                  <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
                   <folding>
                     <element signature="e#0#49#0" expanded="false" />
                   </folding>
@@ -103,11 +88,10 @@
           <file leaf-file-name="cloudComputer.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="159" column="79" selection-start-line="159" selection-start-column="79" selection-end-line="159" selection-end-column="79" />
+                <state relative-caret-position="797">
+                  <caret line="507" column="0" selection-start-line="507" selection-start-column="0" selection-end-line="507" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#48#0" expanded="false" />
-                    <element signature="e#13939#16806#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -228,8 +212,8 @@
         <option value="$PROJECT_DIR$/views/addCloudComputer.html" />
         <option value="$PROJECT_DIR$/js/factory.js" />
         <option value="$PROJECT_DIR$/js/service.js" />
-        <option value="$PROJECT_DIR$/views/cloudComputer.html" />
         <option value="$PROJECT_DIR$/js/controller/cloudComputer.js" />
+        <option value="$PROJECT_DIR$/views/cloudComputer.html" />
       </list>
     </option>
   </component>
@@ -812,12 +796,12 @@
       <workItem from="1516755927422" duration="22894000" />
       <workItem from="1516842338701" duration="17421000" />
       <workItem from="1516930394950" duration="15516000" />
-      <workItem from="1517191146386" duration="7402000" />
+      <workItem from="1517191146386" duration="10776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284429000" />
+    <option name="totallyTimeSpent" value="287803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="15" y="31" width="1440" height="804" extended-state="0" />
@@ -1154,32 +1138,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="8" selection-start-line="24" selection-start-column="4" selection-end-line="38" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3720">
-          <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/factory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1208,6 +1166,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1221,23 +1197,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="109" column="67" selection-start-line="109" selection-start-column="67" selection-end-line="109" selection-end-column="67" />
-          <folding>
-            <element signature="n#div#2;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="513">
+          <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="159" column="79" selection-start-line="159" selection-start-column="79" selection-end-line="159" selection-end-column="79" />
+        <state relative-caret-position="797">
+          <caret line="507" column="0" selection-start-line="507" selection-start-column="0" selection-end-line="507" selection-end-column="0" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
-            <element signature="e#13939#16806#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
+          <folding>
+            <element signature="n#div#2;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
