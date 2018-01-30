@@ -86,22 +86,60 @@ private_cloud.service('all_check_service', function () { //全选
         }
     };
 });
-private_cloud.service('less_one_service',function(){ //至少选择一项
+private_cloud.service('less_one_service', function () { //至少选择一项
     return {
-        change:function(data){
+        change: function (data) {
             var mark = false;
-            angular.forEach(data,function(value,key){
-                if(value){
+            angular.forEach(data, function (value, key) {
+                if (value) {
                     mark = true;
                 }
             });
-            if(mark){
+            if (mark) {
                 return true;
 
-            }else{
+            } else {
                 return false;
             }
         }
     };
-
 });
+private_cloud.service('count_service', ['$http','$rootScope', function ($http,$rootScope) { //计算和防火墙
+        return {
+            getCount: function () {
+                $http({
+                    url: '/api/nova_limits',
+                    method: 'GET',
+                    headers: $rootScope.headers
+                }).then(function (response) {
+                    console.log(response.data.limits.absolute);
+                    var countData = response.data.limits.absolute;
+                    $rootScope.count = {
+                        instances: {
+                            title: '云主机',
+                            used: countData.totalInstancesUsed,
+                            total: countData.maxTotalInstances,
+                            unit: '个'
+
+                        },
+                        cores: {
+                            title: 'VCPUs',
+                            used: countData.totalCoresUsed,
+                            total: countData.maxTotalCores,
+                            unit: '个'
+                        },
+                        ram: {
+                            title: '内存',
+                            used: countData.totalRAMUsed / 1024,
+                            total: countData.maxTotalRAMSize / 1024,
+                            unit: 'GB'
+                        }
+                    };
+
+                }, function (response) {
+                    alert(response.statusText);
+                });
+            }
+        };
+    }]
+);

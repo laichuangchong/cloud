@@ -1,45 +1,14 @@
 /**
  * Created by chenzhongying on 2018/1/11.
  */
-private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state','less_one_service',function($scope,$rootScope,$http,$state,less_one_service){
+private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state','less_one_service','count_service',function($scope,$rootScope,$http,$state,less_one_service,count_service){
 
     $scope.formData = { //创建云主机数据
         computerCount:1,
         net_work : []
     };
-    $http({   //计算和防火墙
-        url: '/api/nova_limits',
-        method: 'GET',
-        headers: $rootScope.headers
-    }).then(function (response) {
-        console.log(response.data.limits.absolute);
-        var countData = response.data.limits.absolute;
-        $scope.count = {
-            instances: {
-                title: '云主机',
-                used: countData.totalInstancesUsed,
-                total: countData.maxTotalInstances,
-                unit: '个'
+    count_service.getCount();
 
-            },
-            cores: {
-                title: 'VCPUs',
-                used: countData.totalCoresUsed,
-                total: countData.maxTotalCores,
-                unit: '个'
-            },
-            ram: {
-                title: '内存',
-                used: countData.totalRAMUsed / 1024,
-                total: countData.maxTotalRAMSize / 1024,
-                unit: 'GB'
-            }
-        };
-
-    }, function (response) {
-        console.log(response);
-        // alert(response.data.error.message);
-    });
     $scope.changeConfig = function (flavorRef) { //进度条
         console.log(flavorRef);
         $scope.coresChangeProgress = flavorRef.vcpus; //vcpus
@@ -89,7 +58,7 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
                 $state.go("count.cloudComputer");
             }
         },function(response){
-            alert(response.data.forbidden.message);
+            alert(response.statusText);
         });
     };
    

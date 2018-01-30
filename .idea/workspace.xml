@@ -4,8 +4,26 @@
     <list default="true" id="40c216ed-e6f0-40dc-852c-d5788cd69ed5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addBackups.min.js" afterPath="$PROJECT_DIR$/dest/addBackups.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCouldDisk.min.js" afterPath="$PROJECT_DIR$/dest/addCouldDisk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/applyQuota.min.js" afterPath="$PROJECT_DIR$/dest/applyQuota.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js" afterPath="$PROJECT_DIR$/dest/backups.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js" afterPath="$PROJECT_DIR$/dest/common.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/couldDisk.min.js" afterPath="$PROJECT_DIR$/dest/couldDisk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js.map" afterPath="$PROJECT_DIR$/dest/main_common.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js.map" afterPath="$PROJECT_DIR$/dest/service.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/addCloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/addCloudComputer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/cloudComputer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main_common.js" afterPath="$PROJECT_DIR$/js/main_common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service.js" afterPath="$PROJECT_DIR$/js/service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cloudComputer.html" afterPath="$PROJECT_DIR$/views/cloudComputer.html" />
     </list>
     <ignored path="cloud.iws" />
@@ -34,17 +52,15 @@
     <favorites_list name="cloud" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7756687">
+    <splitter split-orientation="horizontal" split-proportion="0.555115">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
-                  <folding>
-                    <element signature="n#div#2;n#!!top" expanded="false" />
-                  </folding>
+                <state relative-caret-position="297">
+                  <caret line="133" column="126" selection-start-line="133" selection-start-column="126" selection-end-line="133" selection-end-column="126" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -52,7 +68,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="513">
+                <state relative-caret-position="3720">
                   <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
                   <folding />
                 </state>
@@ -62,8 +78,8 @@
           <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/common.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="569">
-                  <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+                <state relative-caret-position="195">
+                  <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -72,8 +88,8 @@
           <file leaf-file-name="main_common.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/main_common.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="254">
-                  <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+                <state relative-caret-position="180">
+                  <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#49#0" expanded="false" />
                   </folding>
@@ -88,10 +104,13 @@
           <file leaf-file-name="cloudComputer.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="797">
-                  <caret line="507" column="0" selection-start-line="507" selection-start-column="0" selection-end-line="507" selection-end-column="0" />
+                <state relative-caret-position="141">
+                  <caret line="368" column="52" selection-start-line="368" selection-start-column="52" selection-end-line="368" selection-end-column="52" />
                   <folding>
                     <element signature="e#0#48#0" expanded="false" />
+                    <element signature="e#479#749#0" expanded="false" />
+                    <element signature="e#775#1539#0" expanded="false" />
+                    <element signature="e#1566#1681#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -100,10 +119,23 @@
           <file leaf-file-name="addCloudComputer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="885">
-                  <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+                <state relative-caret-position="900">
+                  <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addCloudComputer.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2220">
+                  <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
                   <folding>
-                    <element signature="e#1574#3014#0" expanded="false" />
+                    <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#3;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -124,8 +156,8 @@
           <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/service.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1560">
-                  <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+                <state relative-caret-position="2130">
+                  <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -205,15 +237,15 @@
         <option value="$PROJECT_DIR$/js/config.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/js/main_common.js" />
         <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/controller/addCloudComputer.js" />
-        <option value="$PROJECT_DIR$/views/addCloudComputer.html" />
         <option value="$PROJECT_DIR$/js/factory.js" />
+        <option value="$PROJECT_DIR$/views/addCloudComputer.html" />
         <option value="$PROJECT_DIR$/js/service.js" />
-        <option value="$PROJECT_DIR$/js/controller/cloudComputer.js" />
+        <option value="$PROJECT_DIR$/js/main_common.js" />
+        <option value="$PROJECT_DIR$/js/controller/addCloudComputer.js" />
         <option value="$PROJECT_DIR$/views/cloudComputer.html" />
+        <option value="$PROJECT_DIR$/js/controller/cloudComputer.js" />
       </list>
     </option>
   </component>
@@ -235,10 +267,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="15" />
-    <option name="y" value="31" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="804" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -265,7 +296,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,6 +350,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -796,15 +827,16 @@
       <workItem from="1516755927422" duration="22894000" />
       <workItem from="1516842338701" duration="17421000" />
       <workItem from="1516930394950" duration="15516000" />
-      <workItem from="1517191146386" duration="10776000" />
+      <workItem from="1517191146386" duration="16716000" />
+      <workItem from="1517275385915" duration="11806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287803000" />
+    <option name="totallyTimeSpent" value="305549000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="31" width="1440" height="804" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="808" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -818,7 +850,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17095852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09799714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -863,13 +895,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dest/general.min.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dest/general.min.js">
@@ -1148,46 +1180,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" column="6" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
-          <folding>
-            <element signature="e#1574#3014#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="176" column="40" selection-start-line="176" selection-start-column="29" selection-end-line="176" selection-end-column="40" />
+        <state relative-caret-position="2220">
+          <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1199,28 +1195,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="3720">
           <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2130">
+          <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="133" column="126" selection-start-line="133" selection-start-column="126" selection-end-line="133" selection-end-column="126" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="507" column="0" selection-start-line="507" selection-start-column="0" selection-end-line="507" selection-end-column="0" />
+        <state relative-caret-position="141">
+          <caret line="368" column="52" selection-start-line="368" selection-start-column="52" selection-end-line="368" selection-end-column="52" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
-          <folding>
-            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="e#479#749#0" expanded="false" />
+            <element signature="e#775#1539#0" expanded="false" />
+            <element signature="e#1566#1681#0" expanded="false" />
           </folding>
         </state>
       </provider>

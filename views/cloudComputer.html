@@ -22,13 +22,13 @@
                     <h5>云主机</h5>
                 </div>
                 <div class="ibox-content">
-                    <div class="alert alert-danger" role="alert" ng-show="warn">
+                    <!--<div class="alert alert-danger" role="alert" ng-show="warn">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <div ng-repeat="item in warnText">
                             {{item}}
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -92,14 +92,15 @@
                                           title="方案详情:{{item.config.name}}"
                                     >{{item.config.name}}</span>
                                 </td>
-                                <td class="{{item.vm.state == 'stopped'?'text-danger':'text-info'}}">{{item.vm.text}}
+                                <td class="{{item.vm.state == 'stopped'?'text-danger':null}}">
+                                    <span>{{item.vm.text}}</span>
                                 </td>
                                 <td>
                                     <i ng-show="item.task.state != null"
                                        class="fa fa-refresh fa-spin fa-fw text-info"></i>
                                     {{item.task.text}}
                                 </td>
-                                <td class="{{item.power.state == 1 ?'text-info':'text-danger'}}">{{item.power.text}}
+                                <td class="{{item.power.state == 4 ?'text-danger':null}}">{{item.power.text}}
                                 </td>
                                 <td>
                                     <a ng-show="item.vnc" href="{{item.vnc}}" target="_blank" title="VNC">
@@ -118,16 +119,21 @@
                                           ng-show="item.vm.state == 'stopped'"
                                           data-toggle="modal"
                                           data-target="#reset_config"
-                                          ng-click="resetConfigInfo(item.config,item.diskConfig,item.id)"
+                                          ng-click="resetConfigInfo(item.config,item.diskConfig,item.id,key)"
                                     >调整配置<span>&nbsp;</span></span>
 
-                                    <span ng-show="item.task.state == null"
+                                    <span ng-show="item.task.state == null && item.vm.state != 'resized'"
                                             role="button"
                                           class="text-warning"
                                           data-toggle="modal"
                                           data-target="#reset_cloud_computer"
                                           ng-click="reconstruction(item.id,key)"
                                     >重建云主机</span>
+                                    <div ng-show="item.vm.state == 'resized'">
+                                        <button type="button" class="btn btn-xs btn-info" ng-click="confirmConfig(item.id,key)">确认调整</button>
+                                        <button type="button" class="btn btn-xs btn-danger" ng-click="returnConfig(item.id,key)">回退调整</button>
+                                    </div>
+
                                 </td>
                                 <td>
                                     <button ng-show="item.vm.state == 'stopped' && item.task.state == null"
@@ -144,10 +150,10 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <span role="button"
-                                          class="text-danger"
+                                    <button type="button"
+                                          class="btn btn-xs btn-danger"
                                           ng-click="deleteCloud(item.id,item.name,key)"
-                                    >删除主机</span>
+                                    >删除</button>
                                 </td>
                             </tr>
                             </tbody>
