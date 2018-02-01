@@ -83,7 +83,7 @@
 
                             <div class="checkbox" ng-repeat="(key,item) in net_work">
                                 <label ng-init="formData.net_work[key] = false">
-                                    <input icheck type="checkbox" ng-model="formData.net_work[key]" ng-change="changeNetworkMark()">
+                                    <input icheck type="checkbox" ng-model="formData.net_work[key]" ng-change="changeNetworkMark()" ng-required="!lessone(formData.net_work)">
                                     {{item.name}}
                                 </label>
                             </div>

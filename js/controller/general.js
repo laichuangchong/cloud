@@ -2,52 +2,9 @@
  * Created by chenzhongying on 2018/1/5.
  */
 
-private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','$q',function ($scope, $rootScope, $http,$q) {
+private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','$q','count_service',function ($scope, $rootScope, $http,$q,count_service) {
     $scope.get_used_network_promise = $q.defer();
-  
-
-    $http({   //计算和防火墙
-        url: '/api/nova_limits',
-        method: 'GET',
-        headers:$rootScope.headers
-    }).then(function (response) {
-        console.log(response.data.limits.absolute);
-        var countData = response.data.limits.absolute;
-        $scope.count = {
-            instances:{
-                title:'云主机',
-                used:countData.totalInstancesUsed,
-                total:countData.maxTotalInstances,
-                unit:'个'
-
-            },
-            cores:{
-                title:'VCPUs',
-                used:countData.totalCoresUsed,
-                total:countData.maxTotalCores,
-                unit:'个'
-            },
-            ram:{
-                title:'内存',
-                used:countData.totalRAMUsed/1024,
-                total:countData.maxTotalRAMSize/1024,
-                unit:'GB'
-            }
-        };
-        $scope.safe = {
-            security:{
-                title:'防火墙',
-                used:countData.totalSecurityGroupsUsed,
-                total:countData.maxSecurityGroups,
-                unit:'个'
-            }
-        };
-
-    },function(response){
-        console.log(response);
-        alert(response.data.error.message);
-    });
-
+    count_service.getCount(); //获取云主机防火墙信息
     $http({ //网络
         url: '/api/net_quotas',
         method: 'GET',

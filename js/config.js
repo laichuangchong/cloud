@@ -60,6 +60,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
         .state('count.cloudComputer', { //云主机
             url: "/computer",
+            cache:false,
             templateUrl: "views/cloudComputer.html",
             controller: 'cloudComputerController',
             resolve: {

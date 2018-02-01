@@ -95,7 +95,7 @@ private_cloud.service('less_one_service', function () { //至少选择一项
                     mark = true;
                 }
             });
-            if (mark) {
+            if (mark) { 
                 return true;
 
             } else {
@@ -107,38 +107,49 @@ private_cloud.service('less_one_service', function () { //至少选择一项
 private_cloud.service('count_service', ['$http','$rootScope', function ($http,$rootScope) { //计算和防火墙
         return {
             getCount: function () {
-                $http({
-                    url: '/api/nova_limits',
-                    method: 'GET',
-                    headers: $rootScope.headers
-                }).then(function (response) {
-                    console.log(response.data.limits.absolute);
-                    var countData = response.data.limits.absolute;
-                    $rootScope.count = {
-                        instances: {
-                            title: '云主机',
-                            used: countData.totalInstancesUsed,
-                            total: countData.maxTotalInstances,
-                            unit: '个'
+                $rootScope.token_promise.promise.then(function(){
+                    $http({
+                        url: '/api/nova_limits',
+                        method: 'GET',
+                        headers: $rootScope.headers
+                    }).then(function (response) {
+                        console.log(response.data.limits.absolute);
+                        var countData = response.data.limits.absolute;
+                        $rootScope.count = {
+                            instances: {
+                                title: '云主机',
+                                used: countData.totalInstancesUsed,
+                                total: countData.maxTotalInstances,
+                                unit: '个'
 
-                        },
-                        cores: {
-                            title: 'VCPUs',
-                            used: countData.totalCoresUsed,
-                            total: countData.maxTotalCores,
-                            unit: '个'
-                        },
-                        ram: {
-                            title: '内存',
-                            used: countData.totalRAMUsed / 1024,
-                            total: countData.maxTotalRAMSize / 1024,
-                            unit: 'GB'
-                        }
-                    };
+                            },
+                            cores: {
+                                title: 'VCPUs',
+                                used: countData.totalCoresUsed,
+                                total: countData.maxTotalCores,
+                                unit: '个'
+                            },
+                            ram: {
+                                title: '内存',
+                                used: countData.totalRAMUsed / 1024,
+                                total: countData.maxTotalRAMSize / 1024,
+                                unit: 'GB'
+                            }
+                        };
+                        $rootScope.safe = {
+                            security:{
+                                title:'防火墙',
+                                used:countData.totalSecurityGroupsUsed,
+                                total:countData.maxSecurityGroups,
+                                unit:'个'
+                            }
+                        };
 
-                }, function (response) {
-                    alert(response.statusText);
+                    }, function (response) {
+                        alert(response.statusText);
+                    });
                 });
+
             }
         };
     }]

@@ -22,13 +22,6 @@
                     <h5>云主机</h5>
                 </div>
                 <div class="ibox-content">
-                    <!--<div class="alert alert-danger" role="alert" ng-show="warn">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <div ng-repeat="item in warnText">
-                            {{item}}
-                        </div>
-                    </div>-->
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">
@@ -40,8 +33,11 @@
                         </div>
                         <!--  <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
                           <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>-->
-                        <a ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">
+                        <a ng-show="cloudHost.length != count.instances.total" ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">
                             <span class="fa fa-plus"></span>创建主机</a>
+                        <button ng-show="cloudHost.length == count.instances.total" disabled class="btn btn-primary btn-sm">
+                            <span class="fa fa-plus"></span>创建主机</button>
+                        <span class="text-warning" ng-show="cloudHost.length == count.instances.total">您的云主机数量达到上限，如需添加请先删除旧的云主机</span>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped" id="table">
@@ -67,8 +63,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in cloudHost" on-finish-render="ngRepeatFinished"
-                                ng-show="showCloud(item.name)">
+                            <tr class="{{(item.task.state != null || item.vm.state == 'resized') ? 'danger':''}}"
+                                ng-repeat="(key,item) in cloudHost"
+                                on-finish-render="ngRepeatFinished"
+                                ng-show="showCloud(item.name)"
+                            >
                                 <td ng-init="cloudHost[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="cloudHost[$index].check_status" ng-change="itemCheck()"/>
@@ -89,8 +88,8 @@
                                           tabindex="0"
                                           data-toggle="popover"
                                           data-trigger="focus"
-                                          title="方案详情:{{item.config.name}}"
-                                    >{{item.config.name}}</span>
+                                          title="方案详情:{{item.flavor.name}}"
+                                    >{{item.flavor.name}}</span>
                                 </td>
                                 <td class="{{item.vm.state == 'stopped'?'text-danger':null}}">
                                     <span>{{item.vm.text}}</span>
@@ -119,7 +118,7 @@
                                           ng-show="item.vm.state == 'stopped'"
                                           data-toggle="modal"
                                           data-target="#reset_config"
-                                          ng-click="resetConfigInfo(item.config,item.diskConfig,item.id,key)"
+                                          ng-click="resetConfigInfo(item,key)"
                                     >调整配置<span>&nbsp;</span></span>
 
                                     <span ng-show="item.task.state == null && item.vm.state != 'resized'"
@@ -190,15 +189,14 @@
                             <div class="form-group">
                                 <label>新的云主机类型 <span class="text-danger">*</span></label>
                                 <select name="newConfig" id="newConfig" class="form-control" ng-model="newConfig"
-                                        ng-change="changeConfig(newConfig)">
+                                        ng-change="changeConfig()">
                                     <option value="">--请选择--</option>
-                                    <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
+                                    <option ng-repeat="item in canSelectFlavors" ng-value="item">{{item.name}}</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>磁盘分区</label>
+                            <div class="form-group" ng-show="newConfig" ng-init="diskConfig = 'AUTO'">
+                                <label>磁盘分区<span class="text-danger">*</span></label>
                                 <select name="diskConfig" id="diskConfig" class="form-control" ng-model="diskConfig">
-                                    <option value="">--请选择--</option>
                                     <option value="AUTO">自动</option>
                                     <option value="MANUAL">手动</option>
                                 </select>
@@ -211,29 +209,29 @@
                             <theader>
                                 <tr>
                                     <th>名称</th>
-                                    <th>{{newConfig.name}}</th>
+                                    <th>{{showConfig.name}}</th>
                                 </tr>
                             </theader>
                             <tbody>
                             <tr>
                                 <td>VCPUs</td>
-                                <td>{{newConfig.vcpus}}个</td>
+                                <td>{{showConfig.vcpus}}个</td>
                             </tr>
                             <tr>
                                 <td>根磁盘</td>
-                                <td>{{newConfig.disk}}GB</td>
+                                <td>{{showConfig.disk}}GB</td>
                             </tr>
                             <tr>
                                 <td>临时磁盘</td>
-                                <td>{{newConfig.swap?newConfig.swap:0}}GB</td>
+                                <td>{{showConfig.swap?showConfig.swap:0}}GB</td>
                             </tr>
                             <tr>
                                 <td>所有磁盘</td>
-                                <td>{{newConfig.disk+newConfig.swap}}GB</td>
+                                <td>{{showConfig.disk+showConfig.swap}}GB</td>
                             </tr>
                             <tr>
                                 <td>内存</td>
-                                <td>{{newConfig.ram/1024}}GB</td>
+                                <td>{{showConfig.ram/1024}}GB</td>
                             </tr>
                             </tbody>
                         </table>

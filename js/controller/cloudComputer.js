@@ -1,8 +1,10 @@
 /**
  * Created by chenzhongying on 2018/1/5.
  */
-private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', 'count_service', function ($scope, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location, count_service) {
+private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', 'count_service', function ($scope, $state, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location, count_service) {
     $scope.url = $location.path();
+    count_service.getCount();//主要获取云主机总数
+    $scope.searchCloud = ''; //搜索内容
     $scope.warn = false;//警告框
     $scope.warnText = [];//警告文字
     $scope.vm_state = { //云主机状态
@@ -20,7 +22,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
     $scope.task_state = { //任务
         null: '无',
         building: '孵化',
-        image_snapshotting: '正在创建快找',
+        image_snapshotting: '正在创建快照',
         image_backingup: '备份',
         pausing: '暂停',
         unpausing: '暂停恢复',
@@ -43,7 +45,10 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         reboot_started_hard: '正在重启',
         rebuild_spawning: '重建孵化中',
         "powering-off": '正在关闭电源',
-        resize_finish:'已经重建'
+        resize_finish: '已经重建',
+        resize_reverting: '调整撤销中',
+        "resize_migrated": '调整配置完毕',
+        "resize_migrating": '正在调整配置'
     };
     $scope.power_state = { //电池状态
         0: '无',
@@ -54,8 +59,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         7: '挂起'
     };
     $scope.cloudHost = [];//云主机列表
-
-    function resetState(obj, data) { //开关机或新建时重置任务状态
+    function resetState(obj, data) { //更新数据
         obj.vm = { //云主机状态
             state: data['OS-EXT-STS:vm_state'],
             text: $scope.vm_state[data['OS-EXT-STS:vm_state']]
@@ -78,6 +82,22 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         });
     }
 
+    function reachFlover(obj) {  //查找配置
+        for (var i = 0; i < $rootScope.flavors.length; i++) {
+            if ($rootScope.flavors[i].id == obj.flavor.id) {
+                return $rootScope.flavors[i]; //配置
+            }
+        }
+    }
+
+    function reachFloverIndex(flavorId) {  //查找配置类型在数据中的位置
+        for (var i = 0; i < $rootScope.flavors.length; i++) {
+            if ($rootScope.flavors[i].id == flavorId) {
+                return i; //返回坐标
+            }
+        }
+    }
+
     $rootScope.images_promise.promise.then(function () { //获取镜像之后执行
         $http({
             url: "/api/list_servers/detail", //获取云主机列表
@@ -95,18 +115,11 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                         item.ipData.push(value);
                     });
                 });
-                // item.flavorId = value.flavor.id; //配置ID
-                angular.forEach($rootScope.flavors, function (flavor) {
-                    if (flavor.id == value.flavor.id) {
-                        item.config = flavor; //配置
-                    }
-                });
+                item.flavor = reachFlover(value); //配置类型
                 item.name = value.name; //云主机名称
                 item.id = value.id; //云主机id
                 var imageId = value.image.id; //镜像ID
                 resetState(item, value); //获取任务状态
-                item.diskConfig = value['OS-DCF:diskConfig']; //磁盘分区
-                console.log(item);
                 reachImage(item, imageId); //查找备份名称
 
                 if (value['OS-EXT-STS:task_state'] == null) {
@@ -129,6 +142,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }
 
                 $scope.cloudHost.push(item);
+
                 if (value['OS-EXT-STS:task_state'] != null) { //如果有任务正在执行那就要监听这个任务状态
                     $scope['intervalInit' + key] = $interval(function () {
                         $http({
@@ -138,20 +152,17 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                         }).then(function (success) {
                             console.log(success);
                             var data = success.data.server;
-                            resetState($scope.cloudHost[key], data);
-
+                            resetState($scope.cloudHost[key], data); //更新任务状态
+                            $scope.cloudHost[key].flavor = reachFlover(data); //更新配置
                             if (data['OS-EXT-STS:task_state'] == null) {
                                 $scope.cloudHost[key].ipData = []; //IP地址初始化
                                 $scope.cloudHost[key].vnc = ''; //vnc地址初始化
-
-                                console.log(data.addresses);
                                 angular.forEach(data.addresses, function (value) { //获取IP
                                     angular.forEach(value, function (value) {
                                         $scope.cloudHost[key].ipData.push(value);
                                         console.log($scope.cloudHost[key].ipData);
                                     });
                                 });
-                                console.log($scope.cloudHost[key].ipData);
                                 $interval.cancel($scope['intervalInit' + key]);
                                 $scope['intervalInit' + key] = null;
                                 $http({ //获取vnc地址
@@ -167,13 +178,13 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                                 }).then(function (response) {
                                     $scope.cloudHost[key].vnc = response.data.console.url;
                                 }, function (response) {
-                                    // alert(response.data.error.message);
+                                    alert(response.statusText);
                                 });
                             }
                         }, function (error) {
-
+                            alert(error.statusText);
                         });
-                    }, 2000);
+                    }, 1000);
                 }
                 $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
                     //you also get the actual event object
@@ -184,16 +195,16 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                         '<tbody>' +
                         '<tr>' +
                         '<td width="100px">VCPUs</td>' +
-                        '<td width="100px">' + item.config.vcpus +
+                        '<td width="100px">' + item.flavor.vcpus +
                         '</td>' +
                         '</tr>' +
                         '<tr>' +
                         '<td>内存</td>' +
-                        '<td>' + item.config.ram / 1024 + '</td>' +
+                        '<td>' + item.flavor.ram / 1024 + '</td>' +
                         '</tr>' +
                         '<tr>' +
                         '<td>大小</td>' +
-                        '<td>' + item.config.disk + '</td>' +
+                        '<td>' + item.flavor.disk + '</td>' +
                         '</tr>' +
                         '</tbody>' +
                         '</table>'
@@ -201,10 +212,8 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 });
             });
         }, function (response) {
-             alert(response.statusText);
+            alert(response.statusText);
         });
-
-    }, function () {
 
     });
 
@@ -220,8 +229,8 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     alert('操作成功');
                     $scope.cloudHost.splice(index, 1);
                 }
-            }, function () {
-                alert('操作失败请重试');
+            }, function (response) {
+                alert(response.statusText);
             });
         }
 
@@ -256,14 +265,13 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     }, function (error) {
                         alert(error.statusText);
                     });
-                }, 2000);
+                }, 1000);
             }
         }, function (response) {
             alert(response.statusText);
         });
     };
     $scope.all_check = false; //全选按钮状态
-    console.log($scope.all_check);
     $scope.allCheck = function (status) { //父选项
         all_check_service.allCheck(status, $scope.cloudHost);
     };
@@ -271,18 +279,22 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         all_check_service.itemCheck($scope, $scope.cloudHost);
     };
 
-    $scope.changeConfig = function (newConfig) { //进度条
-        $scope.coresChangeProgress = newConfig.vcpus - $scope.oldConfig.vcpus;
-        $scope.ramChangeProgress = newConfig.ram / 1024 - $scope.oldConfig.ram / 1024;
+    $scope.changeConfig = function () { //进度条
+        $scope.coresChangeProgress = $scope.newConfig.vcpus - $scope.oldConfig.vcpus;
+        $scope.ramChangeProgress = $scope.newConfig.ram / 1024 - $scope.oldConfig.ram / 1024;
+        $scope.showConfig = $scope.newConfig;
     };
-    $scope.resetConfigInfo = function (config, diskConfig, cloudId, key) { //调整配置弹框
-        $scope.newConfig = config;//初始化新云主机类型
-        $scope.diskConfig = diskConfig;//当前操作磁盘分区
-        $scope.cloudId = cloudId;//当前操作云主机Id
-        $scope.oldConfig = config; //旧配置类型
-        $scope.key = key;
-        console.log($scope.newConfig);
-        count_service.getCount();
+    $scope.resetConfigInfo = function (info, key) { //调整配置弹框
+        $scope.newConfig = ''; //初始化云主机类型选择项
+        $scope.coresChangeProgress = 0; //初始化进度条
+        $scope.ramChangeProgress = 0; //初始化进度条
+        $scope.canSelectFlavors = angular.copy($rootScope.flavors); //深拷贝云主机类型
+        $scope.canSelectFlavors.splice(reachFloverIndex(info.flavor.id), 1); //除去现在的配置类型方便用户选择
+        $scope.showConfig = info.flavor;//初始化方案详情表格
+        $scope.cloudId = info.id;//当前操作云主机Id
+        $scope.oldConfig = info.flavor; //旧配置类型
+        $scope.key = key; //获取当前操作的index
+        count_service.getCount(); //获取最新的云主机使用情况
     };
     $scope.submitConfig = function () { //修改配置提交
         console.log($scope.cloudId);
@@ -302,6 +314,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         }).then(function (response) {
             console.log(response);
             $('#reset_config').modal('hide');
+
             $scope.intervalConfig = $interval(function () { //提交调整配置后监听状态
                 $http({
                     url: '/api/list_servers/' + $scope.cloudId,
@@ -310,8 +323,8 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }).then(function (success) {
                     console.log(success);
                     var data = success.data.server;
-                    resetState($scope.cloudHost[$scope.key], data);
-
+                    resetState($scope.cloudHost[$scope.key], data);//更新任务状态
+                    $scope.cloudHost[$scope.key].flavor = reachFlover(data); //更新配置
                     if (data['OS-EXT-STS:task_state'] == null) {
                         $interval.cancel($scope.intervalConfig);
                         $scope.intervalConfig = null;
@@ -319,14 +332,14 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }, function (error) {
                     alert(error.statusText);
                 });
-            }, 2000);
+            }, 1000);
 
         }, function (response) {
             alert(response.statusText);
         });
 
     };
-    $scope.confirmConfig = function (cloudId,key) { //确认迁移
+    $scope.confirmConfig = function (cloudId, key) { //确认迁移
         $http({
             url: '/api/server_action/' + cloudId,
             method: 'POST',
@@ -336,8 +349,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
             }
         }).then(function (response) {
             console.log(response);
-            $window.location.reload();
-            /*$scope.intervalConfirmConfig = $interval(function () {
+            $scope.intervalConfirmConfig = $interval(function () {
                 $http({
                     url: '/api/list_servers/' + cloudId,
                     method: 'GET',
@@ -346,37 +358,31 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     console.log(success);
                     var data = success.data.server;
                     resetState($scope.cloudHost[key], data);
-                    angular.forEach($rootScope.flavors, function (flavor) {
-                        if (flavor.id == data.flavor.id) {
-                            $scope.cloudHost[key].config = flavor; //配置
-                        }
-                    });
-
-                     if (data['OS-EXT-STS:task_state'] == null) {
-                     $interval.cancel($scope.intervalConfirmConfig);
-                     $scope.intervalConfirmConfig = null;
-                     }
+                    if (data['OS-EXT-STS:vm_state'] == "stopped") {
+                        $interval.cancel($scope.intervalConfirmConfig);
+                        $scope.intervalConfirmConfig = null;
+                        $state.go('count.cloudComputer', {}, {reload: true});
+                    }
                 }, function (error) {
                     alert(error.statusText);
                 });
-            }, 2000);*/
-
+            }, 1000);
         }, function (response) {
             alert(response.statusText);
         });
     };
 
-    $scope.returnConfig = function(cloudId){  //回退配置
+    $scope.returnConfig = function (cloudId, key) {  //回退配置
         $http({
             url: '/api/server_action/' + cloudId,
             method: 'POST',
             headers: $rootScope.headers,
             data: {
-                "revertResize" : null
+                "revertResize": null
             }
         }).then(function (response) {
             console.log(response);
-            $window.location.reload();
+            $state.go('count.cloudComputer', {}, {reload: true});
         }, function (response) {
             alert(response.statusText);
         });
@@ -421,14 +427,14 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                     }, function (error) {
                         alert(error.statusText);
                     });
-                }, 2000);
+                }, 1000);
             }
         }, function (response) {
             alert(response.statusText);
         });
     };
-    $scope.searchCloud = '';
-    $scope.showCloud = function (cloud_name) {
+
+    $scope.showCloud = function (cloud_name) { //根据搜索内容显示隐藏
         if ($scope.searchCloud) {
             if (cloud_name.indexOf($scope.searchCloud) != -1) {
                 return true;
@@ -440,8 +446,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
         }
     };
 
-
-    $scope.toggleComputer = function (status, cloudId, key, name) {
+    $scope.toggleComputer = function (status, cloudId, key, name) { //开关机切换
         var keystr = "os-" + status;
         var json = {};
         json[keystr] = null;
@@ -468,15 +473,9 @@ private_cloud.controller('cloudComputerController', ['$scope', '$sce', '$rootSco
                 }, function (error) {
                     alert(error.statusText);
                 });
-            }, 2000);
+            }, 1000);
         }, function (error) {
             alert(error.statusText);
-            /* console.log(error);
-             $scope.warn = true;
-             $scope.warnText.push('错误' + error.status + ' 云主机：' + name + '操作失败');*/
         });
-
     };
-
-
 }]);

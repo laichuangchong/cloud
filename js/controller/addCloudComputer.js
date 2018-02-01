@@ -63,8 +63,11 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
     };
    
     $scope.changeNetworkMark = function(){ //标示有无操作
+
         $scope.changeNetwork = true;
+        console.log($scope.changeNetwork);
     };
+    
     $scope.lessone = function(data){
         return less_one_service.change(data);
 

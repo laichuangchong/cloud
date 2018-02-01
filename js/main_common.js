@@ -1,10 +1,11 @@
 /**
  * Created by chenzhongying on 2018/1/18.
  */
-private_cloud.run(['$rootScope','$q','$http','tokenService',function($rootScope,$q,$http,tokenService){ //测试获取token
+private_cloud.run(['$rootScope','$q','$http','tokenService','count_service',function($rootScope,$q,$http,tokenService,count_service){ //测试获取token
     tokenService.getToken(localStorage.getItem('username'), localStorage.getItem('password'));
     // $rootScope.network_promise = $q.defer();
     $rootScope.images_promise = $q.defer();
+    $rootScope.flavors_promise = $q.defer();
     $rootScope.net_work = {};//网络类型名称
     $rootScope.token_promise.promise.then(function (token) {
         $rootScope.headers = {
@@ -31,6 +32,7 @@ private_cloud.run(['$rootScope','$q','$http','tokenService',function($rootScope,
         }).then(function (response) {
             console.log(response);
             $rootScope.flavors = response.data.flavors;
+            $rootScope.flavors_promise.resolve();
         }, function (response) {
             alert(response.data.error.message);
         });
