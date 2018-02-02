@@ -107,7 +107,6 @@ private_cloud.service('less_one_service', function () { //至少选择一项
 private_cloud.service('count_service', ['$http','$rootScope', function ($http,$rootScope) { //计算和防火墙
         return {
             getCount: function () {
-                $rootScope.token_promise.promise.then(function(){
                     $http({
                         url: '/api/nova_limits',
                         method: 'GET',
@@ -148,8 +147,42 @@ private_cloud.service('count_service', ['$http','$rootScope', function ($http,$r
                     }, function (response) {
                         alert(response.statusText);
                     });
+            }
+        };
+    }]
+);
+private_cloud.service('cloud_service', ['$http','$rootScope', function ($http,$rootScope) { //云主机
+        return {
+            getCloud: function () {
+                $http({
+                    url: "/api/list_servers/detail", //获取云主机列表
+                    method: 'GET',
+                    headers: $rootScope.headers
+                }).then(function (response) {
+                    console.log(response);
+                    alert('promise');
+                    $rootScope.cloud_promise.resolve(response);
+                },function(response){
+                    alert(response.statusText);
                 });
-
+            }
+        };
+    }]
+);
+private_cloud.service('images_service', ['$http','$rootScope', function ($http,$rootScope) { //镜像
+        return {
+            getImages: function () { //获取镜像
+                $http({ 
+                    url: "/api/list_images",
+                    method: 'GET',
+                    headers: $rootScope.headers
+                }).then(function (response) {
+                    console.log(response.data.images);
+                    // $rootScope.images = response.data.images;//所有镜像列表
+                    $rootScope.images_promise.resolve(response);
+                }, function (response) {
+                    alert(response.data.error.message);
+                });
             }
         };
     }]

@@ -1,17 +1,14 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>备份</h2>
+        <h2>云硬盘</h2>
         <ol class="breadcrumb">
             <li>
-                <span>计算</span>
+                <span>存储</span>
             </li>
             <li class="active">
-                <strong>备份</strong>
+                <strong>云硬盘</strong>
             </li>
         </ol>
-    </div>
-    <div class="col-lg-2">
-
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -20,12 +17,11 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>备份</h5>
-
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_backup">
-                            <span class="fa fa-camera"></span> 创建备份
+                        <div class="btn btn-primary btn-sm">
+                            <span class="fa fa-plus"></span> 创建云硬盘
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -38,32 +34,34 @@
                                            ng-change="allCheck(all_check)"
                                     />
                                 </th>
-                                <th>备份名称</th>
-                                <th>云主机名称</th>
+                                <th>名称</th>
                                 <th>大小</th>
+                                <th>状态</th>
+                                <th>连接到</th>
                                 <th>创建时间</th>
+                                <th>编辑</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in backups">
-                                <td ng-init="hostList[$index].check_status = false">
+                            <tr ng-repeat="(key,item) in disks">
+                                <td ng-init="disks[$index].check_status = false">
                                     <input icheck type="checkbox"
-                                           ng-model="hostList[$index].check_status"
+                                           ng-model="disks[$index].check_status"
                                            ng-change="itemCheck()"/>
                                 </td>
-                                <td><a href="javascript:;">{{item.name}}</a></td>
-                                <td>{{item.cloudName}}</td>
-                                <td ng-show="item['OS-EXT-IMG-SIZE:size']/1024/1024/1024 > 1 || item['OS-EXT-IMG-SIZE:size']/1024/1024/1024 == 1">
-                                    {{item['OS-EXT-IMG-SIZE:size']/1024/1024/1024 | number:2}} GB
-                                </td>
-                                <td ng-show="item['OS-EXT-IMG-SIZE:size']/1024/1024/1024 < 1">
-                                    {{item['OS-EXT-IMG-SIZE:size']/1024/1024 | number:2}} MB
-                                </td>
-                                <td>{{item.created}}</td>
+                                <td><a href="javascript:;">{{item.displayName}}</a></td>
+                                <td>{{item.size}}GB</td>
+
+                                <td>{{diskStatus[item.status]}}</td>
+                                <td>{{item.attachments.serverId}}</td>
+                                <td>{{item.createdAt}}</td>
                                 <td>
-                                    <a ui-sref="count.addCloudComputer({imageid:item.id})" class="btn btn-xs btn-info">恢复备份</a>
-                                    <botton class="btn btn-xs btn-danger" ng-click="deleteBase(item.name,item.id,key)">
+                                    <button class="btn btn-xs btn-info" type="button">编辑挂载</button>
+                                </td>
+                                <td>
+                                    <botton class="btn btn-xs btn-danger" type="button"
+                                            ng-click="deleteDisk(item.name,item.id,key)">
                                         删除
                                     </botton>
                                 </td>
@@ -127,7 +125,8 @@
                     <button type="submit"
                             class="btn btn-primary"
                             ng-disabled="$form.$invalid"
-                    >保存</button>
+                    >保存
+                    </button>
                 </div>
             </form>
 

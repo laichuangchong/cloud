@@ -37,7 +37,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/general.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
@@ -49,7 +49,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/applyQuota.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
@@ -67,19 +67,20 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/cloudComputer.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
         .state('count.addCloudComputer', { //添加云主机
-            url: "/computer/add",
+            url: "/computer/add?imageid",
+            cache:false,
             templateUrl: "views/addCloudComputer.html",
             controller: 'addCloudComputerController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/addCloudComputer.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
@@ -91,7 +92,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/cloudComputerDetail.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
@@ -103,7 +104,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/backups.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
@@ -115,31 +116,36 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/addBackups.min.js'
-                    ])
+                    ]);
                 }]
             }
         })
+        .state('storage', { //存储
+            abstract: true,
+            url: "/storage",
+            templateUrl: "views/common/content.html",
+        })
         .state('storage.couldDisk', { //云硬盘
             url: "/disk",
-            templateUrl: "views/couldDisk.html",
-            controller: 'couldDiskController',
+            templateUrl: "views/cloudDisk.html",
+            controller: 'cloudDiskController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'dest/couldDisk.min.js'
-                    ])
+                        'dest/cloudDisk.min.js'
+                    ]);
                 }]
             }
         })
         .state('storage.addCouldDisk', { //创建云硬盘
             url: "/disk/add",
-            templateUrl: "views/addCouldDisk.html",
-            controller: 'addCouldDiskController',
+            templateUrl: "views/addCloudDisk.html",
+            controller: 'addCloudDiskController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'dest/addCouldDisk.min.js'
-                    ])
+                        'dest/addCloudDisk.min.js'
+                    ]);
                 }]
             }
         })

@@ -9,11 +9,7 @@ private_cloud.controller('ngLoginController', ['$scope', 'tokenService', '$rootS
             tokenService.getToken($scope.userName, $scope.password);
         };
         $rootScope.token_promise.promise.then(function (token) {
-            $rootScope.headers = {
-                'X-Auth-Token':token,
-                'Accept': 'application/json'
-            };
-            console.log('重新获取成功'+token);
+           
             window.location.href = '/';
         }, function (info) {
             console.log(info);

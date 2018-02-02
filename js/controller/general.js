@@ -49,7 +49,7 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
     $scope.get_used_network_promise.promise.then(function(){
        angular.forEach($scope.network,function(value,key){
            console.log(key);
-           $http({ //已使用存储
+           $http({         //已使用存储
                url: '/api/net_'+key,
                method: 'GET',
                headers:$rootScope.headers

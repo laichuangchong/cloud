@@ -1,7 +1,7 @@
 /**
  * Created by chenzhongying on 2018/1/5.
  */
-private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', 'count_service', function ($scope, $state, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location, count_service) {
+private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', 'count_service','images_service', function ($scope, $state, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location, count_service,images_service) {
     $scope.url = $location.path();
     count_service.getCount();//主要获取云主机总数
     $scope.searchCloud = ''; //搜索内容
@@ -75,7 +75,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce',
     }
 
     function reachImage(obj, imageId) { //查找镜像名称
-        angular.forEach($rootScope.images, function (value, key) {
+        angular.forEach($scope.images, function (value, key) {
             if (imageId == value.id) {
                 obj.imageName = value.name; //镜像名称
             }
@@ -97,8 +97,9 @@ private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce',
             }
         }
     }
-
-    $rootScope.images_promise.promise.then(function () { //获取镜像之后执行
+    images_service.getImages();
+    $rootScope.images_promise.promise.then(function (response) { //获取镜像之后执行
+        $scope.images = response.data.images;
         $http({
             url: "/api/list_servers/detail", //获取云主机列表
             method: 'GET',
@@ -280,9 +281,15 @@ private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce',
     };
 
     $scope.changeConfig = function () { //进度条
-        $scope.coresChangeProgress = $scope.newConfig.vcpus - $scope.oldConfig.vcpus;
-        $scope.ramChangeProgress = $scope.newConfig.ram / 1024 - $scope.oldConfig.ram / 1024;
-        $scope.showConfig = $scope.newConfig;
+        if($scope.newConfig){
+            $scope.coresChangeProgress = $scope.newConfig.vcpus - $scope.oldConfig.vcpus;
+            $scope.ramChangeProgress = $scope.newConfig.ram / 1024 - $scope.oldConfig.ram / 1024;
+            $scope.showConfig = $scope.newConfig;
+        }else{
+            $scope.showConfig = $scope.oldConfig;
+            $scope.coresChangeProgress = 0;
+            $scope.ramChangeProgress = 0;
+        }
     };
     $scope.resetConfigInfo = function (info, key) { //调整配置弹框
         $scope.newConfig = ''; //初始化云主机类型选择项

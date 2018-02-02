@@ -1,14 +1,21 @@
 /**
  * Created by chenzhongying on 2018/1/11.
  */
-private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state','less_one_service','count_service',function($scope,$rootScope,$http,$state,less_one_service,count_service){
+private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$http','$state','less_one_service','count_service','images_service',function($scope,$rootScope,$http,$state,less_one_service,count_service,images_service){
 
     $scope.formData = { //创建云主机数据
         computerCount:1,
-        net_work : []
+        net_work : [],
+        security:true
     };
+    if($state.params.imageid){ //如果是备份页面来的就指定镜像名称
+        $scope.formData.imageRef = $state.params.imageid;
+    }
     count_service.getCount();
-
+    images_service.getImages(); //获取镜像
+    $rootScope.images_promise.promise.then(function(response){
+        $scope.images = response.data.images;
+    });
     $scope.changeConfig = function (flavorRef) { //进度条
         console.log(flavorRef);
         $scope.coresChangeProgress = flavorRef.vcpus; //vcpus

@@ -3,7 +3,10 @@
         <h2>添加云主机</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">计算</a>
+                <span>计算</span>
+            </li>
+            <li class="active">
+                <a ui-sref="count.cloudComputer">云主机</a>
             </li>
             <li class="active">
                 <strong>添加云主机</strong>
@@ -11,6 +14,7 @@
         </ol>
     </div>
 </div>
+{{formData}}
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="ibox">
         <div class="ibox-content">
@@ -98,6 +102,7 @@
                                     class="form-control"
                                     ng-model="formData.imageRef"
                                     required
+                                    ng-disabled="$state.params.imageid"
                                     >
                                 <option value="">--请选择--</option>
                                 <option ng-repeat="item in images" ng-value="item.id">{{item.name}}</option>

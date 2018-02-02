@@ -1,9 +1,9 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>概况</h2>
+        <h2>云主机</h2>
         <ol class="breadcrumb">
             <li>
-                计算
+                <span>计算</span>
             </li>
             <li class="active">
                 <strong>云主机</strong>
@@ -33,10 +33,13 @@
                         </div>
                         <!--  <botton class="btn btn-primary btn-sm" ng-click="globalToggle('start')">开机</botton>
                           <botton class="btn btn-primary btn-sm" ng-click="globalToggle('stop')"><span class="fa fa-power-off"></span>关机</botton>-->
-                        <a ng-show="cloudHost.length != count.instances.total" ui-sref="count.addCloudComputer" class="btn btn-primary btn-sm">
+                        <a ng-show="cloudHost.length != count.instances.total" ui-sref="count.addCloudComputer"
+                           class="btn btn-primary btn-sm">
                             <span class="fa fa-plus"></span>创建主机</a>
-                        <button ng-show="cloudHost.length == count.instances.total" disabled class="btn btn-primary btn-sm">
-                            <span class="fa fa-plus"></span>创建主机</button>
+                        <button ng-show="cloudHost.length == count.instances.total" disabled
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-plus"></span>创建主机
+                        </button>
                         <span class="text-warning" ng-show="cloudHost.length == count.instances.total">您的云主机数量达到上限，如需添加请先删除旧的云主机</span>
                     </div>
                     <div class="table-responsive">
@@ -107,7 +110,7 @@
                                         </span>
                                     </a>
                                     &nbsp;
-                                    <a href="javascript:void(0);"  title="restart"
+                                    <a href="javascript:void(0);" title="restart"
                                        ng-click="restartComputer(item.id,key)">
                                         <span class="fa fa-undo"></span>
                                     </a>
@@ -122,15 +125,19 @@
                                     >调整配置<span>&nbsp;</span></span>
 
                                     <span ng-show="item.task.state == null && item.vm.state != 'resized'"
-                                            role="button"
+                                          role="button"
                                           class="text-warning"
                                           data-toggle="modal"
                                           data-target="#reset_cloud_computer"
                                           ng-click="reconstruction(item.id,key)"
                                     >重建云主机</span>
                                     <div ng-show="item.vm.state == 'resized'">
-                                        <button type="button" class="btn btn-xs btn-info" ng-click="confirmConfig(item.id,key)">确认调整</button>
-                                        <button type="button" class="btn btn-xs btn-danger" ng-click="returnConfig(item.id,key)">回退调整</button>
+                                        <button type="button" class="btn btn-xs btn-info"
+                                                ng-click="confirmConfig(item.id,key)">确认调整
+                                        </button>
+                                        <button type="button" class="btn btn-xs btn-danger"
+                                                ng-click="returnConfig(item.id,key)">回退调整
+                                        </button>
                                     </div>
 
                                 </td>
@@ -150,9 +157,10 @@
                                 </td>
                                 <td>
                                     <button type="button"
-                                          class="btn btn-xs btn-danger"
-                                          ng-click="deleteCloud(item.id,item.name,key)"
-                                    >删除</button>
+                                            class="btn btn-xs btn-danger"
+                                            ng-click="deleteCloud(item.id,item.name,key)"
+                                    >删除
+                                    </button>
                                 </td>
                             </tr>
                             </tbody>
@@ -170,15 +178,16 @@
      aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">调整配置</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <form role="form">
+            <form role="form" name="$formConfig" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">调整配置</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+
                             <div class="form-group">
                                 <label>旧的云主机类型</label>
                                 <input type="text" disabled
@@ -188,11 +197,21 @@
                             </div>
                             <div class="form-group">
                                 <label>新的云主机类型 <span class="text-danger">*</span></label>
-                                <select name="newConfig" id="newConfig" class="form-control" ng-model="newConfig"
-                                        ng-change="changeConfig()">
+                                <select name="newConfig"
+                                        id="newConfig"
+                                        class="form-control"
+                                        ng-model="newConfig"
+                                        ng-change="changeConfig()"
+                                        ng-required="true"
+                                >
                                     <option value="">--请选择--</option>
                                     <option ng-repeat="item in canSelectFlavors" ng-value="item">{{item.name}}</option>
                                 </select>
+
+                                <div class="text-danger"
+                                     ng-show="$formConfig.newConfig.$dirty && $formConfig.newConfig.$invalid">
+                                    <small ng-show="$formConfig.newConfig.$error.required">请选择云主机类型</small>
+                                </div>
                             </div>
                             <div class="form-group" ng-show="newConfig" ng-init="diskConfig = 'AUTO'">
                                 <label>磁盘分区<span class="text-danger">*</span></label>
@@ -201,76 +220,79 @@
                                     <option value="MANUAL">手动</option>
                                 </select>
                             </div>
-                        </form>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="h5">方案详情</div>
-                        <table class="table table-bordered table-striped">
-                            <theader>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="h5">方案详情</div>
+                            <table class="table table-bordered table-striped">
+                                <theader>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>{{showConfig.name}}</th>
+                                    </tr>
+                                </theader>
+                                <tbody>
                                 <tr>
-                                    <th>名称</th>
-                                    <th>{{showConfig.name}}</th>
+                                    <td>VCPUs</td>
+                                    <td>{{showConfig.vcpus}}个</td>
                                 </tr>
-                            </theader>
-                            <tbody>
-                            <tr>
-                                <td>VCPUs</td>
-                                <td>{{showConfig.vcpus}}个</td>
-                            </tr>
-                            <tr>
-                                <td>根磁盘</td>
-                                <td>{{showConfig.disk}}GB</td>
-                            </tr>
-                            <tr>
-                                <td>临时磁盘</td>
-                                <td>{{showConfig.swap?showConfig.swap:0}}GB</td>
-                            </tr>
-                            <tr>
-                                <td>所有磁盘</td>
-                                <td>{{showConfig.disk+showConfig.swap}}GB</td>
-                            </tr>
-                            <tr>
-                                <td>内存</td>
-                                <td>{{showConfig.ram/1024}}GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="h5">项目限制</div>
-                        <div ng-repeat="(key,item) in count">
-                            <div class="h6">{{item.title}}数量
-                                <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}}
-                                    已使用
-                                </small>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success"
-                                     style="width: {{item.used/item.total*100}}%">
-                                    <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
+                                <tr>
+                                    <td>根磁盘</td>
+                                    <td>{{showConfig.disk}}GB</td>
+                                </tr>
+                                <tr>
+                                    <td>临时磁盘</td>
+                                    <td>{{showConfig.swap?showConfig.swap:0}}GB</td>
+                                </tr>
+                                <tr>
+                                    <td>所有磁盘</td>
+                                    <td>{{showConfig.disk+showConfig.swap}}GB</td>
+                                </tr>
+                                <tr>
+                                    <td>内存</td>
+                                    <td>{{showConfig.ram/1024}}GB</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="h5">项目限制</div>
+                            <div ng-repeat="(key,item) in count">
+                                <div class="h6">{{item.title}}数量
+                                    <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}}
+                                        已使用
+                                    </small>
                                 </div>
-                                <div ng-if="key == 'cores'"
-                                     class="progress-bar progress-bar-warning progress-bar-striped"
-                                     style="width:{{coresChangeProgress/item.total*100}}%">
-                                    <span class="sr-only"> Complete (warning)</span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success"
+                                         style="width: {{item.used/item.total*100}}%">
+                                        <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
+                                    </div>
+                                    <div ng-if="key == 'cores'"
+                                         class="progress-bar progress-bar-warning progress-bar-striped"
+                                         style="width:{{coresChangeProgress/item.total*100}}%">
+                                        <span class="sr-only"> Complete (warning)</span>
+                                    </div>
+                                    <div ng-if="key == 'ram'"
+                                         class="progress-bar progress-bar-warning progress-bar-striped"
+                                         style="width:{{ramChangeProgress/item.total*100}}%">
+                                        <span class="sr-only"> Complete (warning)</span>
+                                    </div>
+                                    <!-- <div ng-if="key == 'cores'" class="progress-bar progress-bar-danger" style="width:width:{{coresChangeProgress/item.total*100}}% ">
+                                         <span class="sr-only"> Complete (danger)</span>
+                                     </div>
+                                     <div ng-if="key == 'ram'" class="progress-bar progress-bar-danger" style="width:width:{{ramChangeProgress/item.total*100}}% ">
+                                         <span class="sr-only"> Complete (danger)</span>
+                                     </div>-->
                                 </div>
-                                <div ng-if="key == 'ram'" class="progress-bar progress-bar-warning progress-bar-striped"
-                                     style="width:{{ramChangeProgress/item.total*100}}%">
-                                    <span class="sr-only"> Complete (warning)</span>
-                                </div>
-                                <!-- <div ng-if="key == 'cores'" class="progress-bar progress-bar-danger" style="width:width:{{coresChangeProgress/item.total*100}}% ">
-                                     <span class="sr-only"> Complete (danger)</span>
-                                 </div>
-                                 <div ng-if="key == 'ram'" class="progress-bar progress-bar-danger" style="width:width:{{ramChangeProgress/item.total*100}}% ">
-                                     <span class="sr-only"> Complete (danger)</span>
-                                 </div>-->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" ng-click="submitConfig()">保存</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="submitConfig()"
+                            ng-disabled="$formConfig.$invalid">保存
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -280,6 +302,8 @@
      aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+            <form role="form" name="$formResetCloud" novalidate>
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -290,23 +314,37 @@
                 <div class="tip text-warning">选择镜像以重建你的云主机</div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <form role="form">
                             <div class="form-group">
+
                                 <label>选择一个镜像 <span class="text-danger">*</span></label>
-                                <select name="selectImage" id="selectImage" class="form-control" ng-model="selectImage">
+                                <select name="selectImage"
+                                        id="selectImage"
+                                        class="form-control"
+                                        ng-model="selectImage"
+                                        ng-required="true"
+                                >
                                     <option value="">--请选择--</option>
                                     <option ng-repeat="item in images" value="{{item.id}}">{{item.name}}</option>
                                 </select>
+                                <div class="text-danger"
+                                     ng-show="$formResetCloud.selectImage.$dirty && $formResetCloud.selectImage.$invalid">
+                                    <small ng-show="$formResetCloud.selectImage.$error.required">请选择云主机类型</small>
+                                </div>
                             </div>
-                        </form>
                     </div>
                     <div class="col-sm-6"></div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" ng-click="submitResetCloudComputer()">保存</button>
+                <button type="button"
+                        class="btn btn-primary"
+                        ng-click="submitResetCloudComputer()"
+                        ng-disabled="$formResetCloud.$invalid"
+                >保存</button>
             </div>
+            </form>
+
         </div>
     </div>
 </div>
