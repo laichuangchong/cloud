@@ -5,7 +5,6 @@ private_cloud.controller('backupsController', ['$scope', '$state','$rootScope','
     $scope.backups = [];//备份列表
     cloud_service.getCloud();
     $rootScope.cloud_promise.promise.then(function(response){
-        alert('cloud-backup');
         console.log(response);
         $scope.clouds = response.data.servers;
         $http({

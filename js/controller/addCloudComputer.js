@@ -11,9 +11,10 @@ private_cloud.controller('addCloudComputerController',['$scope','$rootScope','$h
     if($state.params.imageid){ //如果是备份页面来的就指定镜像名称
         $scope.formData.imageRef = $state.params.imageid;
     }
-    count_service.getCount();
+    count_service.getCount();//更新云主机信息
     images_service.getImages(); //获取镜像
     $rootScope.images_promise.promise.then(function(response){
+        console.log(response);
         $scope.images = response.data.images;
     });
     $scope.changeConfig = function (flavorRef) { //进度条

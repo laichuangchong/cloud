@@ -108,18 +108,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
-        .state('count.addBackups', { //创建备份
-            url: "/backups/add",
-            templateUrl: "views/addBackups.html",
-            controller: 'addBackupsController',
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        'dest/addBackups.min.js'
-                    ]);
-                }]
-            }
-        })
+
         .state('storage', { //存储
             abstract: true,
             url: "/storage",

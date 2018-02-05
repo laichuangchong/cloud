@@ -104,9 +104,10 @@ private_cloud.service('less_one_service', function () { //至少选择一项
         }
     };
 });
-private_cloud.service('count_service', ['$http','$rootScope', function ($http,$rootScope) { //计算和防火墙
+private_cloud.service('count_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //计算和防火墙
         return {
             getCount: function () {
+                $rootScope.count_promise = $q.defer();
                     $http({
                         url: '/api/nova_limits',
                         method: 'GET',
@@ -114,36 +115,38 @@ private_cloud.service('count_service', ['$http','$rootScope', function ($http,$r
                     }).then(function (response) {
                         console.log(response.data.limits.absolute);
                         var countData = response.data.limits.absolute;
-                        $rootScope.count = {
-                            instances: {
-                                title: '云主机',
-                                used: countData.totalInstancesUsed,
-                                total: countData.maxTotalInstances,
-                                unit: '个'
+                        var data = {
+                            count:{
+                                instances: {
+                                    title: '云主机',
+                                    used: countData.totalInstancesUsed,
+                                    total: countData.maxTotalInstances,
+                                    unit: '个'
 
+                                },
+                                cores: {
+                                    title: 'VCPUs',
+                                    used: countData.totalCoresUsed,
+                                    total: countData.maxTotalCores,
+                                    unit: '个'
+                                },
+                                ram: {
+                                    title: '内存',
+                                    used: countData.totalRAMUsed / 1024,
+                                    total: countData.maxTotalRAMSize / 1024,
+                                    unit: 'GB'
+                                }
                             },
-                            cores: {
-                                title: 'VCPUs',
-                                used: countData.totalCoresUsed,
-                                total: countData.maxTotalCores,
-                                unit: '个'
-                            },
-                            ram: {
-                                title: '内存',
-                                used: countData.totalRAMUsed / 1024,
-                                total: countData.maxTotalRAMSize / 1024,
-                                unit: 'GB'
+                            safe : {
+                                security: {
+                                    title: '防火墙',
+                                    used: countData.totalSecurityGroupsUsed,
+                                    total: countData.maxSecurityGroups,
+                                    unit: '个'
+                                }
                             }
                         };
-                        $rootScope.safe = {
-                            security:{
-                                title:'防火墙',
-                                used:countData.totalSecurityGroupsUsed,
-                                total:countData.maxSecurityGroups,
-                                unit:'个'
-                            }
-                        };
-
+                        $rootScope.count_promise.resolve(data);
                     }, function (response) {
                         alert(response.statusText);
                     });
@@ -151,16 +154,16 @@ private_cloud.service('count_service', ['$http','$rootScope', function ($http,$r
         };
     }]
 );
-private_cloud.service('cloud_service', ['$http','$rootScope', function ($http,$rootScope) { //云主机
+
+private_cloud.service('cloud_service', ['$http','$rootScope', '$q',function ($http,$rootScope,$q) { //云主机
         return {
             getCloud: function () {
+                $rootScope.cloud_promise = $q.defer();
                 $http({
                     url: "/api/list_servers/detail", //获取云主机列表
                     method: 'GET',
                     headers: $rootScope.headers
                 }).then(function (response) {
-                    console.log(response);
-                    alert('promise');
                     $rootScope.cloud_promise.resolve(response);
                 },function(response){
                     alert(response.statusText);
@@ -169,18 +172,51 @@ private_cloud.service('cloud_service', ['$http','$rootScope', function ($http,$r
         };
     }]
 );
-private_cloud.service('images_service', ['$http','$rootScope', function ($http,$rootScope) { //镜像
+private_cloud.service('images_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //镜像
         return {
             getImages: function () { //获取镜像
-                $http({ 
+                $rootScope.images_promise = $q.defer(); //获取镜像
+                $http({
                     url: "/api/list_images",
                     method: 'GET',
                     headers: $rootScope.headers
                 }).then(function (response) {
                     console.log(response.data.images);
-                    // $rootScope.images = response.data.images;//所有镜像列表
                     $rootScope.images_promise.resolve(response);
                 }, function (response) {
+                    alert(response.data.error.message);
+                });
+            }
+        };
+    }]
+);
+private_cloud.service('volume_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //镜像
+        return {
+            getVolume: function () { //获取云硬盘相关信息
+                $rootScope.volume_promise = $q.defer(); //获取镜像
+                $http({ //云硬盘
+                    url:"/api/volume_limits/"+localStorage.getItem('project_id'),
+                    method: 'GET',
+                    headers:$rootScope.headers
+                }).then(function(response){
+                    console.log(response.data.limits.absolute);
+                    var storageData = response.data.limits.absolute;
+                    var storage = {
+                        volumes:{
+                            title:'云硬盘',
+                            used:storageData.totalVolumesUsed,
+                            total:storageData.maxTotalVolumes,
+                            unit:'个'
+                        },
+                        gigabytes:{
+                            title:'云硬盘容量',
+                            used:storageData.totalGigabytesUsed,
+                            total:storageData.maxTotalVolumeGigabytes,
+                            unit:'GB'
+                        }
+                    };
+                    $rootScope.volume_promise.resolve(storage);
+                },function(response){
                     alert(response.data.error.message);
                 });
             }

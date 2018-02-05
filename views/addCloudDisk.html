@@ -1,1 +1,99 @@
-<div>fdsafdas</div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>创建云硬盘</h2>
+        <ol class="breadcrumb">
+            <li>
+                <span>计算</span>
+            </li>
+            <li class="active">
+                <a ui-sref="storage.couldDisk">云硬盘</a>
+            </li>
+            <li class="active">
+                <strong>创建云硬盘</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+        <div class="ibox-content">
+            <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>云硬盘名称<span class="text-danger">*</span></label>
+                            <input type="text"
+                                   value=""
+                                   ng-model="formData.name"
+                                   class="form-control"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label>描述</label>
+                                <textarea name=""
+                                          id=""
+                                          cols="30"
+                                          rows="10"
+                                          class="form-control"
+                                          ng-model="formData.description"
+                                >
+
+                                </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>大小（GB）<span class="text-danger">*</span></label>
+                            <input type="number"
+                                   class="form-control"
+                                   ng-model="formData.size"
+                                   name="size"
+                                   required="true"
+                                   ng-pattern="/^\+?[1-9]\d*$/"
+                                   placeholder="大于0的正整数"
+
+                            >
+                            <div class="text-danger" ng-show="$form.size.$invalid">
+                                <small ng-show="$form.size.$error.pattern">请输入大于0的正整数</small>
+                                <small ng-show="$form.size.$error.required">请输入云硬盘大小</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="tip text-warning">云硬盘是可以连接到云主机的块存储设备</div>
+                        <div class="h5">云硬盘限度</div>
+                        <div ng-repeat="(key,item) in storage">
+                            <div class="h6">{{item.title}}
+                                <small class="pull-right">{{item.total}}{{item.unit}} 中的 {{item.used}}{{item.unit}}
+                                    已使用
+                                </small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success"
+                                     style="width: {{item.used/item.total*100}}%">
+                                    <span class="sr-only">{{item.used/item.total*100}}% Complete (success)</span>
+                                </div>
+                                <div ng-if="key == 'volumes'"
+                                     class="progress-bar progress-bar-warning progress-bar-striped"
+                                     style="width:{{1/item.total*100}}%">
+                                    <span class="sr-only"> Complete (warning)</span>
+                                </div>
+                                <div ng-if="key == 'gigabytes'"
+                                     class="progress-bar progress-bar-warning progress-bar-striped"
+                                     style="width:{{(formData.size)/item.total*100}}%">
+                                    <span class="sr-only"> Complete (warning)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <a ui-sref="storage.couldDisk" class="btn btn-white">返回云硬盘列表</a>
+                    <button class="btn btn-primary" type="submit" ng-disabled="$form.$invalid">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

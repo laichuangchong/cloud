@@ -2,9 +2,19 @@
  * Created by chenzhongying on 2018/1/5.
  */
 
-private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','$q','count_service',function ($scope, $rootScope, $http,$q,count_service) {
+private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','$q','count_service','volume_service',function ($scope, $rootScope, $http,$q,count_service,volume_service) {
     $scope.get_used_network_promise = $q.defer();
     count_service.getCount(); //获取云主机防火墙信息
+    $rootScope.count_promise.promise.then(function(data){
+        console.log(data);
+        $scope.count = data.count;
+        $scope.safe = data.safe;
+    });
+    volume_service.getVolume(); //获取云主机防火墙信息
+    $rootScope.volume_promise.promise.then(function(data){
+        console.log(data);
+        $scope.storage = data;
+    });
     $http({ //网络
         url: '/api/net_quotas',
         method: 'GET',
@@ -63,29 +73,5 @@ private_cloud.controller('generalController', ['$scope', '$rootScope', '$http','
            });
        });
 
-    });
-    $http({
-        url:"/api/volume_limits/"+localStorage.getItem('project_id'),
-        method: 'GET',
-        headers:$rootScope.headers
-    }).then(function(response){
-        console.log(response.data.limits.absolute);
-        var storageData = response.data.limits.absolute;
-        $scope.storage = {
-            volumes:{
-                title:'云硬盘',
-                used:storageData.totalVolumesUsed,
-                total:storageData.maxTotalVolumes,
-                unit:'个'
-            },
-            gigabytes:{
-                title:'云硬盘容量',
-                used:storageData.totalGigabytesUsed,
-                total:storageData.maxTotalVolumeGigabytes,
-                unit:'GB'
-            }
-        };
-    },function(response){
-        alert(response.data.error.message);
     });
 }]);

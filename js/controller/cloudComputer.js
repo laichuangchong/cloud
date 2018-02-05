@@ -3,7 +3,11 @@
  */
 private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce', '$rootScope', '$http', 'all_check_service', '$q', '$timeout', '$window', '$interval', '$location', 'count_service','images_service', function ($scope, $state, $sce, $rootScope, $http, all_check_service, $q, $timeout, $window, $interval, $location, count_service,images_service) {
     $scope.url = $location.path();
-    count_service.getCount();//主要获取云主机总数
+    count_service.getCount();//主要获取云主机、vcpus等相关信息
+    $rootScope.count_promise.promise.then(function(data){
+        console.log(data);
+        $scope.count = data.count;
+    });
     $scope.searchCloud = ''; //搜索内容
     $scope.warn = false;//警告框
     $scope.warnText = [];//警告文字
@@ -48,7 +52,9 @@ private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce',
         resize_finish: '已经重建',
         resize_reverting: '调整撤销中',
         "resize_migrated": '调整配置完毕',
-        "resize_migrating": '正在调整配置'
+        "resize_migrating": '正在调整配置',
+        "image_uploading":'镜像上传中',
+        "image_pending_upload":'等待上传镜像'
     };
     $scope.power_state = { //电池状态
         0: '无',
@@ -99,6 +105,7 @@ private_cloud.controller('cloudComputerController', ['$scope', '$state', '$sce',
     }
     images_service.getImages();
     $rootScope.images_promise.promise.then(function (response) { //获取镜像之后执行
+        console.log(response.data.images);
         $scope.images = response.data.images;
         $http({
             url: "/api/list_servers/detail", //获取云主机列表

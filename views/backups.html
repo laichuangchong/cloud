@@ -42,6 +42,7 @@
                                 <th>云主机名称</th>
                                 <th>大小</th>
                                 <th>创建时间</th>
+                                <th>恢复备份</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -63,6 +64,8 @@
                                 <td>{{item.created}}</td>
                                 <td>
                                     <a ui-sref="count.addCloudComputer({imageid:item.id})" class="btn btn-xs btn-info">恢复备份</a>
+                                </td>
+                                <td>
                                     <botton class="btn btn-xs btn-danger" ng-click="deleteBase(item.name,item.id,key)">
                                         删除
                                     </botton>
@@ -127,7 +130,8 @@
                     <button type="submit"
                             class="btn btn-primary"
                             ng-disabled="$form.$invalid"
-                    >保存</button>
+                    >保存
+                    </button>
                 </div>
             </form>
 
