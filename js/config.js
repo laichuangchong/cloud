@@ -139,6 +139,35 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        .state('security', { // 安全
+            abstract: true,
+            url: "/security",
+            templateUrl: "views/common/content.html",
+        })
+        .state('security.wall', { //防火墙
+            url: "/wall",
+            templateUrl: "views/wall.html",
+            controller: 'wallController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/wall.min.js'
+                    ]);
+                }]
+            }
+        })
+        .state('security.rule', { //防火墙
+            url: "/wall/rule?id",
+            templateUrl: "views/wallRule.html",
+            controller: 'wallRuleController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/wallRule.min.js'
+                    ]);
+                }]
+            }
+        })
         .state('dashboards', {
             abstract: true,
             url: "/dashboards",

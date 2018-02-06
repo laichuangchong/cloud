@@ -1,0 +1,122 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>安全</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>防火墙</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>备份</h5>
+
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_wall">
+                            <span class="fa fa-plus"></span> 创建防火墙
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <input icheck type="checkbox"
+                                           ng-model="all_check"
+                                           ng-change="allCheck(all_check)"
+                                    />
+                                </th>
+                                <th>名称</th>
+                                <th>描述</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="(key,item) in walls">
+                                <td ng-init="hostList[$index].check_status = false">
+                                    <input icheck type="checkbox"
+                                           ng-model="hostList[$index].check_status"
+                                           ng-change="itemCheck()"/>
+                                </td>
+                                <td><a href="javascript:;">{{item.name}}</a></td>
+                                <td>{{item.description}}</td>
+                                <td>
+                                    <a ui-sref="security.rule({id:item.id})" class="btn btn-xs btn-info" >
+                                        管理规则
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--创建防火墙-->
+<div class="modal fade" id="creat_wall" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">创建备份</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="tip text-warning">镜像保存运行中云主机的磁盘状态</div>
+                        <div class="form-group">
+                            <label>选择一个实例<span class="text-danger">*</span></label>
+                            <select name="selectCloud"
+                                    id="selectCloud"
+                                    class="form-control"
+                                    ng-model="selectCloud"
+                                    required
+                            >
+                                <option value="">--请选择--</option>
+                                {{clouds}}
+                                <option ng-repeat="item in clouds" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <div class="text-danger"
+                                 ng-show="$form.selectCloud.$dirty && $form.selectCloud.$invalid">
+                                <small ng-show="$form.selectCloud.$error.required">请选择云主机类型</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>备份名称<span class="text-danger">*</span></label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-required="true"
+                                   name="backupName"
+                                   ng-model="backupName"
+                            />
+                            <div class="text-danger"
+                                 ng-show="$form.backupName.$dirty && $form.backupName.$invalid">
+                                <small ng-show="$form.backupName.$error.required">请选择云主机类型</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            ng-disabled="$form.$invalid"
+                    >保存
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

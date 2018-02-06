@@ -45,6 +45,12 @@
                     <li ui-sref-active="active"><a ui-sref="storage.couldDisk">云硬盘</a></li>
                 </ul>
             </li>
+            <li ng-class="{active: $state.includes('security')}">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">安全</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('security')}">
+                    <li ui-sref-active="active"><a ui-sref="security.wall">防火墙</a></li>
+                </ul>
+            </li>
             <li ng-class="{active: $state.includes('dashboards')}">
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" ng-class="{in: $state.includes('dashboards')}">
