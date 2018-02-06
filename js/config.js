@@ -116,6 +116,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
         .state('storage.couldDisk', { //云硬盘
             url: "/disk",
+            cache:false,
             templateUrl: "views/cloudDisk.html",
             controller: 'cloudDiskController',
             resolve: {

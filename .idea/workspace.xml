@@ -2,44 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c216ed-e6f0-40dc-852c-d5788cd69ed5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controller/addCloudDisk.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dest/addBackups.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dest/addBackups.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dest/addCouldDisk.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dest/addCouldDisk.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/controller/addBackups.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/controller/addCouldDisk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/addBackups.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudDisk.min.js" afterPath="$PROJECT_DIR$/dest/addCloudDisk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudDisk.min.js.map" afterPath="$PROJECT_DIR$/dest/addCloudDisk.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/applyQuota.min.js" afterPath="$PROJECT_DIR$/dest/applyQuota.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js" afterPath="$PROJECT_DIR$/dest/backups.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js.map" afterPath="$PROJECT_DIR$/dest/backups.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js" afterPath="$PROJECT_DIR$/dest/common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js.map" afterPath="$PROJECT_DIR$/dest/common.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js.map" afterPath="$PROJECT_DIR$/dest/general.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js.map" afterPath="$PROJECT_DIR$/dest/service.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/config.js" afterPath="$PROJECT_DIR$/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/addCloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/addCloudComputer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/backups.js" afterPath="$PROJECT_DIR$/js/controller/backups.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudComputer.js" afterPath="$PROJECT_DIR$/js/controller/cloudComputer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/addCloudDisk.js" afterPath="$PROJECT_DIR$/js/controller/addCloudDisk.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudDisk.js" afterPath="$PROJECT_DIR$/js/controller/cloudDisk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/general.js" afterPath="$PROJECT_DIR$/js/controller/general.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service.js" afterPath="$PROJECT_DIR$/js/service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addCloudComputer.html" afterPath="$PROJECT_DIR$/views/addCloudComputer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addCloudDisk.html" afterPath="$PROJECT_DIR$/views/addCloudDisk.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/backups.html" afterPath="$PROJECT_DIR$/views/backups.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cloudDisk.html" afterPath="$PROJECT_DIR$/views/cloudDisk.html" />
     </list>
     <ignored path="cloud.iws" />
@@ -68,105 +49,135 @@
     <favorites_list name="cloud" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="60" column="35" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="35" />
-              <folding>
-                <element signature="e#2605#3045#0" expanded="false" />
-                <element signature="e#3091#3513#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloudDisk.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addCloudDisk.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controller/addCloudDisk.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="101" column="89" selection-start-line="100" selection-start-column="35" selection-end-line="101" selection-end-column="89" />
-              <folding>
-                <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addCloudDisk.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/addCloudDisk.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="91" column="49" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="49" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloudDisk.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/cloudDisk.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="58" column="86" selection-start-line="58" selection-start-column="86" selection-end-line="58" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addCloudComputer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="181" column="51" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="51" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloudComputer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="271" column="25" selection-start-line="268" selection-start-column="24" selection-end-line="271" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#48#0" expanded="false" />
-                <element signature="e#743#1013#0" expanded="false" />
-                <element signature="e#2017#2132#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.56302524">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/config.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="116" column="33" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#2605#3045#0" expanded="false" />
+                    <element signature="e#3091#3513#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cloudDisk.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/cloudDisk.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+                  <folding>
+                    <element signature="n#div#2;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addCloudComputer.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2670">
+                  <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
+                  <folding>
+                    <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cloudComputer.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="122" column="69" selection-start-line="121" selection-start-column="42" selection-end-line="122" selection-end-column="69" />
+                  <folding>
+                    <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cloudComputer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="329" column="36" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#0#48#0" expanded="false" />
+                    <element signature="e#743#1013#0" expanded="false" />
+                    <element signature="e#1039#1990#0" expanded="false" />
+                    <element signature="e#2017#2132#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addCloudComputer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="186">
+                  <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="backups.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="46" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="cloudDisk.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#1241#1336#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/service.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="378">
+                  <caret line="160" column="40" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="40" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addCloudDisk.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/controller/addCloudDisk.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="420">
+                  <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -226,18 +237,18 @@
         <option value="$PROJECT_DIR$/views/cloudComputer.html" />
         <option value="$PROJECT_DIR$/views/backups.html" />
         <option value="$PROJECT_DIR$/js/controller/addCouldDisk.js" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/views/addBackups.html" />
-        <option value="$PROJECT_DIR$/js/config.js" />
         <option value="$PROJECT_DIR$/js/main_common.js" />
         <option value="$PROJECT_DIR$/js/controller/cloudComputer.js" />
         <option value="$PROJECT_DIR$/js/service.js" />
         <option value="$PROJECT_DIR$/js/controller/general.js" />
         <option value="$PROJECT_DIR$/views/addCloudDisk.html" />
         <option value="$PROJECT_DIR$/views/addCloudComputer.html" />
-        <option value="$PROJECT_DIR$/views/cloudDisk.html" />
         <option value="$PROJECT_DIR$/js/controller/addCloudDisk.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/js/config.js" />
         <option value="$PROJECT_DIR$/js/controller/cloudDisk.js" />
+        <option value="$PROJECT_DIR$/views/cloudDisk.html" />
       </list>
     </option>
   </component>
@@ -262,7 +273,6 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
     <option name="y" value="34" />
     <option name="width" value="1440" />
     <option name="height" value="796" />
@@ -292,8 +302,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,7 +382,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -860,15 +870,16 @@
       <workItem from="1517446899815" duration="22325000" />
       <workItem from="1517533361316" duration="9108000" />
       <workItem from="1517793188255" duration="6778000" />
-      <workItem from="1517801681172" duration="12233000" />
+      <workItem from="1517801681172" duration="12267000" />
+      <workItem from="1517879676385" duration="14514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374882000" />
+    <option name="totallyTimeSpent" value="389430000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="34" width="1440" height="796" extended-state="0" />
+    <frame x="0" y="34" width="1440" height="796" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -882,7 +893,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19384836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14878398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -928,7 +939,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/controller/addCloudDisk.js</url>
           <line>7</line>
-          <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -937,13 +947,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/bootstrap/ui-bootstrap-tpls-0.11.0.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/bootstrap/angular-bootstrap-checkbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1118,14 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1134,29 +1129,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dest/addCouldDisk.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dest/addCouldDisk.min.js" />
     <entry file="file://$PROJECT_DIR$/dest/addCloudComputer.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1164,37 +1141,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="sourcemapFileViewerProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dest/addBackups.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/addBackups.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/addBackups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dest/addBackups.min.js" />
+    <entry file="file://$PROJECT_DIR$/views/addBackups.html" />
+    <entry file="file://$PROJECT_DIR$/js/controller/addBackups.js" />
     <entry file="file://$PROJECT_DIR$/views/backups.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1215,7 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,10 +1191,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/addCloudDisk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="91" column="49" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dest/addCloudDisk.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="160" column="40" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="181" column="51" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="51" />
+        <state relative-caret-position="2670">
+          <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#div#4;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1248,10 +1248,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="122" column="69" selection-start-line="121" selection-start-column="42" selection-end-line="122" selection-end-column="69" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="35" />
+        <state relative-caret-position="270">
+          <caret line="116" column="33" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="33" />
           <folding>
             <element signature="e#2605#3045#0" expanded="false" />
             <element signature="e#3091#3513#0" expanded="false" />
@@ -1259,78 +1271,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/cloudComputer.html">
+    <entry file="file://$PROJECT_DIR$/js/controller/addCloudDisk.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="101" column="89" selection-start-line="100" selection-start-column="35" selection-end-line="101" selection-end-column="89" />
-          <folding>
-            <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="199" column="46" selection-start-line="198" selection-start-column="20" selection-end-line="199" selection-end-column="46" />
+        <state relative-caret-position="186">
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/cloudComputer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="271" column="25" selection-start-line="268" selection-start-column="24" selection-end-line="271" selection-end-column="25" />
+        <state relative-caret-position="208">
+          <caret line="329" column="36" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="36" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
             <element signature="e#743#1013#0" expanded="false" />
+            <element signature="e#1039#1990#0" expanded="false" />
             <element signature="e#2017#2132#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+          <folding>
+            <element signature="e#1241#1336#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/cloudDisk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" column="86" selection-start-line="58" selection-start-column="86" selection-end-line="58" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/addCloudDisk.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="91" column="49" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="49" />
+        <state relative-caret-position="405">
+          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/addCloudDisk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>

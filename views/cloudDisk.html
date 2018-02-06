@@ -20,9 +20,13 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <a class="btn btn-primary btn-sm" ui-sref="storage.addCouldDisk">
+                        <a class="btn btn-primary btn-sm" ui-sref="storage.addCouldDisk" ng-hide="(volumesUsedPercent == 1) || (gigabytesUsedPercent == 1)">
                             <span class="fa fa-plus"></span> 创建云硬盘
                         </a>
+                        <button class="btn btn-primary btn-sm" disabled ng-show="(volumesUsedPercent == 1) || (gigabytesUsedPercent == 1)">
+                            <span class="fa fa-plus"></span> 创建云硬盘
+                        </button>
+                        <span class="tip text-warning" ng-show="(volumesUsedPercent == 1) || (gigabytesUsedPercent == 1)">您的云硬盘数量达到上限，如需添加请先删除旧的云硬盘</span>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -44,8 +48,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in disks">
+
+                            <tr ng-repeat="(key,item) in disks" class="{{((item.status != 'in-use') && (item.status !='available') && (item.status !='error')) ? 'danger':''}}">
                                 <td ng-init="disks[$index].check_status = false">
+
                                     <input icheck type="checkbox"
                                            ng-model="disks[$index].check_status"
                                            ng-change="itemCheck()"/>
@@ -54,22 +60,35 @@
                                 <td>{{item.size}}GB</td>
 
                                 <td>
-                                    {{item.status}}
                                     <i ng-show="(item.status != 'in-use') && (item.status !='available') && (item.status !='error')"
                                         class="fa fa-refresh fa-spin fa-fw text-info">
                                     </i>
                                     {{diskStatus[item.status]}}</td>
-                                <td>{{item.attachments.serverId}}</td>
+                                <td>
+                                    <span ng-show="item.status == 'in-use'">在设备/dev/vdc上连接到 {{item.cloud.name}}</span>
+                                </td>
                                 <td>{{item.createdAt}}</td>
                                 <td>
                                     <button class="btn btn-xs btn-info"
                                             type="button"
-                                            ng-click="editInuse(item.id)"
+                                            ng-show="item.status == 'available'"
+                                            data-toggle="modal"
+                                            data-target="#link_cloud"
+                                            ng-click="showModalLinkCloud(item.id)"
                                     >编辑挂载</button>
+                                    <button class="btn btn-xs btn-warning"
+                                            type="button"
+                                            ng-show="item.status == 'in-use'"
+                                            data-toggle="modal"
+                                            data-target="#cut_link"
+                                            ng-click="showModalCutCloud(item.cloud.id,item.id,item.displayName)"
+                                    >断开挂载</button>
                                 </td>
                                 <td>
                                     <botton class="btn btn-xs btn-danger" type="button"
-                                            ng-click="deleteDisk(item.name,item.id,key)">
+                                            ng-click="deleteDisk(item.displayName,item.id,key)"
+                                            ng-show="(item.status == 'available') || (item.status == 'error')"
+                                    >
                                         删除
                                     </botton>
                                 </td>
@@ -79,6 +98,93 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<!--编辑挂载-->
+<div class="modal fade" id="link_cloud" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <form role="form" name="$formLinkCloud" novalidate ng-submit="formSubmit('$formLinkCloud')">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">连接到云主机</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>连接到云主机<span class="text-danger">*</span></label>
+                        <select name="selectCloud"
+                                id="selectCloud"
+                                class="form-control"
+                                ng-model="selectCloud"
+                                ng-required="true"
+                        >
+                            <option value="">--请选择--</option>
+                            <option ng-repeat="item in clouds" value="{{item.id}}">{{item.name}} ({{item.id}})</option>
+                        </select>
+                        <div class="text-danger"
+                             ng-show="$formLinkCloud.selectCloud.$dirty && $formLinkCloud.selectCloud.$invalid">
+                            <small ng-show="$formLinkCloud.selectCloud.$error.required">请选择云主机类型</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            ng-disabled="$formLinkCloud.$invalid"
+                    >保存</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!--断开挂载-->
+<div class="modal fade" id="cut_link" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <form role="form" name="$formCutCloud" novalidate ng-submit="formSubmit('$formCutCloud')">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">断开云主机</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>云硬盘</label>
+                        <div>{{diskName}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label>连接的云主机</label>
+                        <select name="linkedCloud"
+                                class="form-control"
+                                ng-model="linkedCloud"
+                                ng-required="true"
+                                disabled
+                        >
+                            <option value="">--请选择--</option>
+                            <option ng-repeat="item in clouds" value="{{item.id}}">{{item.name}} ({{item.id}})</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>设备</label>
+                        <div>/dev/vdc</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary"
+                    >断开</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

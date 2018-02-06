@@ -2,7 +2,7 @@
  * Created by chenzhongying on 2018/1/16.
  */
 private_cloud.controller('addCloudDiskController', ['$scope', '$rootScope', 'volume_service', '$http','$state', function ($scope, $rootScope, volume_service, $http,$state) {
-    volume_service.getVolume(); //获取云主机防火墙信息
+    volume_service.getVolume(); //获取云硬盘相关信息
     $rootScope.volume_promise.promise.then(function (data) {
         console.log(data);
         $scope.storage = data;
@@ -13,7 +13,7 @@ private_cloud.controller('addCloudDiskController', ['$scope', '$rootScope', 'vol
     };
     $scope.formSubmit = function ($event) {
         $http({
-            url: ' /api/list_volumes/',
+            url: '/api/list_volumes/',
             method: 'POST',
             headers: $rootScope.headers,
             data: {
