@@ -127,6 +127,19 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        .state('storage.couldDiskDetail', { //云硬盘详情页
+            url: "/disk/detail?id",
+            cache:false,
+            templateUrl: "views/cloudDiskDetail.html",
+            controller: 'cloudDiskDetailController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/cloudDiskDetail.min.js'
+                    ]);
+                }]
+            }
+        })
         .state('storage.addCouldDisk', { //创建云硬盘
             url: "/disk/add",
             templateUrl: "views/addCloudDisk.html",

@@ -56,7 +56,7 @@
                                            ng-model="disks[$index].check_status"
                                            ng-change="itemCheck()"/>
                                 </td>
-                                <td><a href="javascript:;">{{item.displayName}}</a></td>
+                                <td><a ui-sref="storage.couldDiskDetail({id:item.id})">{{item.displayName}}</a></td>
                                 <td>{{item.size}}GB</td>
 
                                 <td>
@@ -65,7 +65,8 @@
                                     </i>
                                     {{diskStatus[item.status]}}</td>
                                 <td>
-                                    <span ng-show="item.status == 'in-use'">在设备/dev/vdc上连接到 {{item.cloud.name}}</span>
+                                    <span ng-show="item.status == 'in-use'">在设备{{item.attachments[0].device}}上连接到 <a
+                                            ui-sref="count.cloudComputerDetail({id:item.cloud.id})" target="_blank">{{item.cloud.name}}</a></span>
                                 </td>
                                 <td>{{item.createdAt}}</td>
                                 <td>

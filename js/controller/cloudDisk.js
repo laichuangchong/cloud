@@ -3,15 +3,7 @@
  */
 private_cloud.controller('cloudDiskController',['$scope','$rootScope','$http','cloud_service','$interval','volume_service',
     '$state','$timeout',function($scope,$rootScope,$http,cloud_service,$interval,volume_service,$state,$timeout){
-    $scope.diskStatus = {
-        "in-use":'已挂载',
-        available:'可用',
-        creating:'正在创建',
-        deleting:'删除中',
-        detaching:'分离中',
-        attaching:'连接中',
-        error:'错误'
-    };
+    
 
     function searchCloud(clouds,key,odj){ //查看绑定云主机名称
         angular.forEach(clouds,function(cloudValue){
@@ -27,6 +19,7 @@ private_cloud.controller('cloudDiskController',['$scope','$rootScope','$http','c
         $scope.volumesUsedPercent =  data.volumes.used/data.volumes.total;
         $scope.gigabytesUsedPercent =  data.gigabytes.used/data.gigabytes.total;
     });
+        
     cloud_service.getCloud(); //获取云主机信息
     $rootScope.cloud_promise.promise.then(function (response) {
         console.log(response);

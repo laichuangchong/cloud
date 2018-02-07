@@ -29,6 +29,7 @@ module.exports = function (grunt) {
                     'dest/cloudComputerDetail.min.js': 'js/controller/cloudComputerDetail.js',
                     'dest/addCloudComputer.min.js': 'js/controller/addCloudComputer.js',
                     'dest/cloudDisk.min.js': 'js/controller/cloudDisk.js',
+                    'dest/cloudDiskDetail.min.js': 'js/controller/cloudDiskDetail.js',
                     'dest/addCloudDisk.min.js': 'js/controller/addCloudDisk.js',
                     'dest/wall.min.js': 'js/controller/wall.js',
                     'dest/wallRule.min.js': 'js/controller/wallRule.js',

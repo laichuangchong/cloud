@@ -3,7 +3,7 @@
  */
 private_cloud.controller('wallController',['$rootScope','$scope','$http',function($rootScope,$scope,$http){
     $http({
-        url:' /api/list_security',
+        url:' /api/list_segroups',
         headers:$rootScope.headers
     }).then(function(response){
         console.log(response);
@@ -11,4 +11,20 @@ private_cloud.controller('wallController',['$rootScope','$scope','$http',functio
     },function(response){
         alert(response.statusText);
     });
+    $scope.formData = {};//初始化表单数据
+    $scope.formSubmit = function(){ //创建防火墙
+        $http({
+            url:' /api/list_segroups',
+            method:'POST',
+            headers:$rootScope.headers,
+            data:{
+                name:$scope.formData.wallName,
+                description:$scope.formData.description
+            }
+        }).then(function(response){
+            console.log(response);
+        },function(response){
+            alert(response.statusText);
+        });
+    };
 }]);

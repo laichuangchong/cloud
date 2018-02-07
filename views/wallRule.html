@@ -1,10 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>安全</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="security.wall">防火墙</a>
+            </li>
+            <li class="active">
+                <strong>{{1212}}防火墙规则</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>{{name}}防火墙规则</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_wall">
+                            <span class="fa fa-plus"></span> 添加规则
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <input icheck type="checkbox"
+                                           ng-model="all_check"
+                                           ng-change="allCheck(all_check)"
+                                    />
+                                </th>
+                                <th>方向</th>
+                                <th>输入类型</th>
+                                <th>IP协议</th>
+                                <th>端口范围</th>
+                                <th>远程</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="(key,item) in rules">
+                                <td ng-init="hostList[$index].check_status = false">
+                                    <input icheck type="checkbox"
+                                           ng-model="hostList[$index].check_status"
+                                           ng-change="itemCheck()"/>
+                                </td>
+                                <td><a href="javascript:;">{{item.name}}</a></td>
+                                <td>{{item.description}}</td>
+                                <td>
+                                    <botton class="btn btn-xs btn-danger">
+                                        删除
+                                    </botton>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--创建规则-->
+<div class="modal fade" id="creat_wall" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">创建规则</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                       <div class="col-sm-6">
+                           <div class="form-group">
+                               <label>规则<span class="text-danger">*</span></label>
+                               <select name="flavorRef"
+                                       id="flavorRef"
+                                       class="form-control"
+                                       ng-init="flavorRef = ''"
+                                       ng-model="formData.flavorRef"
+                                       ng-change="changeConfig(formData.flavorRef)"
+                                       required
+                               >
+                                   <option value="">--请选择--</option>
+                                   <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
+                               </select>
 
-</body>
-</html>
+
+                           </div>
+                       </div>
+                       <div class="col-sm-6">
+                           <div class="h5">描述</div>
+                           <p>
+                               防火墙定义哪些通过规则可以访问云主机.防火墙由一下三个组要组件组成:
+                           </p>
+                           <p>
+                               Rule: 你可以指定期望的规则模板或者使用定制规则，选项有定制TCP规则、定制UDP规则或定制ICMP规则。
+                           </p>
+                           <p>
+                               Open Port/Port Range: 你选择的TCP和UDP规则可能会打开一个或一组端口.选择"端口范围"将为你提供开始和结束端口的范围.对于ICMP规则你需要指定ICMP类型和所提供的空间里面的代码.
+                           </p>
+                           <p>
+                               Remote: 你必须指定允许通过该规则的源.可以通过一下两种方式实现ip黑名单形式(CIDR)或者通过源地址组(防火墙).作为源地址选择一个防火墙允许该防火墙中的任何云主机使用该规则访问任何云主机.
+                           </p>
+                       </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            ng-disabled="$form.$invalid"
+                    >保存
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

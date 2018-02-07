@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>云硬盘详情:{{disk.displayName}}</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="storage.couldDisk">云硬盘</a>
+            </li>
+            <li class="active">
+                <strong>云硬盘详情</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row ibox-content">
+        <div class="col-sm-6">
+            <div>
+                <h3>基本信息</h3>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <div class="col-sm-2">名称</div>
+                    <div class="col-sm-10">{{disk.displayName}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">ID</div>
+                    <div class="col-sm-10">{{disk.id}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">状态</div>
+                    <div class="col-sm-10">{{diskStatus[disk.status]}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">连接到</div>
+                    <div class="col-sm-10">
+                        <a ui-sref="count.cloudComputerDetail({id:cloudMsg.id})" target="_blank">{{cloudMsg.name}}</a>
+                        on {{disk.attachments[0].device}}</div>
+                </div>
+            </div>
+            <div style="padding-top: 20px;">
+                <h3>规格</h3>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <div class="col-sm-2">大小</div>
+                    <div class="col-sm-10">{{disk.size}}GB</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">已创建</div>
+                    <div class="col-sm-10">{{disk.createdAt}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">readonly</div>
+                    <div class="col-sm-10">{{disk.metadata
+                        .readonly}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">attached_mode</div>
+                    <div class="col-sm-10">{{disk.metadata
+                        .attached_mode}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

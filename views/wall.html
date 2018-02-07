@@ -1,7 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>安全</h2>
+        <h2>防火墙</h2>
         <ol class="breadcrumb">
+            <li>
+                <span>安全</span>
+            </li>
             <li class="active">
                 <strong>防火墙</strong>
             </li>
@@ -47,7 +50,7 @@
                                 <td><a href="javascript:;">{{item.name}}</a></td>
                                 <td>{{item.description}}</td>
                                 <td>
-                                    <a ui-sref="security.rule({id:item.id})" class="btn btn-xs btn-info" >
+                                    <a ui-sref="security.rule({id:item.id})" class="btn btn-xs btn-info">
                                         管理规则
                                     </a>
                                 </td>
@@ -70,39 +73,37 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">创建备份</h4>
+                    <h4 class="modal-title">创建防火墙</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="tip text-warning">镜像保存运行中云主机的磁盘状态</div>
-                        <div class="form-group">
-                            <label>选择一个实例<span class="text-danger">*</span></label>
-                            <select name="selectCloud"
-                                    id="selectCloud"
-                                    class="form-control"
-                                    ng-model="selectCloud"
-                                    required
-                            >
-                                <option value="">--请选择--</option>
-                                {{clouds}}
-                                <option ng-repeat="item in clouds" value="{{item.id}}">{{item.name}}</option>
-                            </select>
-                            <div class="text-danger"
-                                 ng-show="$form.selectCloud.$dirty && $form.selectCloud.$invalid">
-                                <small ng-show="$form.selectCloud.$error.required">请选择云主机类型</small>
-                            </div>
+                        <div class="tip text-warning">
+                            防火墙是IP过滤规则的集合，应用到虚拟机网络设置中。<br> 在防火墙创建后，你可以给安全组增加规则.
                         </div>
                         <div class="form-group">
-                            <label>备份名称<span class="text-danger">*</span></label>
+                            <label>名称<span class="text-danger">*</span></label>
                             <input type="text"
                                    class="form-control"
                                    ng-required="true"
-                                   name="backupName"
-                                   ng-model="backupName"
+                                   name="wallName"
+                                   ng-model="formData.wallName"
                             />
                             <div class="text-danger"
-                                 ng-show="$form.backupName.$dirty && $form.backupName.$invalid">
-                                <small ng-show="$form.backupName.$error.required">请选择云主机类型</small>
+                                 ng-show="$form.wallName.$dirty && $form.wallName.$invalid">
+                                <small ng-show="$form.wallName.$error.required">请填写名称</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>描述<span class="text-danger">*</span></label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-required="true"
+                                   name="description"
+                                   ng-model="formData.description"
+                            />
+                            <div class="text-danger"
+                                 ng-show="$form.description.$dirty && $form.description.$invalid">
+                                <small ng-show="$form.description.$error.required">请填写描述</small>
                             </div>
                         </div>
                     </div>
