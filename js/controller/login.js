@@ -9,7 +9,6 @@ private_cloud.controller('ngLoginController', ['$scope', 'tokenService', '$rootS
             tokenService.getToken($scope.userName, $scope.password);
         };
         $rootScope.token_promise.promise.then(function (token) {
-           
             window.location.href = '/';
         }, function (info) {
             console.log(info);

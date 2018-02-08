@@ -33,6 +33,7 @@ module.exports = function (grunt) {
                     'dest/addCloudDisk.min.js': 'js/controller/addCloudDisk.js',
                     'dest/wall.min.js': 'js/controller/wall.js',
                     'dest/wallRule.min.js': 'js/controller/wallRule.js',
+                    'dest/userNetwork.min.js': 'js/controller/userNetwork.js',
                 }
             }
         },

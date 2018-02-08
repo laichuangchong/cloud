@@ -1,12 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>防火墙</h2>
+        <h2>用户私有网络</h2>
         <ol class="breadcrumb">
             <li>
-                <span>安全</span>
+                <span>网络</span>
             </li>
             <li class="active">
-                <strong>防火墙</strong>
+                <strong>用户私有网络</strong>
             </li>
         </ol>
     </div>
@@ -16,13 +16,12 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>备份</h5>
-
+                    <h5>用户私有网络</h5>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
                         <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_wall">
-                            <span class="fa fa-plus"></span> 创建防火墙
+                            <span class="fa fa-plus"></span> 创建网络
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -36,24 +35,40 @@
                                     />
                                 </th>
                                 <th>名称</th>
-                                <th>描述</th>
-                                <th>规则</th>
+                                <th>子网已连接</th>
+                                <th>共享的</th>
+                                <th>状态</th>
+                                <th>管理员状态</th>
+                                <th>编辑</th>
+                                <th>添加子网</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in walls">
+                            <tr ng-repeat="(key,item) in networks">
                                 <td ng-init="hostList[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="hostList[$index].check_status"
                                            ng-change="itemCheck()"/>
                                 </td>
                                 <td><a href="javascript:;">{{item.name}}</a></td>
-                                <td>{{item.description}}</td>
+                                <td>dksfaljd</td>
+                                <td>{{item.shared}}</td>
+                                <td>{{item.status}}</td>
+                                <td>{{adminstatus[item.admin_state_up]}}</td>
                                 <td>
-                                    <a ui-sref="security.rule({id:item.id})" class="btn btn-xs btn-info">
-                                        管理规则
-                                    </a>
+                                    <button type="button"
+                                            class="btn btn-info btn-xs"
+                                    >
+                                        编辑网络
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-info btn-xs"
+                                    >
+                                        添加子网
+                                    </button>
                                 </td>
                                 <td>
                                     <button type="button"

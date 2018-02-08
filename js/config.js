@@ -110,8 +110,8 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
 
         .state('storage', { //存储
+            url:'/storage',
             abstract: true,
-            url: "/storage",
             templateUrl: "views/common/content.html",
         })
         .state('storage.couldDisk', { //云硬盘
@@ -154,7 +154,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
         .state('security', { // 安全
             abstract: true,
-            url: "/security",
+            url:'/security',
             templateUrl: "views/common/content.html",
         })
         .state('security.wall', { //防火墙
@@ -171,12 +171,30 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
         .state('security.rule', { //防火墙
             url: "/wall/rule?id",
+            cache:false,
             templateUrl: "views/wallRule.html",
             controller: 'wallRuleController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         'dest/wallRule.min.js'
+                    ]);
+                }]
+            }
+        })
+        .state('network', { // 网络
+            abstract: true,
+            url:'/network',
+            templateUrl: "views/common/content.html",
+        })
+        .state('network.userNetwork', { // 用户私有网络
+            url: "/usernetwork",
+            templateUrl: "views/userNetwork.html",
+            controller: 'userNetworkController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/userNetwork.min.js'
                     ]);
                 }]
             }

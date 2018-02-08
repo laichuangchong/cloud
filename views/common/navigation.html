@@ -51,6 +51,12 @@
                     <li ui-sref-active="active"><a ui-sref="security.wall">防火墙</a></li>
                 </ul>
             </li>
+            <li ng-class="{active: $state.includes('network')}">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">网络</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('network')}">
+                    <li ui-sref-active="active"><a ui-sref="network.userNetwork">用户私有网络</a></li>
+                </ul>
+            </li>
             <li ng-class="{active: $state.includes('dashboards')}">
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" ng-class="{in: $state.includes('dashboards')}">
