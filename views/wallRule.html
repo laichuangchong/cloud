@@ -23,9 +23,11 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_wall">
+                        <a class="btn btn-primary btn-sm"
+                             data-toggle="modal"
+                             data-target="#add_rule">
                             <span class="fa fa-plus"></span> 添加规则
-                        </div>
+                        </a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -74,15 +76,19 @@
     </div>
 </div>
 <!--创建规则-->
-<div class="modal fade" id="creat_wall" tabindex="-1" role="dialog"
+<div class="modal fade" id="add_rule" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <a type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
                     <h4 class="modal-title">创建规则</h4>
                 </div>
                 <div class="modal-body">
@@ -90,19 +96,127 @@
                        <div class="col-sm-6">
                            <div class="form-group">
                                <label>规则<span class="text-danger">*</span></label>
-                               <select name="flavorRef"
-                                       id="flavorRef"
+                               <select name="rules"
+                                       id="rules"
                                        class="form-control"
-                                       ng-init="flavorRef = ''"
-                                       ng-model="formData.flavorRef"
-                                       ng-change="changeConfig(formData.flavorRef)"
+                                       ng-model="ruleType"
+                                       ng-change="changeRule(ruleType.type,ruleType.value)"
                                        required
                                >
-                                   <option value="">--请选择--</option>
-                                   <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
+                                   <option ng-repeat="item in ruleItems" ng-value="item">{{item.name}}</option>
                                </select>
-
-
+                           </div>
+                           <div class="form-group" ng-show="!type4">
+                               <label>方向<span class="text-danger">*</span></label>
+                               <select class="form-control"
+                                       ng-model="formData.direction"
+                               >
+                                   <option ng-repeat="item in directionItems" ng-value="item.value">{{item.name}}</option>
+                               </select>
+                           </div>
+                           <div class="form-group" ng-show="type2">
+                               <label>类型<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="输入ICMP类型值范围 0：255"></i>
+                               </label>
+                               <input type="number" class='form-control' ng-model="formData.port_range_min">
+                           </div>
+                           <div class="form-group" ng-show="type2">
+                               <label>编码<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="输入ICMP编码范围 0：255"></i>
+                               </label>
+                               <input type="number" class='form-control' ng-model="formData.port_range_max">
+                           </div>
+                           <div class="form-group" ng-show="type1">
+                               <label>打开端口<span class="text-danger">*</span></label>
+                               <select class="form-control"
+                                       ng-model="selectItem.port"
+                               >
+                                   <option ng-repeat="item in portItems" ng-value="item.value">{{item.name}}</option>
+                               </select>
+                           </div>
+                           <div class="form-group" ng-show="selectItem.port == 'port' && type1">
+                               <label>端口<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="输入大于1小于65535的整数"></i>
+                               </label>
+                               <input type="number"
+                                      class="form-control"
+                                      name="port"
+                                      ng-model="formData.port_range_number"
+                                      ng-required="selectItem.port == 'port' && type1"
+                               >
+                               <div class="text-danger" ng-show="$form.port.$dirty && $form.port.$invalid">
+                                   <small ng-show="$form.port.$error.required">请填写端口</small>
+                               </div>
+                           </div>
+                           <div class="form-group" ng-show="selectItem.port == 'range' && type1">
+                               <label>起始端口<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="输入大于1小于65535的整数"></i>
+                               </label>
+                               <input type="number"
+                                      name="port_range_min"
+                                      class="form-control"
+                                      ng-required = "selectItem.port == 'range' && type1"
+                                      ng-model="formData.port_range_min"
+                               >
+                               <div class="text-danger" ng-show="$form.port_range_min.$dirty && $form.port_range_min.$invalid">
+                                   <small ng-show="$form.port_range_min.$error.required">请填写起始端口</small>
+                               </div>
+                           </div>
+                           <div class="form-group" ng-show="selectItem.port == 'range' && type1">
+                               <label>终止端口<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="输入大于1小于65535的整数"></i></label>
+                               <input type="number"
+                                      class="form-control"
+                                      name="port_range_max"
+                                      ng-required = "selectItem.port == 'range' && type1"
+                                      ng-model="formData.port_range_max"
+                               >
+                               <div class="text-danger" ng-show="$form.port_range_max.$dirty && $form.port_range_max.$invalid">
+                                   <small ng-show="$form.port_range_max.$error.required">请填终止端口</small>
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <label>远程<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="指定合法的IP范围，选择"></i>
+                               </label>
+                               <select class="form-control"
+                               >
+                                   <option ng-repeat="item in remoteItems" ng-value="item.value">{{item.name}}</option>
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label>CIDR<span class="text-danger">*</span>
+                                   <i class="fa fa-question-circle"
+                                      aria-hidden="true"
+                                      data-toggle="tooltip"
+                                      data-placement="right"
+                                      title="无类别域间路由（e.g.192.168.0.0/24）"></i>
+                               </label>
+                               <input type="text" class="form-control" ng-model="formData.remote_ip_prefix">
                            </div>
                        </div>
                        <div class="col-sm-6">
@@ -131,7 +245,6 @@
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>

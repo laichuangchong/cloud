@@ -1,7 +1,7 @@
 /**
  * Created by chenzhongying on 2018/2/6.
  */
-private_cloud.controller('wallController', ['$rootScope', '$scope', '$http', '$timeout', '$state', function ($rootScope, $scope, $http, $timeout, $state) {
+private_cloud.controller('wallController', ['$rootScope', '$scope', '$http', '$timeout', '$state', 'count_service',function ($rootScope, $scope, $http, $timeout, $state,count_service) {
     $http({
         url: '/api/list_segroups',
         headers: $rootScope.headers
@@ -34,7 +34,7 @@ private_cloud.controller('wallController', ['$rootScope', '$scope', '$http', '$t
             alert(response.statusText);
         });
     };
-    $scope.deleteWall = function (wallId, key, wallName) { //删除防火墙
+    /*$scope.deleteWall = function (wallId, key, wallName) { //删除防火墙
         if (confirm('确定要删除防火墙' + wallName + '吗？')) {
             $http({
                 url: '/api/list_segroups/' + wallId,
@@ -47,5 +47,6 @@ private_cloud.controller('wallController', ['$rootScope', '$scope', '$http', '$t
                 alert(response.statusText);
             });
         }
-    };
+    };*/
+
 }]);

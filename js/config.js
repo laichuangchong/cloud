@@ -169,7 +169,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
-        .state('security.rule', { //防火墙
+        .state('security.rule', { //规则
             url: "/wall/rule?id",
             cache:false,
             templateUrl: "views/wallRule.html",
@@ -182,6 +182,19 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        /*.state('security.addRule', { //添加规则
+            url: "/wall/rule/add",
+            cache:false,
+            templateUrl: "views/addRule.html",
+            controller: 'addRuleController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/addRule.min.js'
+                    ]);
+                }]
+            }
+        })*/
         .state('network', { // 网络
             abstract: true,
             url:'/network',
@@ -189,6 +202,7 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
         })
         .state('network.userNetwork', { // 用户私有网络
             url: "/usernetwork",
+            cache:false,
             templateUrl: "views/userNetwork.html",
             controller: 'userNetworkController',
             resolve: {

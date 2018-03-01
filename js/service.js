@@ -223,3 +223,21 @@ private_cloud.service('volume_service', ['$http','$rootScope','$q', function ($h
         };
     }]
 );
+private_cloud.service('subnets_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //镜像
+    return {
+        getSubnets: function () { //获取云硬盘相关信息
+            $rootScope.subnets_promise = $q.defer(); //获取镜像
+            $http({ //云硬盘
+                url:"/api/net_subnets/",
+                method: 'GET',
+                headers:$rootScope.headers
+            }).then(function(response){
+                console.log(response);
+                $rootScope.subnets_promise.resolve(response.data.subnets);
+            },function(response){
+                alert(response.data.error.message);
+            });
+        }
+    };
+}]
+);

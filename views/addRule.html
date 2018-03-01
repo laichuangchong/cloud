@@ -1,0 +1,71 @@
+<!--创建规则-->
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>添加云主机</h2>
+        <ol class="breadcrumb">
+            <li>
+                <span>计算</span>
+            </li>
+            <li>
+                <a ui-sref="count.cloudComputer">云主机</a>
+            </li>
+            <li class="active">
+                <strong>添加规则</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+        <div class="ibox-content">
+            <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>规则<span class="text-danger">*</span></label>
+                            <select name="flavorRef"
+                                    id="flavorRef"
+                                    class="form-control"
+                                    ng-init="flavorRef = ''"
+                                    ng-model="formData.flavorRef"
+                                    ng-change="changeConfig(formData.flavorRef)"
+                                    required
+                            >
+                                <option value="">--请选择--</option>
+                                <option ng-repeat="item in flavors" ng-value="item">{{item.name}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="h5">描述</div>
+                        <p>
+                            防火墙定义哪些通过规则可以访问云主机.防火墙由一下三个组要组件组成:
+                        </p>
+                        <p>
+                            Rule: 你可以指定期望的规则模板或者使用定制规则，选项有定制TCP规则、定制UDP规则或定制ICMP规则。
+                        </p>
+                        <p>
+                            Open Port/Port Range: 你选择的TCP和UDP规则可能会打开一个或一组端口.选择"端口范围"将为你提供开始和结束端口的范围.对于ICMP规则你需要指定ICMP类型和所提供的空间里面的代码.
+                        </p>
+                        <p>
+                            Remote: 你必须指定允许通过该规则的源.可以通过一下两种方式实现ip黑名单形式(CIDR)或者通过源地址组(防火墙).作为源地址选择一个防火墙允许该防火墙中的任何云主机使用该规则访问任何云主机.
+                        </p>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <a ui-sref="count.cloudComputer" class="btn btn-white">返回规则</a>
+                    <button class="btn btn-primary" type="submit" ng-disabled="$form.$invalid">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+

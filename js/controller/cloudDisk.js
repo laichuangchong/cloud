@@ -41,6 +41,7 @@ private_cloud.controller('cloudDiskController',['$scope','$rootScope','$http','c
                             console.log(response);
                             var status = response.data.volume.status;
                             $scope.disks[key].status = status;
+                            $scope.disks[key].attachments = response.data.volume.attachments;
                             if( response.data.volume.attachments.length != 0){
                                 searchCloud($scope.clouds,key,response.data.volume);
                             }

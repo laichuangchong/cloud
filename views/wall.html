@@ -21,9 +21,18 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#creat_wall">
+                        <!--<div class="btn btn-primary btn-sm"
+                             data-toggle="modal"
+                             data-target="#creat_wall"
+                        >
                             <span class="fa fa-plus"></span> 创建防火墙
-                        </div>
+                        </div>-->
+                        <!--<button class="btn btn-primary btn-sm"
+                                disabled
+                                ng-show="walls.length/securityTotal == 1"
+                        >
+                            <span class="fa fa-plus"></span> 创建防火墙
+                        </button>-->
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -38,29 +47,29 @@
                                 <th>名称</th>
                                 <th>描述</th>
                                 <th>规则</th>
-                                <th>操作</th>
+                                <!--<th>操作</th>-->
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="(key,item) in walls">
+                            <tr>
                                 <td ng-init="hostList[$index].check_status = false">
                                     <input icheck type="checkbox"
                                            ng-model="hostList[$index].check_status"
                                            ng-change="itemCheck()"/>
                                 </td>
-                                <td><a href="javascript:;">{{item.name}}</a></td>
-                                <td>{{item.description}}</td>
+                                <td><a href="javascript:;">{{walls[0].name}}</a></td>
+                                <td>{{walls[0].description}}</td>
                                 <td>
-                                    <a ui-sref="security.rule({id:item.id})" class="btn btn-xs btn-info">
+                                    <a ui-sref="security.rule({id:walls[0].id})" class="btn btn-xs btn-info">
                                         管理规则
                                     </a>
                                 </td>
-                                <td>
+                               <!-- <td>
                                     <button type="button"
                                             class="btn btn-danger btn-xs"
-                                            ng-click="deleteWall(item.id,key,item.name)"
+                                            ng-click="deleteWall(walls[0].id,key,walls[0].name)"
                                     >删除</button>
-                                </td>
+                                </td>-->
                             </tr>
                             </tbody>
                         </table>
