@@ -1,0 +1,132 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>添加子网</h2>
+        <ol class="breadcrumb">
+            <li>
+                <span>网络</span>
+            </li>
+            <li>
+                <a ui-sref="network.userNetwork">用户私有网络</a>
+            </li>
+            <li class="active">
+                <strong>创建网络</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+        <div class="ibox-content">
+            <form role="form" name="$form" novalidate ng-submit="formSubmit($event)">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>网络名称<span class="text-danger">*</span></label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-required="true"
+                                   name="name"
+                                   ng-model="formData.name"
+                            />
+                            <div class="text-danger"
+                                 ng-show="$form.name.$dirty && $form.name.$invalid">
+                                <small ng-show="$form.name.$error.required">请填写名称</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>管理员状态<span class="text-danger">*</span></label>
+                            <select class="form-control"
+                                    ng-model="formData.admin_state_up"
+                            >
+                                <option ng-repeat="(key,value) in adminstatus" ng-value="key">{{value}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>子网名称<span class="text-danger">*</span></label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-required="true"
+                                   name="name"
+                                   ng-model="formData.name"
+                            />
+                            <div class="text-danger"
+                                 ng-show="$form.name.$dirty && $form.name.$invalid">
+                                <small ng-show="$form.name.$error.required">请填写名称</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>网络地址<span class="text-danger">*</span>
+                                <i class="fa fa-question-circle"
+                                   aria-hidden="true"
+                                   data-toggle="tooltip"
+                                   data-placement="right"
+                                   title="CIDR格式的网络地址 (例如 192.168.0.0/24, 2001:DB8::/48)"></i></label>
+                            <input type="text"
+                                   class="form-control"
+                                  ng-model="formData.cidr"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label>IP版本<span class="text-danger">*</span></label>
+                            <select class="form-control"
+                                    ng-model="formData.ip_version"
+                            >
+                                <option ng-repeat="item in ipVersion" ng-value="item.value">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>网关IP
+                                <i class="fa fa-question-circle"
+                                   aria-hidden="true"
+                                   data-toggle="tooltip"
+                                   data-placement="right"
+                                   title="网关IP地址(例如 192.168.0.254) 缺省值是网络地址的第一个IP (例如 192.168.0.0/24的192.168.0.1, 2001:DB8::/48的2001:DB8::1). 如果你要使用缺省值，保留为空白。如果你不想使用网关，勾选下面的'禁用网关'。"></i>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="gateway_ip"
+                                   ng-model="formData.gateway_ip"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input icheck type="checkbox"
+                                   ng-model="formData.enable_dhcp"/>
+                            激活DHCP
+                        </div>
+                        <div class="form-group">
+                            <label>分配地址池<span class="text-danger">*</span>
+                                <i class="fa fa-question-circle"
+                                   aria-hidden="true"
+                                   data-toggle="tooltip"
+                                   data-placement="right"
+                                   title="IP地址分配池. 每条记录是：开始IP，结束IP(例如 192.168.1.100,192.168.1.120)，每行一条记录."></i>
+                            </label>
+                            <textarea class="form-control" name="" id="" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>DNS域名解析服务
+                                <i class="fa fa-question-circle"
+                                   aria-hidden="true"
+                                   data-toggle="tooltip"
+                                   data-placement="right"
+                                   title="该子网的DNS服务器ip地址列表.每行一个"></i>
+                            </label>
+                            <textarea class="form-control" name="" id="" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <a ui-sref="network.userNetwork" class="btn btn-white">返回用户私有网络</a>
+                    <button class="btn btn-primary" type="submit" ng-disabled="$form.$invalid">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

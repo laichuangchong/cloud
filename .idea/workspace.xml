@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c216ed-e6f0-40dc-852c-d5788cd69ed5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controller/addRule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/addRule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api_docv2(2).docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controller/addNetwork.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controller/detailNetwork.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/addNetwork.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/detailNetwork.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
@@ -16,26 +18,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDiskDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudDiskDetail.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js" afterPath="$PROJECT_DIR$/dest/common.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js.map" afterPath="$PROJECT_DIR$/dest/common.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js.map" afterPath="$PROJECT_DIR$/dest/service.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/userNetwork.min.js" afterPath="$PROJECT_DIR$/dest/userNetwork.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/userNetwork.min.js.map" afterPath="$PROJECT_DIR$/dest/userNetwork.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wall.min.js" afterPath="$PROJECT_DIR$/dest/wall.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wall.min.js.map" afterPath="$PROJECT_DIR$/dest/wall.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wallRule.min.js" afterPath="$PROJECT_DIR$/dest/wallRule.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wallRule.min.js.map" afterPath="$PROJECT_DIR$/dest/wallRule.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/config.js" afterPath="$PROJECT_DIR$/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/cloudDisk.js" afterPath="$PROJECT_DIR$/js/controller/cloudDisk.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/userNetwork.js" afterPath="$PROJECT_DIR$/js/controller/userNetwork.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/wall.js" afterPath="$PROJECT_DIR$/js/controller/wall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/wallRule.js" afterPath="$PROJECT_DIR$/js/controller/wallRule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service.js" afterPath="$PROJECT_DIR$/js/service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userNetwork.html" afterPath="$PROJECT_DIR$/views/userNetwork.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/wall.html" afterPath="$PROJECT_DIR$/views/wall.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/wallRule.html" afterPath="$PROJECT_DIR$/views/wallRule.html" />
     </list>
     <ignored path="cloud.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,35 +58,35 @@
     <favorites_list name="cloud" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45038167">
+    <splitter split-orientation="horizontal" split-proportion="0.7536733">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="wall.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/wall.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="wallRule.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/wallRule.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="429">
-                  <caret line="142" column="40" selection-start-line="138" selection-start-column="31" selection-end-line="142" selection-end-column="40" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="userNetwork.html" pinned="false" current-in-tab="true">
+        <leaf>
+          <file leaf-file-name="userNetwork.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/userNetwork.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="166">
-                  <caret line="89" column="40" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="40" />
-                  <folding />
+                <state relative-caret-position="234">
+                  <caret line="48" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="268" selection-end-column="9" />
+                  <folding>
+                    <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="detailNetwork.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/detailNetwork.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+                  <folding>
+                    <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,15 +94,15 @@
           <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/config.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="513">
-                  <caret line="204" column="24" selection-start-line="204" selection-start-column="24" selection-end-line="204" selection-end-column="24" />
+                <state relative-caret-position="153">
+                  <caret line="202" column="35" selection-start-line="202" selection-start-column="16" selection-end-line="202" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="addRule.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/controller/addRule.js">
+          <file leaf-file-name="detailNetwork.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/controller/detailNetwork.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="45">
                   <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
@@ -118,11 +113,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="addCloudDisk.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/controller/addCloudDisk.js">
+          <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Gruntfile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="37" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="37" />
+                <state relative-caret-position="585">
+                  <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -131,18 +126,8 @@
           <file leaf-file-name="addCloudComputer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1020">
-                  <caret line="68" column="37" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="backups.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="37" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="37" />
+                <state relative-caret-position="33">
+                  <caret line="46" column="40" selection-start-line="45" selection-start-column="11" selection-end-line="46" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -151,55 +136,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file leaf-file-name="userNetwork.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/controller/userNetwork.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="618">
-                  <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+                <state relative-caret-position="558">
+                  <caret line="97" column="24" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#48#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/service.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="888">
-                  <caret line="223" column="6" selection-start-line="223" selection-start-column="6" selection-end-line="223" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/common.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main_common.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main_common.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cloudDisk.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="232">
-                  <caret line="101" column="27" selection-start-line="98" selection-start-column="20" selection-end-line="101" selection-end-column="27" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -211,8 +156,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -227,13 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Gruntfile.json" />
-        <option value="$PROJECT_DIR$/js/login.js" />
-        <option value="$PROJECT_DIR$/js/controller/cloudComputerDetail.js" />
-        <option value="$PROJECT_DIR$/views/tabs_panels.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
-        <option value="$PROJECT_DIR$/dest/general.min.js" />
         <option value="$PROJECT_DIR$/js/controller/addBackups.js" />
         <option value="$PROJECT_DIR$/js/directives.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
@@ -260,7 +198,6 @@
         <option value="$PROJECT_DIR$/js/controller/addCloudDisk.js" />
         <option value="$PROJECT_DIR$/views/addCloudComputer.html" />
         <option value="$PROJECT_DIR$/views/cloudComputerDetail.html" />
-        <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/js/controller/cloudDiskDetail.js" />
         <option value="$PROJECT_DIR$/views/cloudDisk.html" />
         <option value="$PROJECT_DIR$/views/cloudDiskDetail.html" />
@@ -270,14 +207,22 @@
         <option value="$PROJECT_DIR$/views/wall.html" />
         <option value="$PROJECT_DIR$/js/controller/addRule.js" />
         <option value="$PROJECT_DIR$/views/addRule.html" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/js/controller/cloudDisk.js" />
         <option value="$PROJECT_DIR$/js/controller/wallRule.js" />
         <option value="$PROJECT_DIR$/views/wallRule.html" />
         <option value="$PROJECT_DIR$/js/service.js" />
-        <option value="$PROJECT_DIR$/views/userNetwork.html" />
-        <option value="$PROJECT_DIR$/js/config.js" />
+        <option value="$PROJECT_DIR$/js/controller/addSubNetwork.js" />
+        <option value="$PROJECT_DIR$/views/addSubNetwork.html" />
+        <option value="$PROJECT_DIR$/views/addNetwork.html" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/js/controller/addNetwork.js" />
         <option value="$PROJECT_DIR$/js/controller/userNetwork.js" />
+        <option value="$PROJECT_DIR$/js/controller/detailUserNetwork.js" />
+        <option value="$PROJECT_DIR$/js/controller/detailNetwork.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/js/config.js" />
+        <option value="$PROJECT_DIR$/views/userNetwork.html" />
+        <option value="$PROJECT_DIR$/views/detailNetwork.html" />
       </list>
     </option>
   </component>
@@ -302,8 +247,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="311" />
-    <option name="y" value="34" />
+    <option name="x" value="-18" />
+    <option name="y" value="53" />
     <option name="width" value="1440" />
     <option name="height" value="796" />
   </component>
@@ -332,6 +277,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -398,9 +345,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,15 +361,16 @@
     <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/css/style" />
-      <recent name="$PROJECT_DIR$/js/controller" />
-      <recent name="$PROJECT_DIR$/js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/sass" />
+      <recent name="$PROJECT_DIR$/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/css/style" />
+      <recent name="$PROJECT_DIR$/js/controller" />
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
@@ -893,16 +839,18 @@
       <workItem from="1518051508506" duration="15847000" />
       <workItem from="1518137902357" duration="8567000" />
       <workItem from="1519781443742" duration="21368000" />
-      <workItem from="1519868514219" duration="18701000" />
+      <workItem from="1519868514219" duration="18725000" />
+      <workItem from="1519953075153" duration="10250000" />
+      <workItem from="1520216061535" duration="15261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="467887000" />
+    <option name="totallyTimeSpent" value="493422000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="311" y="34" width="1440" height="796" extended-state="0" />
-    <editor active="false" />
+    <frame x="-18" y="53" width="1440" height="796" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -915,8 +863,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15665236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17238913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -927,7 +876,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -968,47 +916,17 @@
           <line>11</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/controller/userNetwork.js</url>
+          <line>56</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dest/common.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@uirouter/angularjs/release/angular-ui-router.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lockscreen.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1064,13 +982,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dest/addCloudComputer.min.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dest/addBackups.min.js" />
@@ -1232,30 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="37" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="37" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/addRule.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1278,48 +1172,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
+    <entry file="file://$PROJECT_DIR$/views/table_basic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="111" column="34" selection-start-line="109" selection-start-column="28" selection-end-line="111" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="223" column="6" selection-start-line="223" selection-start-column="6" selection-end-line="223" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/wallRule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="142" column="40" selection-start-line="138" selection-start-column="31" selection-end-line="142" selection-end-column="40" />
+        <state relative-caret-position="330">
+          <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1334,36 +1193,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="223" column="6" selection-start-line="223" selection-start-column="6" selection-end-line="223" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/cloudDisk.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="648">
           <caret line="101" column="27" selection-start-line="98" selection-start-column="20" selection-end-line="101" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/config.js">
+    <entry file="file://$PROJECT_DIR$/js/controller/backups.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="204" column="24" selection-start-line="204" selection-start-column="24" selection-end-line="204" selection-end-column="24" />
+        <state relative-caret-position="405">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/userNetwork.html">
+    <entry file="file://$PROJECT_DIR$/views/addCloudComputer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="40" />
+        <state relative-caret-position="93">
+          <caret line="85" column="78" selection-start-line="84" selection-start-column="28" selection-end-line="85" selection-end-column="78" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main_common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/wallRule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="142" column="40" selection-start-line="138" selection-start-column="31" selection-end-line="142" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/addNetwork.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="75" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/addCloudComputer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="46" column="40" selection-start-line="45" selection-start-column="11" selection-end-line="46" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/addNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#48#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller/userNetwork.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        <state relative-caret-position="558">
+          <caret line="97" column="24" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/detailNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#48#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userNetwork.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="48" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="268" selection-end-column="9" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="202" column="35" selection-start-line="202" selection-start-column="16" selection-end-line="202" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/detailNetwork.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

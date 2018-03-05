@@ -34,7 +34,8 @@ module.exports = function (grunt) {
                     'dest/wall.min.js': 'js/controller/wall.js',
                     'dest/wallRule.min.js': 'js/controller/wallRule.js',
                     'dest/userNetwork.min.js': 'js/controller/userNetwork.js',
-                    // 'dest/addRule.min.js': 'js/controller/addRule.js',
+                    'dest/addNetwork.min.js': 'js/controller/addNetwork.js',
+                    'dest/detailNetwork.min.js': 'js/controller/detailNetwork.js',
                 }
             }
         },

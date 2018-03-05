@@ -213,6 +213,32 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        .state('network.detailNetwork', { // 用户私有网络详情
+            url: "/usernetwork/detail?id",
+            cache:false,
+            templateUrl: "views/detailNetwork.html",
+            controller: 'detailNetworkController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/detailNetwork.min.js'
+                    ]);
+                }]
+            }
+        })
+        .state('network.addNetwork', { // 创建网络
+            url: "/usernetwork/add",
+            cache:false,
+            templateUrl: "views/addNetwork.html",
+            controller: 'addNetworkController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/addNetwork.min.js'
+                    ]);
+                }]
+            }
+        })
         .state('dashboards', {
             abstract: true,
             url: "/dashboards",
