@@ -1,0 +1,77 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>端口详情</h2>
+        <ol class="breadcrumb">
+            <li>
+                <span>网络</span>
+            </li>
+            <li>
+                <a ui-sref="network.userNetwork">用户私有网络</a>
+            </li>
+            <li class="active">
+                <strong>端口详情</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox-content">
+                <div>
+                    <h3>基本信息</h3>
+                    <div class="hr-line-dashed"></div>
+                    <div class="row">
+                        <div class="col-sm-2">名称</div>
+                        <div class="col-sm-10">{{port.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">ID</div>
+                        <div class="col-sm-10">{{port.id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">网络ID</div>
+                        <div class="col-sm-10">{{port.network_id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">项目ID</div>
+                        <div class="col-sm-10">{{port.project_id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">固定IP</div>
+                        <div class="col-sm-10">
+                             <span ng-repeat="fixedItem in port.fixed_ips"><strong>IP地址：</strong>{{fixedItem.ip_address}}<br><strong>子网ID：</strong>{{fixedItem.subnet_id}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">MAC地址</div>
+                        <div class="col-sm-10">{{port.mac_address}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">状态</div>
+                        <div class="col-sm-10">{{port.status}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">管理员状态</div>
+                        <div class="col-sm-10">{{port.admin_state_up?'UP':'DOWN'}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">连接设备</div>
+                        <div class="col-sm-10">
+                            <span>设备属主：{{port.device_owner}}</span> <br>
+                            <span>设备ID：{{port.device_id}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+
+</div>
+

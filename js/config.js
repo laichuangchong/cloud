@@ -239,6 +239,19 @@ function config($stateProvider, $urlRouterProvider,$ocLazyLoadProvider,$controll
                 }]
             }
         })
+        .state('network.detailPort', { // 端口详情
+            url: "/port/detail?id",
+            cache:false,
+            templateUrl: "views/detail_port.html",
+            controller: 'detailPortController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'dest/detailPort.min.js'
+                    ]);
+                }]
+            }
+        })
         .state('dashboards', {
             abstract: true,
             url: "/dashboards",

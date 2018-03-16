@@ -5,6 +5,7 @@ private_cloud.controller('detailNetworkController', ['$scope', '$rootScope', '$h
     $scope.network_promise = $q.defer();
     $scope.subNetworks = [];//相关子网
     $scope.ports = [];//相关端口
+    $scope.editPortFormData = {};//编辑端口的数据
     $http({ //获取相关子网
         url: '/api/net_networks/' + $state.params.id,
         headers: $rootScope.headers
@@ -21,7 +22,7 @@ private_cloud.controller('detailNetworkController', ['$scope', '$rootScope', '$h
     }).then(function (response) {
         console.log(response);
         $scope.allPorts = response.data.ports;
-        angular.forEach($scope.ports,function(value){
+        angular.forEach($scope.allPorts,function(value){
             if(value.network_id == $state.params.id){
                 $scope.ports.push(value);
             }
@@ -89,5 +90,25 @@ private_cloud.controller('detailNetworkController', ['$scope', '$rootScope', '$h
                 alert(response.statusText);
             });
         }
+    };
+
+    $scope.edit_port = function(info){ //编辑端口初始化数据
+        $scope.editPortFormData = {
+            id:info.id,
+            name:info.name,
+
+        };
+
+    };
+    $scope.deletePart = function(info,key){ //删除端口
+        $http({
+            url:"/api/rm_routers_if/"+info.id,
+            headers:$rootScope.headers,
+            method:"PUT"
+        }).then(function(response){
+            console.log(response);
+        },function(response){
+            alert(response.statusText);
+        });
     };
 }]);

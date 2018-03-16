@@ -40,7 +40,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-2">管理员状态</div>
-                            <div class="col-sm-10">{{network.admin_state_up}}</div>
+                            <div class="col-sm-10">{{network.admin_state_up?'UP':'DOWN'}}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-2">共享的</div>
@@ -51,7 +51,7 @@
                             <div class="col-sm-10">{{network['router:external']}}</div>
                         </div>
                     </div>
-                    <h3>子网</h3>
+                    <h3 style="padding-top: 20px;">子网</h3>
                     <div class="hr-line-dashed"></div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -121,7 +121,8 @@
                                 <th>连接设备</th>
                                 <th>状态</th>
                                 <th>管理员状态</th>
-                                <th>动作</th>
+                                <th>编辑</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -131,18 +132,32 @@
                                            ng-model="hostList[$index].check_status"
                                            ng-change="itemCheck()"/>
                                 </td>
-                                <td>{{item.name}}</td>
-                                <td>{{item.cidr}}</td>
-                                <td>Ipv{{item.ip_version}}</td>
-                                <td>{{item.gateway_ip}}</td>
                                 <td>
-                                    <button ng-if="!item.shared"
+                                    <a ui-sref="network.detailPort({id:item.id})">({{item.id | limitTo : 8}})</a>
+                                </td>
+                                <td>
+                                    <span ng-repeat="fixedItem in item.fixed_ips">{{fixedItem.ip_address}}</span>
+                                   </td>
+                                <td>{{item.device_owner}}</td>
+                                <td>{{item.status}}</td>
+                                <td>{{item.admin_state_up?'UP':'DOWN'}}</td>
+                                <td>
+                                    <button
                                             type="button"
                                             class="btn btn-info btn-xs"
                                             data-toggle="modal" data-target="#edit_port"
                                             ng-click="edit_port(item)"
                                     >
                                         编辑端口
+                                    </button>
+                                </td>
+                                <td>
+                                    <button ng-if="item.device_owner != 'network:router_gateway'"
+                                            type="button"
+                                            class="btn btn-danger btn-xs"
+                                            ng-click="deletePart(item,key)"
+                                    >
+                                        删除
                                     </button>
                                 </td>
                             </tr>
@@ -295,7 +310,8 @@
                                        data-placement="right"
                                        title="该子网的DNS服务器ip地址列表.每行一个"></i>
                                 </label>
-                                <textarea class="form-control" name="" id="" rows="5" ng-model="subNetworkFormData.dns_nameservers"></textarea>
+                                <textarea class="form-control" name="" id="" rows="5"
+                                          ng-model="subNetworkFormData.dns_nameservers"></textarea>
                             </div>
                         </div>
                     </div>
@@ -331,7 +347,7 @@
                             <label>ID<span class="text-danger">*</span></label>
                             <input type="text"
                                    class="form-control"
-                                   ng-model="editNetFormData.name"
+                                   ng-model="editPortFormData.id"
                                    disabled
                             />
                         </div>
@@ -341,7 +357,7 @@
                                    class="form-control"
                                    ng-required="true"
                                    name="name"
-                                   ng-model="editNetFormData.name"
+                                   ng-model="editPortFormData.name"
                             />
                             <div class="text-danger"
                                  ng-show="$editNetForm.name.$dirty && $editNetForm.name.$invalid">
@@ -351,7 +367,7 @@
                         <div class="form-group">
                             <label>管理员状态<span class="text-danger">*</span></label>
                             <select class="form-control"
-                                    ng-model="editNetFormData.admin_state_up"
+                                    ng-model="editPortFormData.admin_state_up"
                             >
                                 <option ng-repeat="(key,value) in adminstatus" ng-value="key">{{value}}</option>
                             </select>

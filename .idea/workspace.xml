@@ -2,37 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c216ed-e6f0-40dc-852c-d5788cd69ed5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/~$i_docv2(2).docx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_docv2(2).docx" afterPath="$PROJECT_DIR$/api_docv2(2).docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controller/detailPort.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/detail_port.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/addCloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addCloudDisk.min.js" afterPath="$PROJECT_DIR$/dest/addCloudDisk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/addNetwork.min.js" afterPath="$PROJECT_DIR$/dest/addNetwork.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/applyQuota.min.js" afterPath="$PROJECT_DIR$/dest/applyQuota.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/backups.min.js" afterPath="$PROJECT_DIR$/dest/backups.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputer.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudComputerDetail.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDisk.min.js" afterPath="$PROJECT_DIR$/dest/cloudDisk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/cloudDiskDetail.min.js" afterPath="$PROJECT_DIR$/dest/cloudDiskDetail.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js" afterPath="$PROJECT_DIR$/dest/common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/common.min.js.map" afterPath="$PROJECT_DIR$/dest/common.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/detailNetwork.min.js" afterPath="$PROJECT_DIR$/dest/detailNetwork.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/detailNetwork.min.js.map" afterPath="$PROJECT_DIR$/dest/detailNetwork.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/general.min.js" afterPath="$PROJECT_DIR$/dest/general.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/login.min.js" afterPath="$PROJECT_DIR$/dest/login.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/main_common.min.js" afterPath="$PROJECT_DIR$/dest/main_common.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js" afterPath="$PROJECT_DIR$/dest/service.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/service.min.js.map" afterPath="$PROJECT_DIR$/dest/service.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/userNetwork.min.js" afterPath="$PROJECT_DIR$/dest/userNetwork.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/userNetwork.min.js.map" afterPath="$PROJECT_DIR$/dest/userNetwork.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wall.min.js" afterPath="$PROJECT_DIR$/dest/wall.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/wallRule.min.js" afterPath="$PROJECT_DIR$/dest/wallRule.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/config.js" afterPath="$PROJECT_DIR$/js/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/detailNetwork.js" afterPath="$PROJECT_DIR$/js/controller/detailNetwork.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controller/userNetwork.js" afterPath="$PROJECT_DIR$/js/controller/userNetwork.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/service.js" afterPath="$PROJECT_DIR$/js/service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detailNetwork.html" afterPath="$PROJECT_DIR$/views/detailNetwork.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userNetwork.html" afterPath="$PROJECT_DIR$/views/userNetwork.html" />
     </list>
     <ignored path="cloud.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,14 +39,14 @@
     <favorites_list name="cloud" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6239168">
+    <splitter split-orientation="horizontal" split-proportion="0.8102253">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="userNetwork.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/controller/userNetwork.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1500">
-                  <caret line="102" column="6" selection-start-line="88" selection-start-column="4" selection-end-line="102" selection-end-column="6" />
+                <state relative-caret-position="1020">
+                  <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#48#0" expanded="false" />
                   </folding>
@@ -95,14 +74,57 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detailNetwork.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="detailNetwork.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/detailNetwork.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1005">
-                  <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+                <state relative-caret-position="2115">
+                  <caret line="141" column="52" selection-start-line="141" selection-start-column="52" selection-end-line="141" selection-end-column="52" />
                   <folding>
+                    <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                     <element signature="n#div#2;n#!!top" expanded="false" />
                     <element signature="n#div#3;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cloudComputerDetail.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/cloudComputerDetail.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="585">
+                  <caret line="51" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="detail_port.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/detail_port.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="486">
+                  <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/config.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="546">
+                  <caret line="247" column="62" selection-start-line="247" selection-start-column="62" selection-end-line="247" selection-end-column="62" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="filter.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/filter.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="45">
+                  <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -111,12 +133,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="detailNetwork.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/controller/detailNetwork.js">
+        <leaf>
+          <file leaf-file-name="detailPort.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/controller/detailPort.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+                <state relative-caret-position="135">
+                  <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -145,9 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/controller/addBackups.js" />
-        <option value="$PROJECT_DIR$/js/directives.js" />
-        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/js/factory.js" />
         <option value="$PROJECT_DIR$/sass/custom.sass" />
@@ -188,14 +207,17 @@
         <option value="$PROJECT_DIR$/views/addNetwork.html" />
         <option value="$PROJECT_DIR$/js/controller/addNetwork.js" />
         <option value="$PROJECT_DIR$/js/controller/detailUserNetwork.js" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/js/config.js" />
         <option value="$PROJECT_DIR$/js/controller/userNetwork.js" />
         <option value="$PROJECT_DIR$/js/service.js" />
         <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/views/userNetwork.html" />
-        <option value="$PROJECT_DIR$/views/detailNetwork.html" />
+        <option value="$PROJECT_DIR$/js/filter.js" />
         <option value="$PROJECT_DIR$/js/controller/detailNetwork.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/views/detailNetwork.html" />
+        <option value="$PROJECT_DIR$/js/config.js" />
+        <option value="$PROJECT_DIR$/js/controller/detailPort.js" />
+        <option value="$PROJECT_DIR$/views/detail_port.html" />
       </list>
     </option>
   </component>
@@ -220,8 +242,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-299" />
-    <option name="y" value="23" />
+    <option name="x" value="121" />
+    <option name="y" value="89" />
     <option name="width" value="1440" />
     <option name="height" value="808" />
   </component>
@@ -821,15 +843,15 @@
       <workItem from="1520557951299" duration="9670000" />
       <workItem from="1520818023057" duration="8783000" />
       <workItem from="1520903446925" duration="1512000" />
-      <workItem from="1521166834343" duration="43000" />
+      <workItem from="1521166834343" duration="7093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="523164000" />
+    <option name="totallyTimeSpent" value="530214000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-299" y="23" width="1440" height="808" extended-state="0" />
+    <frame x="121" y="89" width="1440" height="808" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -839,23 +861,23 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299566" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27896994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17453505" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -912,27 +934,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lockscreen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sass/custom.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1191,27 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/cloudComputerDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="51" column="22" selection-start-line="20" selection-start-column="16" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="184" column="45" selection-start-line="184" selection-start-column="45" selection-end-line="184" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1234,16 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/userNetwork.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="102" column="6" selection-start-line="88" selection-start-column="4" selection-end-line="102" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/userNetwork.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2370">
@@ -1252,21 +1222,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/cloudComputerDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="51" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/detailNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="106" column="23" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/userNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#48#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/detailNetwork.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        <state relative-caret-position="2115">
+          <caret line="141" column="52" selection-start-line="141" selection-start-column="52" selection-end-line="141" selection-end-column="52" />
           <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#div#2;n#!!top" expanded="false" />
             <element signature="n#div#3;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller/detailNetwork.js">
+    <entry file="file://$PROJECT_DIR$/js/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        <state relative-caret-position="546">
+          <caret line="247" column="62" selection-start-line="247" selection-start-column="62" selection-end-line="247" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller/detailPort.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/detail_port.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
           <folding />
         </state>
       </provider>

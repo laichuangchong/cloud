@@ -36,6 +36,7 @@ module.exports = function (grunt) {
                     'dest/userNetwork.min.js': 'js/controller/userNetwork.js',
                     'dest/addNetwork.min.js': 'js/controller/addNetwork.js',
                     'dest/detailNetwork.min.js': 'js/controller/detailNetwork.js',
+                    'dest/detailPort.min.js': 'js/controller/detailPort.js',
                 }
             }
         },
