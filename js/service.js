@@ -223,11 +223,11 @@ private_cloud.service('volume_service', ['$http','$rootScope','$q', function ($h
         };
     }]
 );
-private_cloud.service('subnets_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //镜像
+private_cloud.service('subnets_service', ['$http','$rootScope','$q', function ($http,$rootScope,$q) { //所有子网
     return {
-        getSubnets: function () { //获取云硬盘相关信息
-            $rootScope.subnets_promise = $q.defer(); //获取镜像
-            $http({ //云硬盘
+        getSubnets: function () { 
+            $rootScope.subnets_promise = $q.defer(); 
+            $http({ 
                 url:"/api/net_subnets/",
                 method: 'GET',
                 headers:$rootScope.headers

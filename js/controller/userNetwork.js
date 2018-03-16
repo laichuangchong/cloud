@@ -86,14 +86,16 @@ private_cloud.controller('userNetworkController', ['$scope', '$rootScope', '$htt
                 break;
         }
     };
-    $scope.deleteNetwork = function(info){ //删除网络
+    $scope.deleteNetwork = function(info,key){ //删除网络
         if(confirm('您确定要删除'+info.name+'吗？该操纵无法撤销。')){
             $http({
-                url:'/api/net_subnets/'+info.id,
+                url:'/api/net_networks/'+info.id,
                 method:'DELETE',
                 headers:$rootScope.headers
             }).then(function(response){
                 console.log(response);
+                alert('删除成功');
+                $scope.networks.splice(key,1);
             },function(response){
                 alert(response.statusText);
             });

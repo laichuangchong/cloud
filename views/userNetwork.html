@@ -85,7 +85,7 @@
                                     <button ng-if="!item.shared"
                                             type="button"
                                             class="btn btn-danger btn-xs"
-                                            ng-click="deleteNetwork(item)"
+                                            ng-click="deleteNetwork(item,key)"
                                     >删除
                                     </button>
                                 </td>
@@ -228,7 +228,7 @@
                                激活DHCP
                            </div>
                            <div class="form-group">
-                               <label>分配地址池<span class="text-danger">*</span>
+                               <label>分配地址池
                                    <i class="fa fa-question-circle"
                                       aria-hidden="true"
                                       data-toggle="tooltip"

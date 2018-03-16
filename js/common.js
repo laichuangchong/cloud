@@ -16,10 +16,10 @@ private_cloud.run(['$rootScope','$q',function($rootScope,$q){ //测试获取toke
             name:'Ipv4',
             value:4
         },
-        {
+       /* {
             name:'Ipv6',
             value:6
-        }
+        }*/
     ];
     $rootScope.diskStatus = {
         "in-use":'已挂载',
