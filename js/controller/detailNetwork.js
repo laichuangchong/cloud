@@ -102,7 +102,7 @@ private_cloud.controller('detailNetworkController', ['$scope', '$rootScope', '$h
     };
     $scope.deletePart = function(info,key){ //删除端口
         $http({
-            url:"/api/rm_routers_if/"+info.id,
+            url:"/api/add_routers_if/"+info.id,
             headers:$rootScope.headers,
             method:"PUT"
         }).then(function(response){
